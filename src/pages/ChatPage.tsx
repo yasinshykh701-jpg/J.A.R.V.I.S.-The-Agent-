@@ -71,7 +71,7 @@ export default function ChatPage() {
         <div className="flex-1 overflow-y-auto bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-ahmi7b70f18g.jpg)]">
           {!hasMessages ? (
             /* Empty State - Google Studio Style */
-            (<div className="flex flex-col items-center justify-center h-full px-4 py-12 border-solid rounded-[20px] border-[5px] border-[rgb(218,231,231)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-akweuykerksg.png)]">
+            (<div className="flex flex-col items-center justify-center h-full px-4 py-12 border-solid rounded-[20px] border-[5px] border-[rgb(218,231,231)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjveq2zypds.jpg)]">
               <div className="max-w-3xl w-full space-y-8">
                 {/* Logo with Google Colors */}
                 <div className="text-center">

@@ -692,9 +692,9 @@ export default function VirtualRobotPage() {
           {/* Chat Area */}
           <div className="lg:w-2/3 flex flex-col">
             <Card className="ios-card border-0 flex-1 flex flex-col">
-              <CardContent className="p-6 flex-1 flex flex-col bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqu8ihai0ao.jpg)] rounded-[20px]">
+              <CardContent className="p-6 flex-1 flex flex-col rounded-[20px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amja2jdtaj28.jpg)]">
                 {/* Messages */}
-                <div className="flex-1 overflow-auto space-y-4 mb-4 border-solid rounded-[17px] border-[14.0541px] border-[#2d1b1b42] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqluun6kj5s.jpg)]">
+                <div className="flex-1 overflow-auto space-y-4 mb-4 border-solid rounded-[17px] border-[14.0541px] border-[#2d1b1b42] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjbd0k0svsx.png)]">
                   {messages.map((message) => (
                     <div
                       key={message.id}
@@ -759,7 +759,7 @@ export default function VirtualRobotPage() {
         <audio ref={audioRef} className="hidden" />
 
         {/* Footer */}
-        <div className="ios-blur border-t border-border/50 py-3 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqsvuduhzi8.jpg)] rounded-[20px]">
+        <div className="ios-blur border-t border-border/50 py-3 rounded-[20px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjag4ph7sao.jpg)]">
           <div className="content-column">
             <p className="text-center text-[#fdfdfd] text-[16px] border-solid border-[rgb(218,231,231)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqyshxrj20w.jpg)] border-[2px] rounded-[20px] border-[rgb(218,231,231)]">
               Lifetime Free AI - Unlimited Access

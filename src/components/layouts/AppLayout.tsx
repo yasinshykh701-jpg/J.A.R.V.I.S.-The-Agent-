@@ -72,7 +72,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqp58hxu680.jpg)]">
+    <div className="flex h-screen overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amj9kzzx8sn4.jpg)]">
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div
@@ -114,7 +114,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         </div>
 
         {/* Chat History */}
-        <ScrollArea className="flex-1 px-2 py-4 border-solid bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-ah7f4pma1tz4.jpg)] border-[#1d1919] rounded-[25px] border-[1.62162px] border-[#1d1919]">
+        <ScrollArea className="flex-1 px-2 py-4 border-solid rounded-[25px] border-[1.62162px] border-[#1d1919] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amj4zp6pj4sg.jpg)]">
           {threads.length > 0 ? (
             <div className="space-y-1">
               <div className="px-3 py-2 border-solid bg-cover bg-center bg-no-repeat border-[#7e6e6e] border-[0px] bg-[#0a090900] bg-none border-[#7e6e6e]">
@@ -199,7 +199,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         {/* Top Bar - Mobile */}
 
         {/* Page Content */}
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1 overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amj5oowsv9xc.jpg)]">
           {children}
         </div>
       </main>

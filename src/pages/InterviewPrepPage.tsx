@@ -296,10 +296,10 @@ export default function InterviewPrepPage() {
               >{"Launch Session"}</Button>
             </div>
           ) : (
-            <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+            <div className="flex-1 flex flex-col lg:flex-row overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjzihibma68.jpg)]">
               {/* Chat View */}
               <div className="flex-1 flex flex-col border-r border-border/50">
-                <ScrollArea className="flex-1 p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alry7jorubcw.jpg)]">
+                <ScrollArea className="flex-1 p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjwxyy5ijgg.jpg)]">
                   <div className="content-column space-y-6">
                     {messages.map((message) => (
                       <div
@@ -341,8 +341,8 @@ export default function InterviewPrepPage() {
 
                 {/* Response Input */}
                 <div className="p-6 ios-blur ios-shadow rounded-[220px] border-solid border-[rgb(51,51,51)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-als026yctwxs.jpg)] border-[5px] border-[rgb(51,51,51)]">
-                  <div className="content-column rounded-[220px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrz728suqyo.jpg)] border-[5px] border-solid border-[rgb(51,51,51)]">
-                    <div className="flex gap-3">
+                  <div className="content-column rounded-[220px] border-[5px] border-solid border-[rgb(51,51,51)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjytxkh6ku8.jpg)]">
+                    <div className="flex gap-3 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjz4geesl4w.jpg)] rounded-[20px]">
                       <Button
                         variant={isRecording ? 'destructive' : 'secondary'}
                         size="icon"

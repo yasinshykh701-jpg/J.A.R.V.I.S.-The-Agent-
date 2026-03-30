@@ -20,7 +20,7 @@ export default function HomePageCircular() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alr4snrnrgn4.jpg)]">
+    <div className="min-h-screen relative overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjov9q83if4.jpg)]">
       {/* Animated Gradient Motion Background */}
       {/* Video Background (Optional - can be enabled with uploaded video) */}
       <video 
@@ -34,7 +34,7 @@ export default function HomePageCircular() {
         {/* Video source can be added here */}
       </video>
       {/* Content Container */}
-      <div className="relative z-10 container mx-auto px-4 pt-2 pb-6 mr-[400px] border-none ml-[450px] border-[50px] rounded-[400px] border-[transparent00] bg-cover bg-center bg-no-repeat bg-[transparent00] bg-none">
+      <div className="relative z-10 container mx-auto px-4 pt-2 pb-6 border-none border-[50px] border-[transparent00] mr-[400px] ml-[400px] bg-cover bg-center bg-no-repeat rounded-[9px] bg-[#00000003] bg-none">
         <div className="flex items-center justify-end mb-4 mt-2 border-solid rounded-[20px] border-[5px] border-[rgb(218,231,231)] ml-[400px] mr-[400px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-akvt7t91jjsw.png)]">
           <div className="flex-1" />
           <div>

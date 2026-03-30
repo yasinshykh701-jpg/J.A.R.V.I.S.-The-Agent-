@@ -51,7 +51,7 @@ export default function CircularMenu() {
 
   return (
     <div 
-      className="relative w-full h-full min-h-[600px] flex items-center justify-center border-none bg-cover bg-center bg-no-repeat border-[2000000px] border-[#00040800] mr-[4px] ml-[4px] bg-[transparent] bg-none mt-[2px] mb-[5px] rounded-[9991px]"
+      className="relative w-full h-full min-h-[600px] flex items-center justify-center border-none bg-cover bg-center bg-no-repeat border-[2000000px] border-[#00040800] mr-[4px] mt-[2px] mb-[5px] bg-[transparent00] bg-none ml-[9px] rounded-[999px]"
       style={{
         backgroundColor: '#000000fa',
         backgroundImage: 'none'

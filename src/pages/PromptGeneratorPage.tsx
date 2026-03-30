@@ -106,7 +106,7 @@ export default function PromptGeneratorPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 overflow-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrra2835s00.jpg)]">
+        <div className="flex-1 overflow-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amk1z209naww.jpg)]">
           <div className="content-column space-y-6">
             {/* Input Card */}
             <Card className="ios-card border-0 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agudphsojj7k.jpg)]">

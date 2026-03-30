@@ -69,7 +69,7 @@ export default function PPTMakerPage() {
     <AppLayout>
       <div className="h-full flex flex-col bg-gradient-to-br from-background to-muted/20">
         {/* Header */}
-        <div className="ios-blur border-b border-border/50 ios-shadow z-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agunxswdglxc.jpg)]">
+        <div className="ios-blur border-b border-border/50 ios-shadow z-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amju4op1dbeo.jpg)]">
           <div className="content-column py-5 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold flex items-center gap-2">
@@ -146,7 +146,7 @@ export default function PPTMakerPage() {
           </div>
 
           {/* Main Editor */}
-          <div className="flex-1 overflow-y-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-aguuoplcn37k.jpg)]">
+          <div className="flex-1 overflow-y-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjr8rqfskxs.jpg)]">
             <div className="max-w-4xl mx-auto space-y-6">
               {/* Presentation Settings */}
               <Card className="ios-card">
