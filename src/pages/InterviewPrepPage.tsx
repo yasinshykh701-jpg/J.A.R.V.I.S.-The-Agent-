@@ -261,7 +261,7 @@ export default function InterviewPrepPage() {
 
         <div className="flex-1 flex overflow-hidden">
           {!interviewStarted ? (
-            <div className="flex-1 flex flex-col items-center justify-center p-6 text-center animate-in fade-in zoom-in duration-500 overflow-y-auto bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu23n11tk3l.jpg)]">
+            <div className="flex-1 flex flex-col items-center justify-center p-6 text-center animate-in fade-in zoom-in duration-500 overflow-y-auto bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrxbz6yypkw.jpg)]">
               <div className="w-full max-w-lg h-[400px] mb-8">
                 <TitanRobotAdvanced isListening={false} emotion="neutral" />
               </div>
@@ -299,7 +299,7 @@ export default function InterviewPrepPage() {
             <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
               {/* Chat View */}
               <div className="flex-1 flex flex-col border-r border-border/50">
-                <ScrollArea className="flex-1 p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu5iuij0q9s.jpg)]">
+                <ScrollArea className="flex-1 p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alry7jorubcw.jpg)]">
                   <div className="content-column space-y-6">
                     {messages.map((message) => (
                       <div
@@ -340,8 +340,8 @@ export default function InterviewPrepPage() {
                 </ScrollArea>
 
                 {/* Response Input */}
-                <div className="p-6 ios-blur border-t border-border/50 ios-shadow bg-cover bg-center bg-no-repeat rounded-[220px] bg-[#0f1417] bg-none">
-                  <div className="content-column bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu6v2tq4u80.jpg)] rounded-[220px]">
+                <div className="p-6 ios-blur ios-shadow rounded-[220px] border-solid border-[rgb(51,51,51)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-als026yctwxs.jpg)] border-[5px] border-[rgb(51,51,51)]">
+                  <div className="content-column rounded-[220px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrz728suqyo.jpg)] border-[5px] border-solid border-[rgb(51,51,51)]">
                     <div className="flex gap-3">
                       <Button
                         variant={isRecording ? 'destructive' : 'secondary'}

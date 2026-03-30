@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Video, Loader2, Download, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Video, Loader2, Download, CheckCircle2, AlertCircle, Upload, X } from 'lucide-react';
 import { toast } from 'sonner';
 import AppLayout from '@/components/layouts/AppLayout';
 import BackToHome from '@/components/BackToHome';
@@ -19,7 +20,10 @@ export default function AIVideoGenerationPage() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [status, setStatus] = useState<'idle' | 'generating' | 'completed' | 'failed'>('idle');
   const [progress, setProgress] = useState(0);
+  const [generationMode, setGenerationMode] = useState<'text' | 'image'>('text');
+  const [referenceImage, setReferenceImage] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const pollTaskStatus = async (id: string) => {
     const maxAttempts = 60; // 5 minutes max (60 * 5 seconds)
@@ -27,7 +31,10 @@ export default function AIVideoGenerationPage() {
 
     const poll = async () => {
       try {
-        const { data, error } = await supabase.functions.invoke('omni-video-query', {
+        // Use different query function based on generation mode
+        const queryFunction = generationMode === 'image' ? 'image2video-query' : 'omni-video-query';
+        
+        const { data, error } = await supabase.functions.invoke(queryFunction, {
           body: { task_id: id }
         });
 
@@ -72,9 +79,48 @@ export default function AIVideoGenerationPage() {
     poll();
   };
 
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      // Validate file size (max 10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        toast.error('File size must be less than 10MB');
+        return;
+      }
+
+      // Validate file type
+      if (!['image/jpeg', 'image/jpg', 'image/png'].includes(file.type)) {
+        toast.error('Only JPG, JPEG, and PNG images are supported');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        const base64 = event.target?.result as string;
+        setReferenceImage(base64);
+        setGenerationMode('image');
+        toast.success('Image uploaded successfully');
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleRemoveImage = () => {
+    setReferenceImage(null);
+    setGenerationMode('text');
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
+  };
+
   const handleGenerate = async () => {
-    if (!prompt.trim()) {
+    if (!prompt.trim() && generationMode === 'text') {
       toast.error('Please enter a video description');
+      return;
+    }
+
+    if (generationMode === 'image' && !referenceImage) {
+      toast.error('Please upload an image');
       return;
     }
 
@@ -84,25 +130,50 @@ export default function AIVideoGenerationPage() {
     setVideoUrl(null);
 
     try {
-      const { data, error } = await supabase.functions.invoke('omni-video-create', {
-        body: {
-          prompt,
-          duration,
-          aspect_ratio: aspectRatio,
-          mode: 'pro'
+      if (generationMode === 'image') {
+        // Use image-to-video API
+        const { data, error } = await supabase.functions.invoke('image2video-create', {
+          body: {
+            image: referenceImage,
+            prompt: prompt || '',
+            duration,
+            model_name: 'kling-v2-1'
+          }
+        });
+
+        if (error) {
+          throw error;
         }
-      });
 
-      if (error) {
-        throw error;
-      }
-
-      if (data?.data?.task_id) {
-        setTaskId(data.data.task_id);
-        toast.success('Video generation started! ⚡ Fast processing');
-        pollTaskStatus(data.data.task_id);
+        if (data?.data?.task_id) {
+          setTaskId(data.data.task_id);
+          toast.success('Image-to-video generation started! ⚡ Fast processing');
+          pollTaskStatus(data.data.task_id);
+        } else {
+          throw new Error('No task ID received');
+        }
       } else {
-        throw new Error('No task ID received');
+        // Use text-to-video API (existing)
+        const { data, error } = await supabase.functions.invoke('omni-video-create', {
+          body: {
+            prompt,
+            duration,
+            aspect_ratio: aspectRatio,
+            mode: 'pro'
+          }
+        });
+
+        if (error) {
+          throw error;
+        }
+
+        if (data?.data?.task_id) {
+          setTaskId(data.data.task_id);
+          toast.success('Video generation started! ⚡ Fast processing');
+          pollTaskStatus(data.data.task_id);
+        } else {
+          throw new Error('No task ID received');
+        }
       }
     } catch (error: any) {
       console.error('Generation error:', error);
@@ -133,7 +204,7 @@ export default function AIVideoGenerationPage() {
             <h1 className="text-3xl font-bold text-white">AI Video Generation</h1>
           </div>
           <p className="text-white/80">
-            Generate videos with Kling AI • 100% Free Forever • ⚡ Fast (1-5 min)
+            Generate videos from text or images with Kling AI • 100% Free Forever • ⚡ Fast (1-5 min)
           </p>
           <div className="flex items-center gap-2 mt-2">
             <span className="px-3 py-1 bg-green-500/20 text-green-400 text-xs font-semibold rounded-full flex items-center gap-1">
@@ -151,14 +222,82 @@ export default function AIVideoGenerationPage() {
           <Card>
             <CardHeader>
               <CardTitle>Video Settings</CardTitle>
-              <CardDescription>Configure your video generation parameters</CardDescription>
+              <CardDescription>
+                {generationMode === 'text' 
+                  ? 'Configure your text-to-video generation parameters'
+                  : 'Configure your image-to-video generation parameters'}
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
+              {/* Generation Mode Tabs */}
+              <Tabs value={generationMode} onValueChange={(v) => setGenerationMode(v as 'text' | 'image')} className="w-full">
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="text">Text to Video</TabsTrigger>
+                  <TabsTrigger value="image">Image to Video</TabsTrigger>
+                </TabsList>
+              </Tabs>
+
+              {/* Image Upload Section (only for image mode) */}
+              {generationMode === 'image' && (
+                <div className="space-y-2">
+                  <Label htmlFor="image-upload">Reference Image *</Label>
+                  <div className="flex flex-col gap-2">
+                    {!referenceImage ? (
+                      <div className="flex items-center gap-2">
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          id="image-upload"
+                          accept="image/jpeg,image/jpg,image/png"
+                          onChange={handleFileUpload}
+                          className="hidden"
+                        />
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => fileInputRef.current?.click()}
+                          className="w-full"
+                        >
+                          <Upload className="w-4 h-4 mr-2" />
+                          Upload Image (JPG, PNG - Max 10MB)
+                        </Button>
+                      </div>
+                    ) : (
+                      <div className="relative">
+                        <img
+                          src={referenceImage}
+                          alt="Reference"
+                          className="w-full h-48 object-cover rounded-lg border"
+                        />
+                        <Button
+                          type="button"
+                          variant="destructive"
+                          size="sm"
+                          onClick={handleRemoveImage}
+                          className="absolute top-2 right-2"
+                        >
+                          <X className="w-4 h-4" />
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    Upload an image to animate. Minimum 300px, aspect ratio 1:2.5 to 2.5:1
+                  </p>
+                </div>
+              )}
+
               <div className="space-y-2">
-                <Label htmlFor="prompt">Video Description *</Label>
+                <Label htmlFor="prompt">
+                  {generationMode === 'text' ? 'Video Description *' : 'Animation Description (Optional)'}
+                </Label>
                 <Textarea
                   id="prompt"
-                  placeholder="Describe the video you want to generate... (e.g., 'A cat playing with a ball in a sunny garden')"
+                  placeholder={
+                    generationMode === 'text'
+                      ? "Describe the video you want to generate... (e.g., 'A cat playing with a ball in a sunny garden')"
+                      : "Describe how you want the image to be animated... (e.g., 'Make the person wave at the camera')"
+                  }
                   value={prompt}
                   onChange={(e) => setPrompt(e.target.value)}
                   rows={6}
@@ -321,7 +460,9 @@ export default function AIVideoGenerationPage() {
                 <Video className="w-5 h-5 text-primary" />
                 <div>
                   <p className="text-sm font-medium">Service</p>
-                  <p className="text-xs text-muted-foreground">Kling AI Omni-Video • Fast</p>
+                  <p className="text-xs text-muted-foreground">
+                    {generationMode === 'text' ? 'Kling AI Omni-Video • Fast' : 'Kling AI Image2Video • Fast'}
+                  </p>
                 </div>
               </div>
             </div>

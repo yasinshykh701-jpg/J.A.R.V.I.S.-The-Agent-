@@ -91,7 +91,7 @@ export default function PromptGeneratorPage() {
     <AppLayout>
       <div className="h-full flex flex-col bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 dark:from-slate-900 dark:via-purple-950 dark:to-slate-900">
         {/* Header */}
-        <div className="ios-blur border-b border-border/50 ios-shadow bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agubx1gc2txc.jpg)]">
+        <div className="ios-blur border-b border-border/50 ios-shadow bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrjkijkqosg.png)]">
           <div className="content-column py-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center ios-shadow">
@@ -106,7 +106,7 @@ export default function PromptGeneratorPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 overflow-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-aguczmi3dgjk.jpg)]">
+        <div className="flex-1 overflow-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrra2835s00.jpg)]">
           <div className="content-column space-y-6">
             {/* Input Card */}
             <Card className="ios-card border-0 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agudphsojj7k.jpg)]">
@@ -121,7 +121,8 @@ export default function PromptGeneratorPage() {
                     <SelectTrigger className="ios-input">
                       <SelectValue />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent
+                      className="bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrp0y2cgkjk.jpg)]">
                       {promptTypes.map((type) => (
                         <SelectItem key={type.value} value={type.value}>
                           {type.label}
@@ -137,7 +138,7 @@ export default function PromptGeneratorPage() {
                     placeholder="Example: I want to create a fantasy story about a robot exploring ancient ruins..."
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
-                    className="ios-input min-h-[120px] resize-none"
+                    className="ios-input min-h-[120px] resize-none bg-cover bg-center bg-no-repeat bg-[#1f8fff00] bg-none"
                   />
                 </div>
 
@@ -199,7 +200,7 @@ export default function PromptGeneratorPage() {
             )}
 
             {/* Tips Card */}
-            <Card className="ios-card border-0 from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agucs65w1zwg.jpg)]">
+            <Card className="ios-card border-0 from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrqnp7h77r4.jpg)]">
               <CardHeader>
                 <CardTitle className="text-lg">💡 Tips for Better Prompts</CardTitle>
               </CardHeader>

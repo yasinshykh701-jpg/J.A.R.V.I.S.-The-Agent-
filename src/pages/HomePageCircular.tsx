@@ -20,9 +20,8 @@ export default function HomePageCircular() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-aln5w6inctmo.jpg)]">
+    <div className="min-h-screen relative overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alr4snrnrgn4.jpg)]">
       {/* Animated Gradient Motion Background */}
-      <div className="absolute inset-0 qazyen-gradient animate-gradient-shift mr-[400px] border-solid border-[rgb(51,51,51)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-akw84xfxdssg.jpg)] rounded-[400px] border-[5px] ml-[400px] border-[rgb(51,51,51)]" />
       {/* Video Background (Optional - can be enabled with uploaded video) */}
       <video 
         autoPlay 
@@ -95,7 +94,7 @@ export default function HomePageCircular() {
         
         {/* Robot Display on Home Page */}
         {viewMode === 'circular' && (
-          <div className="mb-8 flex justify-center rounded-[20px] ml-[400px] mr-[400px] border-solid bg-cover bg-center bg-no-repeat border-[rgb(51,51,51)] border-[0px] bg-[transparent] bg-none border-[#33333300]">
+          <div className="mb-8 flex justify-center rounded-[20px] ml-[400px] mr-[400px] border-solid border-[5px] border-[#0b9eeb] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqkw7nne7eo.jpg)]">
             <div className="w-full max-w-md h-[300px] bg-white/10 dark:bg-black/10 backdrop-blur-md rounded-3xl p-4 border border-white/20 dark:border-black/20">
               <ErrorBoundary
                 fallback={

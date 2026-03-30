@@ -100,7 +100,7 @@ export default function GridMenu() {
           return (
             <Card
               key={item.path}
-              className="group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 dark:bg-gray-800/90 backdrop-blur-md border-white/20 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agt0ho1j9j40.jpg)] rounded-[120px] border-[1.62162px] border-dashed border-[rgba(255,255,255,0.2)]"
+              className="group cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 dark:bg-gray-800/90 backdrop-blur-md rounded-[120px] border-[1.62162px] border-dashed border-[rgba(255,255,255,0.2)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alr73yumyigw.png)]"
               onClick={() => navigate(item.path)}
             >
               <CardContent className="p-6">
@@ -129,11 +129,11 @@ export default function GridMenu() {
         })}
       </div>
       {/* Lifetime Free Banner */}
-      <Card className="mt-8 from-cyan-500/10 via-pink-500/10 to-blue-500/10 border-2 border-cyan-400/30 rounded-[20px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agt0ho1j9j40.jpg)]">
+      <Card className="mt-8 from-cyan-500/10 via-pink-500/10 to-blue-500/10 bg-cover bg-center bg-no-repeat border-solid rounded-[20px] bg-[#000000] bg-none border-[#352be8] border-[5px] border-[#2be8e3]">
         <CardContent className="p-6">
-          <div className="flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-3 border-solid rounded-[20px] border-[5px] border-[#09f4d8] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrglyvhsdfk.jpg)]">
             <Sparkles className="w-6 h-6 text-cyan-400" />
-            <p className="text-lg font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+            <p className="text-lg font-bold bg-gradient-to-r from-cyan-400 via-pink-400 to-blue-400 bg-clip-text font-['SF Pro SC'] text-[#ffffff] font-['SF Pro SC']">
               All Features • Lifetime Free • Unlimited Use
             </p>
             <Sparkles className="w-6 h-6 text-pink-400" />

@@ -172,12 +172,6 @@ export default function ResumeAnalysisPage() {
                   </div>
                 </div>
 
-                <div className="ios-card p-6 bg-primary/5 border-none">
-                  <h3 className="text-sm font-bold mb-3 uppercase tracking-wider text-primary">Pro Tip</h3>
-                  <p className="text-sm text-muted-foreground font-medium leading-relaxed">
-                    Make sure your resume uses standard fonts and clear headings for the best AI analysis accuracy.
-                  </p>
-                </div>
               </div>
 
               {/* Right Column: Results */}

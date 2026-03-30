@@ -530,7 +530,7 @@ export default function VirtualRobotPage() {
                   variant="outline"
                   size="sm"
                   onClick={() => setAutoSpeak(!autoSpeak)}
-                  className="gap-2"
+                  className="gap-2 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqxbvs3e7eo.jpg)]"
                 >
                   {autoSpeak ? <Volume2 className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
                   Auto-speak {autoSpeak ? 'On' : 'Off'}
@@ -545,7 +545,7 @@ export default function VirtualRobotPage() {
           {/* 3D Robot */}
           <div className="lg:w-1/3">
             <Card className="ios-card border-0 h-full">
-              <CardContent className="p-6 flex flex-col items-center justify-center h-full border-solid rounded-[17px] border-[14.0541px] border-[#2d1b1b42] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-afrie41max34.jpg)]">
+              <CardContent className="p-6 flex flex-col items-center justify-center h-full border-solid rounded-[17px] border-[14.0541px] border-[#2d1b1b42] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqlkrlhtk3k.jpg)]">
                 <div className="relative w-full aspect-square max-w-sm">
                   <TitanRobotAdvanced 
                     isListening={isListening} 
@@ -635,7 +635,8 @@ export default function VirtualRobotPage() {
                       <SelectTrigger className="ios-input">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent
+                        className="bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqrdwvfnzsw.jpg)]">
                         {LANGUAGE_OPTIONS.map((lang) => (
                           <SelectItem key={lang.value} value={lang.value}>
                             <span className="flex items-center gap-2">
@@ -691,9 +692,9 @@ export default function VirtualRobotPage() {
           {/* Chat Area */}
           <div className="lg:w-2/3 flex flex-col">
             <Card className="ios-card border-0 flex-1 flex flex-col">
-              <CardContent className="p-6 flex-1 flex flex-col bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-af6d5rw3s5xc.jpg)]">
+              <CardContent className="p-6 flex-1 flex flex-col bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqu8ihai0ao.jpg)] rounded-[20px]">
                 {/* Messages */}
-                <div className="flex-1 overflow-auto space-y-4 mb-4 border-solid rounded-[17px] border-[14.0541px] border-[#2d1b1b42] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtxv1z083k0.jpg)]">
+                <div className="flex-1 overflow-auto space-y-4 mb-4 border-solid rounded-[17px] border-[14.0541px] border-[#2d1b1b42] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqluun6kj5s.jpg)]">
                   {messages.map((message) => (
                     <div
                       key={message.id}
@@ -706,7 +707,7 @@ export default function VirtualRobotPage() {
                             : 'ios-blur border border-border/50'
                         }`}
                       >
-                        <p className="text-sm whitespace-pre-wrap bg-[#fcf2f200] bg-none">{message.content}</p>
+                        <p className="text-sm whitespace-pre-wrap bg-[#09080800] bg-none rounded-[20px]">{message.content}</p>
                         <p className="text-xs opacity-70 mt-1">
                           {message.timestamp.toLocaleTimeString()}
                         </p>
@@ -728,7 +729,7 @@ export default function VirtualRobotPage() {
                       }
                     }}
                     placeholder="Type or speak your message..."
-                    className="ios-input min-h-[80px] resize-none border-none rounded-[17px] border-[0px] border-[#edf8f8] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agty49g75beo.jpg)]"
+                    className="ios-input min-h-[80px] resize-none border-none border-[#010f0f] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqvooupr4e8.jpg)] rounded-[20px] border-[0px] border-[#010f0f]"
                     disabled={isLoading || isListening}
                   />
                   <Button
@@ -758,12 +759,12 @@ export default function VirtualRobotPage() {
         <audio ref={audioRef} className="hidden" />
 
         {/* Footer */}
-        <div className="ios-blur border-t border-border/50 py-3 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-af6bmj0y8ohs.jpg)]">
+        <div className="ios-blur border-t border-border/50 py-3 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqsvuduhzi8.jpg)] rounded-[20px]">
           <div className="content-column">
-            <p className="text-center text-[#fdfdfd] text-[16px]">
+            <p className="text-center text-[#fdfdfd] text-[16px] border-solid border-[rgb(218,231,231)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqyshxrj20w.jpg)] border-[2px] rounded-[20px] border-[rgb(218,231,231)]">
               Lifetime Free AI - Unlimited Access
             </p>
-            <p className="text-center text-xs mt-1 text-[#f6f6f6] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-ah7fpbhwe41s.jpg)]">
+            <p className="text-center text-xs mt-1 text-[#f6f6f6] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqxbvs3e7eo.jpg)] rounded-[20px]">
               Presented By: Y A S I N
             </p>
           </div>

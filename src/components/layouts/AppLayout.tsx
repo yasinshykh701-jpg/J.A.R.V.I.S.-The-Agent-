@@ -72,7 +72,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-[#241e1e] bg-none">
+    <div className="flex h-screen overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alqp58hxu680.jpg)]">
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div
@@ -87,7 +87,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
         }`}
       >
         {/* Header */}
-        <div className="p-4 border-b border-border bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-aguu8hk7bjsw.jpg)]">
+        <div className="p-4 border-b border-border bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrn5v0ilerk.jpg)]">
           <div className="flex items-center justify-between mb-4 rounded-[20px] bg-cover bg-center bg-no-repeat bg-[#060505] bg-none">
             <div className="flex items-center gap-2">
 
@@ -134,7 +134,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
                 >
                   <div className="flex items-center gap-2">
                     <MessageSquare className="w-4 h-4 flex-shrink-0" />
-                    <span className="text-sm truncate flex-1 border-solid border-[4.32432px] border-[#f1fcfc] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-akwdu4nn320w.png)]">{thread.title}</span>
+                    <span className="text-sm truncate flex-1 border-solid border-[4.32432px] border-[#f1fcfc] rounded-[10px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-als8csaqfytc.jpg)]">{thread.title}</span>
                   </div>
                   <span className="text-xs text-muted-foreground mt-1 block pl-6 bg-cover bg-center bg-no-repeat bg-[transparent00] bg-none">
                     {formatDate(thread.updated_at)}
@@ -197,23 +197,12 @@ export default function AppLayout({ children }: AppLayoutProps) {
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col overflow-hidden">
         {/* Top Bar - Mobile */}
-        <div className="lg:hidden flex items-center gap-3 p-4 border-b border-border bg-background">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setSidebarOpen(true)}
-          >
-            <Menu className="w-5 h-5" />
-          </Button>
-          <h1 className="text-lg font-medium google-gradient-text">Qazyen AI</h1>
-        </div>
 
         {/* Page Content */}
         <div className="flex-1 overflow-hidden">
           {children}
         </div>
       </main>
-
       {/* iOS Control Panel */}
       <IOSControlPanel />
     </div>

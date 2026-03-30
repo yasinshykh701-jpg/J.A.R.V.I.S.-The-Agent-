@@ -22,7 +22,7 @@ Tagline: Intelligence Beyond Boundaries.
 - Any platform with modern web browser support
 
 ### 1.4 Core Differentiation
-Qazyen AI unifies Perplexity AI and Gemini-level conversational intelligence, 100% operational geminit AI-powered image generation with additional lifetime-free image generation services, 100% operational nand AI-powered video generation (5–10 second configurable duration, multi-resolution output), a 100% operational photorealistic 3D humanoid robot assistant (100% matching the uploaded image.png) with strictly upward vertical hand movements and zero rotation during greeting, voice-first multilingual interaction, knowledge search engine, Gamma-style AI PPT maker, professional video editor, encrypted cloud storage with database-backed chat history, cross-device synchronization, dual-mode admin/user management console, AI personalization engine, and smart automation workflows — all wrapped in a Home page that 100% mirrors the uploaded home page reference image (file-aig01c6yjitc.png), enhanced with futuristic Material Design robot-themed aesthetics, flexible Circular and Grid menu layouts, a cohesive gradient visual identity, rotating circular icons, a dynamic animated background gradient with disable option, customizable background images, and a freely movable and always-accessible Back to Home button on every feature module screen.
+Qazyen AI unifies Perplexity AI and Gemini-level conversational intelligence, 100% operational geminit AI-powered image generation with additional lifetime-free image generation services, 100% operational nand AI-powered video generation (5–10 second configurable duration, multi-resolution output, image-to-video generation with file upload support), a 100% operational photorealistic 3D humanoid robot assistant (100% matching the uploaded image.png) with strictly upward vertical hand movements and zero rotation during greeting, voice-first multilingual interaction, knowledge search engine, Gamma-style AI PPT maker, professional video editor, encrypted cloud storage with database-backed chat history, cross-device synchronization, dual-mode admin/user management console, AI personalization engine, and smart automation workflows — all wrapped in a Home page that 100% mirrors the uploaded home page reference image (file-aig01c6yjitc.png), enhanced with futuristic Material Design robot-themed aesthetics, flexible Circular and Grid menu layouts, a cohesive gradient visual identity, rotating circular icons, a dynamic animated background gradient with disable option, customizable background images, and a freely movable and always-accessible Back to Home button on every feature module screen.
 
 ### 1.5 Pricing Model
 All services are lifetime free and unlimited. The integrated AI services (killing AI, nand AI, geminit AI, and all additional image/video generation services) are configured for 100% free, perpetual, lifetime access with no cost to the end-user. No subscription plans, billing, credit top-ups, or paywalls exist anywhere in the application. An automatic API key rotation and upgrade system ensures uninterrupted service at all times. The Sora 2 model/service is removed from all available options as it does not meet the lifetime-free criteria.
@@ -38,7 +38,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 | Administrator | Privileged | Full access including admin dashboard, user management, API key management, role assignment, system monitoring, and AI service health management |
 
 ### 2.2 User Mode
-- Access to: Conversational AI, Image Generation (geminit AI + additional lifetime-free services), Video Generation (nand AI, 5–10s configurable, multi-resolution), PPT Maker (Gamma-style), Video Editor, 3D Robot Assistant, Voice Assistant, Note Summary, Task Manager, AI Calendar, Productivity Suite, Resume Analyzer, Prompt Generator, History, Advanced Settings
+- Access to: Conversational AI, Image Generation (geminit AI + additional lifetime-free services), Video Generation (nand AI, 5–10s configurable, multi-resolution, image-to-video with file upload), PPT Maker (Gamma-style), Video Editor, 3D Robot Assistant, Voice Assistant, Note Summary, Task Manager, AI Calendar, Productivity Suite, Resume Analyzer, Prompt Generator, History, Advanced Settings
 - No access to: Admin Dashboard, user role management, API key configuration, system monitoring, AI service audit controls
 - No billing, subscription, or paywall elements are visible to users
 
@@ -468,13 +468,37 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - **All API key errors eliminated: automatic key rotation ensures uninterrupted service at all times**
 - **Admin can view and update API keys for all video generation services via the Admin Dashboard**
 - **100% free, lifetime access — no cost to end-user, no subscription or paywall**
-- Text-to-Video, Image-to-Video, Video-to-Video transformation
+- Text-to-Video generation: user enters a text prompt describing the desired video content; AI generates the video based on the prompt
+- **Image-to-Video generation: user uploads one or more reference images (JPG, PNG, WEBP) and the AI animates or transforms the uploaded image(s) into a video output**
+  - Image upload method: file picker dialog, drag-and-drop, or clipboard paste within the Video Generation panel
+  - Uploaded image is displayed as a preview thumbnail in the panel before generation is initiated
+  - User can optionally combine an image upload with a text prompt to guide the animation style, motion direction, or scene context
+  - Uploaded image is passed as an input parameter to the active video generation service API alongside duration and resolution settings
+  - Supported upload formats for Image-to-Video: JPG, PNG, WEBP
+  - Upload progress indicator shown inline; non-blocking UI during upload
+  - If the selected service does not support image input, the system automatically switches to the next available service that supports Image-to-Video; user sees a non-blocking inline notice: Switched to [service name] — image-to-video not supported by your selected service
+- Video-to-Video transformation: user uploads an existing video file and the AI transforms or re-styles it
+  - Supported upload formats for Video-to-Video: MP4, MOV, AVI
+  - Upload method: file picker dialog or drag-and-drop within the Video Generation panel
+  - Uploaded video preview displayed in panel before generation
 - Scene expansion, motion control, camera pan simulation, cinematic presets
 - Quality output at selected resolution (480p, 720p, 1080p, 2K, 4K) with frame interpolation and AI color grading
 - Auto background music, AI subtitles, scene stitching, auto storyboard generation
 - GPU acceleration, parallel rendering, cloud distributed processing
 - Progressive preview playback during rendering
 - All previously available advanced features (video editing capabilities, varied styles, high-quality outputs) are fully retained and mapped to all integrated lifetime-free services
+
+#### Input Mode Selector
+- The Video Generation panel displays a clearly labeled input mode selector at the top of the prompt/input area, allowing the user to choose between:
+  - Text-to-Video: text prompt input only
+  - Image-to-Video: image file upload (with optional text prompt)
+  - Video-to-Video: video file upload (with optional text prompt)
+- The input area adapts dynamically based on the selected mode:
+  - Text-to-Video: shows text prompt field with voice input button
+  - Image-to-Video: shows image upload zone (drag-and-drop or file picker) plus optional text prompt field
+  - Video-to-Video: shows video upload zone (drag-and-drop or file picker) plus optional text prompt field
+- Mode selector styled as a segmented control or tab row with gradient styling consistent with the rest of the panel
+- Selected mode is persisted per session
 
 #### Lifetime-Free Verification & Monitoring
 - Same background monitoring service as image generation: periodic health checks every 5 minutes per video service endpoint
@@ -497,7 +521,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
   - Image analysis: content recognition, style analysis, feature extraction
   - Video analysis: scene description, content summarization
   - Code file analysis: review, explanation, optimization suggestions
-- File upload is available in the main chat interface, Image Generation module, Video Generation module, Note Summary module, Resume Analyzer module, and Video Editor module
+- File upload is available in the main chat interface, Image Generation module, Video Generation module (Text-to-Video, Image-to-Video, and Video-to-Video modes), Note Summary module, Resume Analyzer module, and Video Editor module
 - File upload scanning and validation before processing
 - Encrypted storage of uploaded files
 - Upload progress indicator with non-blocking UI
@@ -790,7 +814,11 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Full-screen dedicated panel with frosted-glass surface over animated background
 - Top section: panel title (AI Video Generation), service selector row or dropdown
 - Service selector row: same pill/chip format as image generation with Online / Offline / Degraded status badges
-- Center section: prompt input area (text field, voice input button, file upload button)
+- Input mode selector: segmented control or tab row (Text-to-Video / Image-to-Video / Video-to-Video) displayed prominently below the service selector
+- Center section: adaptive input area based on selected mode:
+  - Text-to-Video: text prompt field with voice input button
+  - Image-to-Video: image upload zone (drag-and-drop area or file picker button, accepts JPG/PNG/WEBP) with optional text prompt field below; uploaded image preview thumbnail displayed before generation
+  - Video-to-Video: video upload zone (drag-and-drop area or file picker button, accepts MP4/MOV/AVI) with optional text prompt field below; uploaded video preview displayed before generation
 - Generation controls:
   - Duration selector: slider or segmented control (5s / 6s / 7s / 8s / 9s / 10s), clearly labeled
   - Resolution selector: dropdown or segmented control (480p / 720p / 1080p / 2K / 4K), clearly labeled
@@ -820,6 +848,8 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - iOS-styled creator button: smooth expand animation on click, frosted-glass control panel overlay
 - Back to Home button: freely draggable floating button, top-left default placement, immediately visible and rendered from first frame upon entering any section, gradient styling, snap-to-edge on mobile, persisted position, slide-out transition on press
 - Service status badges: real-time color-coded indicators with subtle pulse animation on Online state
+- Video Generation panel input mode selector: smooth tab transition animation (150ms ease-out) when switching between Text-to-Video, Image-to-Video, and Video-to-Video modes
+- Image/video upload zone in Video Generation panel: dashed gradient border with subtle pulse animation on hover/drag-over; transitions to solid gradient border on active drag-over state
 - No error message overlays or failure modals ever rendered in the UI
 - No billing, subscription, or paywall UI elements
 
@@ -882,7 +912,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Responsive 3D humanoid robot rendering
 - Back to Home floating button: freely draggable, snaps to nearest screen edge (left or right) on release with smooth snap animation (150ms ease-out), immediately visible and accessible in every feature section from the first frame, always rendered above all content layers
 - Home screen on mobile must adapt the visual language of the uploaded home page reference image (file-aig01c6yjitc.png) to smaller screens while maintaining 100% visual fidelity to the reference
-- Image Generation and Video Generation panels adapt to single-column layout on mobile; service selector scrolls horizontally; duration and resolution selectors stack vertically
+- Image Generation and Video Generation panels adapt to single-column layout on mobile; service selector scrolls horizontally; duration and resolution selectors stack vertically; input mode selector (Text-to-Video / Image-to-Video / Video-to-Video) stacks vertically or scrolls horizontally; upload zones adapt to full-width single-column layout
 
 ---
 
@@ -981,14 +1011,18 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - User opens Video Generation panel from menu (Circular or Grid mode)
 - Service selector displays all available lifetime-free services with real-time Online / Offline / Degraded status badges
 - User selects preferred service (or leaves on default: nand AI)
-- User enters text prompt or uses voice input; optionally uploads a reference image or video
+- User selects input mode via the input mode selector:
+  - **Text-to-Video:** user enters a text prompt (with optional voice input) describing the desired video
+  - **Image-to-Video:** user uploads a reference image (JPG, PNG, WEBP) via drag-and-drop or file picker; uploaded image preview is displayed as a thumbnail; user may optionally add a text prompt to guide animation style or motion direction; the uploaded image is passed as an input parameter to the active video generation service API
+  - **Video-to-Video:** user uploads an existing video file (MP4, MOV, AVI) via drag-and-drop or file picker; uploaded video preview is displayed; user may optionally add a text prompt to guide the transformation style
 - User configures generation parameters:
   - Duration: slider or segmented control (5s / 6s / 7s / 8s / 9s / 10s)
   - Resolution: dropdown or segmented control (480p / 720p / 1080p / 2K / 4K)
   - Scene style, motion control, camera preset
 - User taps Generate button
-- If selected service is Online: request is sent to that service API with duration and resolution parameters
+- If selected service is Online: request is sent to that service API with duration, resolution, and input parameters (text prompt and/or uploaded image/video)
 - If selected service is Offline or Degraded: system automatically switches to the next available Online service; user sees a non-blocking inline notice: Switched to [service name] — your selected service is temporarily unavailable
+- If the selected service does not support the chosen input mode (e.g., Image-to-Video not supported): system automatically switches to the next available service that supports the mode; user sees a non-blocking inline notice: Switched to [service name] — image-to-video not supported by your selected service
 - Generation progress: non-blocking progress bar with estimated time remaining; progressive preview playback begins as soon as partial output is available
 - On success: video displayed in output section with download, share, and regenerate options
 - On failure after all retries: silent fallback to next service; if all services fail, a non-blocking inline message: Generation is taking longer than expected — retrying in background
@@ -1076,7 +1110,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 
 ### 7.14 Feature Interactions
 - Image Generation (multi-service): dedicated full-screen panel, service selector with status badges, prompt input, voice input, file upload, generation controls, gradient Material Design UI, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread; 100% operational AI-powered generation across all listed lifetime-free services; automatic failover between services; 100% free lifetime access
-- Video Generation (multi-service): dedicated full-screen panel, service selector with status badges, prompt input, voice input, file upload, duration selector (5–10s), resolution selector (480p / 720p / 1080p / 2K / 4K), progressive preview, gradient UI, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread; 100% operational AI-powered generation across all listed lifetime-free services; automatic failover between services; 100% free lifetime access; Sora 2 permanently excluded
+- Video Generation (multi-service): dedicated full-screen panel, service selector with status badges, input mode selector (Text-to-Video / Image-to-Video / Video-to-Video), prompt input, voice input, image/video file upload (for Image-to-Video and Video-to-Video modes respectively), duration selector (5–10s), resolution selector (480p / 720p / 1080p / 2K / 4K), progressive preview, gradient UI, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread; 100% operational AI-powered generation across all listed lifetime-free services; automatic failover between services including mode-aware failover for Image-to-Video; 100% free lifetime access; Sora 2 permanently excluded
 - PPT Maker (Gamma-style): prompt input → AI outline generation → full presentation generation → edit/export flow, voice input, real-time preview, template selection, export PPTX/PDF, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread
 - Video Editor: timeline interface, upload, effects, real-time preview, multi-format export, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread
 - Resume Analyzer: upload PDF/DOCX, AI analysis, feedback, optimization suggestions, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread
@@ -1116,7 +1150,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
   - API key fields in the Admin Dashboard are masked by default; admin must explicitly reveal to view
   - All API key changes are logged in the audit trail with timestamp and admin identifier
 - Input validation and sanitization against SQL injection and XSS
-- File upload scanning and validation
+- File upload scanning and validation (applies to all uploaded files including images for Image-to-Video and videos for Video-to-Video)
 - Rate limiting on API endpoints against DDoS
 - Firewall rules, network monitoring, secure API key rotation policies
 - GDPR and CCPA compliance; data anonymization layer; audit logs
@@ -1159,10 +1193,13 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Error boundary response time: under 16ms
 - Image generation API response: 100% successful delivery across all integrated lifetime-free services; automatic retry and failover ensure zero failed requests reaching the user
 - Video generation API response: 100% successful delivery across all integrated lifetime-free services; automatic retry and failover ensure zero failed requests reaching the user
+- Image-to-Video upload processing: file upload completes with progress indicator; uploaded image preview rendered within 500ms of upload completion
+- Video-to-Video upload processing: file upload completes with progress indicator; uploaded video preview rendered within 1 second of upload completion
 - QAZYEN AI API response (killing AI): 100% reliable; automatic retry and fallback ensure zero interaction failures
 - File processing AI API response: 100% reliable across all integrated services (geminit AI, killing AI, Perplexity AI)
 - Service health check cycle: every 5 minutes per service; health check response logged within 1 second
 - Service status badge update latency: under 2 seconds after health check result
+- Input mode selector transition animation: under 150ms
 
 ### 9.2 Optimization Strategies
 - Code splitting and lazy loading: only critical path code loaded on initial render; feature modules loaded on demand
@@ -1188,6 +1225,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Global error boundary implemented at the root component level to catch and silently handle all rendering and runtime errors without surfacing any failure message to the user
 - All AI service API integrations use connection pooling, request queuing, and automatic failover to maintain 100% reliability
 - Service health monitor runs on a dedicated background worker thread to avoid blocking the main UI thread
+- Image and video file uploads for Image-to-Video and Video-to-Video modes use chunked upload with resumable upload support to handle large files efficiently
 
 ---
 
@@ -1209,6 +1247,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - User's last selected image generation service preference (persisted per session)
 - User's last selected video generation service preference (persisted per session)
 - User's last selected video duration and resolution preferences (persisted per session)
+- User's last selected video generation input mode preference (Text-to-Video / Image-to-Video / Video-to-Video) (persisted per session)
 
 ### 10.2 Data Security and Backup
 - Encrypted storage and transmission
@@ -1234,7 +1273,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Creator response: My creator is Muhhamed Yasin and everyone knows him by the name Munaf
 - Seamless dark/light mode switching with full UI adaptation including animated background tone shift
 - Text color: white in dark mode, black in light mode throughout entire app
-- File upload for image and video generation, document processing, and all applicable modules
+- File upload for image and video generation (including image upload for Image-to-Video and video upload for Video-to-Video), document processing, and all applicable modules
 - AI personality and theme customization
 - Offline basic mode, cross-device sync, smart notifications, cloud auto-backup
 - Material Design animations and micro-interactions throughout
@@ -1255,7 +1294,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Robot default background environment is a high-fidelity 3D laboratory setting
 - The message App modification failed. Please try again later or submit feedback. must never appear anywhere in the application under any circumstances — all errors are handled silently, automatically, and invisibly to the user
 - Image generation: dedicated multi-service panel with geminit AI, Gemini, Stable Diffusion (Hugging Face), FLUX.1-schnell (Hugging Face), and Pollinations AI; all services 100% operational, lifetime-free, with real-time status indicators; automatic failover between services; admin can manage all API keys; Sora 2 permanently excluded
-- Video generation: dedicated multi-service panel with nand AI, Pollinations AI Video, and Hugging Face zeroscope; all services 100% operational, lifetime-free, with real-time status indicators; user-configurable duration (5–10 seconds) and resolution (480p / 720p / 1080p / 2K / 4K); automatic failover between services; admin can manage all API keys; Sora 2 permanently excluded
+- Video generation: dedicated multi-service panel with nand AI, Pollinations AI Video, and Hugging Face zeroscope; all services 100% operational, lifetime-free, with real-time status indicators; user-configurable duration (5–10 seconds) and resolution (480p / 720p / 1080p / 2K / 4K); input mode selector supporting Text-to-Video, Image-to-Video (with image file upload, JPG/PNG/WEBP), and Video-to-Video (with video file upload, MP4/MOV/AVI); automatic failover between services including mode-aware failover; admin can manage all API keys; Sora 2 permanently excluded
 - Comprehensive AI service reliability system: background health monitor (every 5 minutes), proactive error detection and auto-fix, error classification (Transient / Key-Auth / Paywall-Quota / Structural), admin error resolution log, Virtual Qazyen service re-validated and fixed end-to-end
 - Lifetime-free verification mechanism: automated checks per service to detect and suppress any service that introduces billing requirements or paywalls; admin dashboard displays verification status and last check timestamp per service
 - All internal documentation, error messages, and settings panels updated to reflect all backend services
@@ -1264,7 +1303,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Admin password is hidden and stored securely server-side
 
 ### 11.3 User Experience Goals
-The application must feel: Premium, Fast, Intelligent, Responsive, Professional, Calm, Trustworthy, Extremely satisfying, Zero-friction, Smart-defaulted, Home screen visually identical to the uploaded home page reference image (file-aig01c6yjitc.png) at 100% fidelity, enhanced with Material Design robot aesthetics, Ultra-clean and futuristic, Friendly yet powerful, Minimal distractions, Cinematic and gaming-quality, 100% error-free, Instantly responsive, Fully interactive, Flexible and customizable with gradient aesthetics, Immersive with animated background gradient (user-controllable), Effortlessly navigable with Back to Home freely movable and immediately visible on every screen upon entry, Satisfyingly tactile with rotating icon interactions, Intuitively contextual with radial menu quick-access options, Empowering with a draggable Back to Home button the user can place wherever is most comfortable, Always functional and always showing content with zero dead ends or blocking error states, Reliably powerful with 100% operational AI services matching Perplexity AI-level performance, Intuitively accessible with iOS Control Center-style quick access panel, Personally connected with iOS-styled creator button (Muhhamed Yasin / Munaf) opening a friendly control panel, Completely free with no billing friction or paywalls anywhere, Transparently reliable with real-time service status indicators showing which AI services are Online and available.
+The application must feel: Premium, Fast, Intelligent, Responsive, Professional, Calm, Trustworthy, Extremely satisfying, Zero-friction, Smart-defaulted, Home screen visually identical to the uploaded home page reference image (file-aig01c6yjitc.png) at 100% fidelity, enhanced with Material Design robot aesthetics, Ultra-clean and futuristic, Friendly yet powerful, Minimal distractions, Cinematic and gaming-quality, 100% error-free, Instantly responsive, Fully interactive, Flexible and customizable with gradient aesthetics, Immersive with animated background gradient (user-controllable), Effortlessly navigable with Back to Home freely movable and immediately visible on every screen upon entry, Satisfyingly tactile with rotating icon interactions, Intuitively contextual with radial menu quick-access options, Empowering with a draggable Back to Home button the user can place wherever is most comfortable, Always functional and always showing content with zero dead ends or blocking error states, Reliably powerful with 100% operational AI services matching Perplexity AI-level performance, Intuitively accessible with iOS Control Center-style quick access panel, Personally connected with iOS-styled creator button (Muhhamed Yasin / Munaf) opening a friendly control panel, Completely free with no billing friction or paywalls anywhere, Transparently reliable with real-time service status indicators showing which AI services are Online and available, Creatively versatile with Image-to-Video generation enabling users to animate their own uploaded images into AI-generated videos.
 
 ---
 
@@ -1289,7 +1328,7 @@ The application must feel: Premium, Fast, Intelligent, Responsive, Professional,
 ---
 
 ## 13. Future Expansion Roadmap
-- Phase 1: Stable release with all core features, Unity 3D humanoid robot (strictly upward greeting movement, 0% rotation), flexible menu layout, gradient color system, animated background gradient with toggle, background image customization, rotating icons, radial context menu, iOS Control Center-style quick access panel, iOS-styled creator button (Muhhamed Yasin / Munaf) with Home/Profile/Light-Dark control panel, freely movable Back to Home button, multi-service image generation panel (geminit AI, Gemini, Stable Diffusion, FLUX.1-schnell, Pollinations AI) with status indicators, multi-service video generation panel (nand AI, Pollinations AI Video, Hugging Face zeroscope) with status indicators and configurable duration/resolution, comprehensive AI service reliability system with background health monitor and lifetime-free verification, lifetime free APIs, global silent error handling, 100% operational AI services, dual-mode admin/user system with active user monitoring and role management, zero billing or paywall elements
+- Phase 1: Stable release with all core features, Unity 3D humanoid robot (strictly upward greeting movement, 0% rotation), flexible menu layout, gradient color system, animated background gradient with toggle, background image customization, rotating icons, radial context menu, iOS Control Center-style quick access panel, iOS-styled creator button (Muhhamed Yasin / Munaf) with Home/Profile/Light-Dark control panel, freely movable Back to Home button, multi-service image generation panel (geminit AI, Gemini, Stable Diffusion, FLUX.1-schnell, Pollinations AI) with status indicators, multi-service video generation panel (nand AI, Pollinations AI Video, Hugging Face zeroscope) with status indicators, configurable duration/resolution, and full input mode support (Text-to-Video, Image-to-Video with image file upload, Video-to-Video with video file upload), comprehensive AI service reliability system with background health monitor and lifetime-free verification, lifetime free APIs, global silent error handling, 100% operational AI services, dual-mode admin/user system with active user monitoring and role management, zero billing or paywall elements
 - Phase 2: AI Automation Workflows
 - Phase 3: Enterprise SaaS Version
 - Phase 4: API Marketplace
@@ -1309,7 +1348,7 @@ The application must feel: Premium, Fast, Intelligent, Responsive, Professional,
 ---
 
 ## 14. Product Summary
-Qazyen AI is a Perplexity AI and Gemini-level conversational engine powered by killing AI, a 100% operational AI-powered media generation powerhouse featuring a multi-service image generation panel (geminit AI, Gemini, Stable Diffusion via Hugging Face, FLUX.1-schnell via Hugging Face, and Pollinations AI — all lifetime-free, all with real-time Online/Offline/Degraded status indicators, automatic failover, and admin-manageable API keys) and a multi-service video generation panel (nand AI, Pollinations AI Video, and Hugging Face zeroscope — all lifetime-free, all with real-time status indicators, user-configurable duration from 5 to 10 seconds, user-selectable resolution from 480p to 4K, automatic failover, and admin-manageable API keys; Sora 2 permanently excluded), a photorealistic 3D virtual humanoid robot companion (QAZYEN — 100% matching the uploaded image.png with shiny metallic aluminium body, strictly upward 100% vertical hand movement with 0% rotation during greeting combining hand-to-mouth and waving Hi motion, 100% professional hand and body movements in all other interactions, and a high-fidelity laboratory background environment, powered by a 100% operational killing AI API) featuring animated facial expressions with lip-synced mouth, expressive upward professional hand gestures, gradient color-changing body lighting, and a deep bass AI-generated robotic male voice — combined with a Gamma-style AI PPT maker, professional video editor, productivity assistant, research partner, multilingual voice companion (46+ languages), creative studio, secure knowledge vault, multi-modal file upload and AI processing, and cross-platform AI ecosystem. The Home screen is built to 100% match the visual design shown in the uploaded home page reference image (file-aig01c6yjitc.png) at pixel-perfect fidelity, with all other screens referencing qazyen app design.png for visual guidance, enhanced with Material Design robot-themed aesthetics, a flexible menu layout system (Circular Mode and Grid Mode), a full-spectrum gradient color scheme, a continuously animated flowing background gradient with user-controllable on/off toggle, customizable background images throughout the entire application, rotating circular icons with ambient slow spin and satisfying click-spin interaction, a 7-option radial context menu (Home, Back, Light/Dark, Settings, Profile, Feedback, Admin Mode) that opens in a circular arrangement on any menu button click in both layout modes, an iOS Control Center-style quick access circular menu button available on all screens, an iOS-styled creator menu button (Muhhamed Yasin / Munaf) present in both layout modes, a freely draggable floating Back to Home button that is immediately visible and accessible upon entering every feature section with zero delay, voice input/output throughout without wake word, JARVIS-like features, resume analyzer, prompt generator, image analysis, advanced settings, reset app data, automatic API key rotation, database-backed thread history with instant zero-delay opening, fully interactive and clickable AI messages, a comprehensive AI service reliability system with background health monitoring every 5 minutes, proactive error detection and auto-fix, lifetime-free verification per service, and a detailed admin error resolution log, a global silent error handling system that permanently suppresses all failure messages and ensures the app always remains visible, functional, and seamlessly operational under any condition, a dedicated Admin Mode access point on the Home page (gated by admin code qazyen123) with real-time active user monitoring, user role management, and secure encrypted API key management for all integrated services. Admin password: qazyen123. All services lifetime free and unlimited with zero billing, subscription, or paywall. No registration required. 100% cinematic, gaming-quality, professional, bug-free, error-free, instantly responsive, and gradient-styled throughout.
+Qazyen AI is a Perplexity AI and Gemini-level conversational engine powered by killing AI, a 100% operational AI-powered media generation powerhouse featuring a multi-service image generation panel (geminit AI, Gemini, Stable Diffusion via Hugging Face, FLUX.1-schnell via Hugging Face, and Pollinations AI — all lifetime-free, all with real-time Online/Offline/Degraded status indicators, automatic failover, and admin-manageable API keys) and a multi-service video generation panel (nand AI, Pollinations AI Video, and Hugging Face zeroscope — all lifetime-free, all with real-time status indicators, user-configurable duration from 5 to 10 seconds, user-selectable resolution from 480p to 4K, a dedicated input mode selector supporting Text-to-Video, Image-to-Video with image file upload (JPG/PNG/WEBP) and optional text prompt, and Video-to-Video with video file upload (MP4/MOV/AVI) and optional text prompt, automatic failover including mode-aware failover for Image-to-Video, and admin-manageable API keys; Sora 2 permanently excluded), a photorealistic 3D virtual humanoid robot companion (QAZYEN — 100% matching the uploaded image.png with shiny metallic aluminium body, strictly upward 100% vertical hand movement with 0% rotation during greeting combining hand-to-mouth and waving Hi motion, 100% professional hand and body movements in all other interactions, and a high-fidelity laboratory background environment, powered by a 100% operational killing AI API) featuring animated facial expressions with lip-synced mouth, expressive upward professional hand gestures, gradient color-changing body lighting, and a deep bass AI-generated robotic male voice — combined with a Gamma-style AI PPT maker, professional video editor, productivity assistant, research partner, multilingual voice companion (46+ languages), creative studio, secure knowledge vault, multi-modal file upload and AI processing, and cross-platform AI ecosystem. The Home screen is built to 100% match the visual design shown in the uploaded home page reference image (file-aig01c6yjitc.png) at pixel-perfect fidelity, with all other screens referencing qazyen app design.png for visual guidance, enhanced with Material Design robot-themed aesthetics, a flexible menu layout system (Circular Mode and Grid Mode), a full-spectrum gradient color scheme, a continuously animated flowing background gradient with user-controllable on/off toggle, customizable background images throughout the entire application, rotating circular icons with ambient slow spin and satisfying click-spin interaction, a 7-option radial context menu (Home, Back, Light/Dark, Settings, Profile, Feedback, Admin Mode) that opens in a circular arrangement on any menu button click in both layout modes, an iOS Control Center-style quick access circular menu button available on all screens, an iOS-styled creator menu button (Muhhamed Yasin / Munaf) present in both layout modes, a freely draggable floating Back to Home button that is immediately visible and accessible upon entering every feature section with zero delay, voice input/output throughout without wake word, JARVIS-like features, resume analyzer, prompt generator, image analysis, advanced settings, reset app data, automatic API key rotation, database-backed thread history with instant zero-delay opening, fully interactive and clickable AI messages, a comprehensive AI service reliability system with background health monitoring every 5 minutes, proactive error detection and auto-fix, lifetime-free verification per service, and a detailed admin error resolution log, a global silent error handling system that permanently suppresses all failure messages and ensures the app always remains visible, functional, and seamlessly operational under any condition, a dedicated Admin Mode access point on the Home page (gated by admin code qazyen123) with real-time active user monitoring, user role management, and secure encrypted API key management for all integrated services. Admin password: qazyen123. All services lifetime free and unlimited with zero billing, subscription, or paywall. No registration required. 100% cinematic, gaming-quality, professional, bug-free, error-free, instantly responsive, and gradient-styled throughout.
 
 ---
 
@@ -1329,4 +1368,4 @@ Qazyen AI is a Perplexity AI and Gemini-level conversational engine powered by k
 13. Error Handling Reference: global silent error boundary — the message App modification failed. Please try again later or submit feedback. is permanently suppressed; all errors handled silently and automatically; app always remains visible and functional
 14. AI Service Reliability Reference: all AI services must achieve 100% operational reliability; background health monitor runs every 5 minutes per service; lifetime-free verification enforced per service; Sora 2 permanently excluded; all services are 100% free with lifetime access and no billing or paywall; admin can manage all API keys securely via Admin Dashboard
 15. Image Generation Services Reference: geminit AI, Gemini (Google), Stable Diffusion via Hugging Face Inference API (stabilityai/stable-diffusion-xl-base-1.0), FLUX.1-schnell via Hugging Face Inference API (black-forest-labs/FLUX.1-schnell), Pollinations AI (pollinations.ai image API) — all lifetime-free, all with real-time status indicators
-16. Video Generation Services Reference: nand AI, Pollinations AI Video (pollinations.ai video API), Hugging Face Video zeroscope (zeroscope_v2_576w via Hugging Face Inference API) — all lifetime-free, all with real-time status indicators, user-configurable duration (5–10 seconds) and resolution (480p / 720p / 1080p / 2K / 4K); Sora 2 permanently excluded
+16. Video Generation Services Reference: nand AI, Pollinations AI Video (pollinations.ai video API), Hugging Face Video zeroscope (zeroscope_v2_576w via Hugging Face Inference API) — all lifetime-free, all with real-time status indicators, user-configurable duration (5–10 seconds) and resolution (480p / 720p / 1080p / 2K / 4K), input mode selector supporting Text-to-Video, Image-to-Video (image file upload: JPG/PNG/WEBP, with optional text prompt), and Video-to-Video (video file upload: MP4/MOV/AVI, with optional text prompt); Sora 2 permanently excluded

@@ -26,7 +26,7 @@ export default function IOSControlPanel() {
       {/* iOS-Style Menu Button */}
       <button
         onClick={togglePanel}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full from-blue-500 to-purple-600 shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrqy81et1q8.jpg)]"
         aria-label="Open Control Panel"
       >
         {isOpen ? (
@@ -35,7 +35,6 @@ export default function IOSControlPanel() {
           <Menu className="w-6 h-6 text-white" />
         )}
       </button>
-
       {/* Backdrop */}
       {isOpen && (
         <div
@@ -43,14 +42,13 @@ export default function IOSControlPanel() {
           onClick={togglePanel}
         />
       )}
-
       {/* iOS Control Panel */}
       <div
         className={`fixed bottom-24 right-6 z-50 w-80 transition-all duration-300 ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl p-6 border border-white/20">
+        <div className="dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl p-6 border border-white/20 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrur0ujyvpc.jpg)]">
           {/* Header */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-foreground">Control Panel</h3>

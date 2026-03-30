@@ -51,14 +51,14 @@ export default function CircularMenu() {
 
   return (
     <div 
-      className="relative w-full h-full min-h-[600px] flex items-center justify-center border-none border-[5px] rounded-[400px] border-[rgb(0,4,8)] bg-cover bg-center bg-no-repeat bg-[#00040800] bg-none"
+      className="relative w-full h-full min-h-[600px] flex items-center justify-center border-none bg-cover bg-center bg-no-repeat border-[2000000px] border-[#00040800] mr-[4px] ml-[4px] bg-[transparent] bg-none mt-[2px] mb-[5px] rounded-[9991px]"
       style={{
         backgroundColor: '#000000fa',
         backgroundImage: 'none'
       }}
     >
       {/* Circular button layout */}
-      <div className="relative w-[500px] h-[500px] border-solid rounded-[340px] border-[#000000] border-[5px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-aln6da4aheyo.png)] border-[rgb(0,0,0)]">
+      <div className="relative w-[500px] h-[500px] border-solid rounded-[340px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-aln6da4aheyo.png)] border-[#2997d0] border-[5px] border-[#15a9f3]">
         {menuItems.map((item, index) => {
           const { x, y } = getButtonPosition(index, menuItems.length);
           const Icon = item.icon;
@@ -67,7 +67,7 @@ export default function CircularMenu() {
             <button
               key={item.path}
               onClick={() => navigate(item.path)}
-              className="circular-button absolute w-16 h-16 flex items-center justify-center shadow-lg border-solid rounded-[340px] border-[3.24324px] border-[#e3e8ef] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-aln14axq3vgg.jpg)]"
+              className="circular-button absolute w-16 h-16 flex items-center justify-center shadow-lg border-solid rounded-[340px] border-[3.24324px] border-[#e3e8ef] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alq8iqgfw1s0.jpg)]"
               style={{
                 left: `calc(50% + ${x}px - 32px)`,
                 top: `calc(50% + ${y}px - 32px)`,
