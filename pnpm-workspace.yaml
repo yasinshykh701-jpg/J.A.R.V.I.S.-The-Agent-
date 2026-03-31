@@ -1,0 +1,4 @@
+catalog:
+  '@react-three/drei': 'catalog:'
+  '@react-three/fiber': 'catalog:'
+  three: 'catalog:'
