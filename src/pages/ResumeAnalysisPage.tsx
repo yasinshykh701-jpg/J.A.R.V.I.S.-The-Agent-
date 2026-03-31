@@ -1,35 +1,53 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { Loader2, FileText, Upload, CheckCircle, XCircle, AlertCircle, Award, Sparkles, ArrowRight } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { Loader2, FileText, Upload, CheckCircle, XCircle, AlertCircle, Award, Sparkles, TrendingUp, Target, Lightbulb } from 'lucide-react';
 import { toast } from 'sonner';
 import AppLayout from '@/components/layouts/AppLayout';
-import TitanRobotAdvanced from '@/components/TitanRobotAdvanced';
-import { aiApi } from '@/db/api';
 import BackToHome from '@/components/BackToHome';
+import { supabase } from '@/services/aiServices';
 
 interface AnalysisResult {
   score: number;
+  summary: string;
   strengths: string[];
   weaknesses: string[];
   suggestions: string[];
-  summary: string;
+  skills: string[];
+  experience: string;
+  education: string;
+  atsCompatibility: number;
+  recommendations: string[];
 }
 
 export default function ResumeAnalysisPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isExtracting, setIsExtracting] = useState(false);
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const [analysis, setAnalysis] = useState<AnalysisResult | null>(null);
+  const [extractedText, setExtractedText] = useState<string>('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      // Validate file size (max 5MB)
       if (file.size > 5 * 1024 * 1024) {
         toast.error('File size must be less than 5MB');
         return;
       }
+
+      // Validate file type
+      const validTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+      if (!validTypes.includes(file.type)) {
+        toast.error('Only JPG, PNG, and PDF files are supported');
+        return;
+      }
+
       setUploadedFile(file);
       setAnalysis(null);
+      setExtractedText('');
       toast.success('Resume uploaded successfully');
     }
   };
@@ -41,227 +59,407 @@ export default function ResumeAnalysisPage() {
     }
 
     setIsLoading(true);
+    setIsExtracting(true);
+
     try {
-      // Simulate analysis using Chat LLM
-      const chatHistory: { role: 'user' | 'model'; parts: { text: string }[] }[] = [
-        {
-          role: 'user',
-          parts: [{ text: `Please analyze this resume (filename: ${uploadedFile.name}). Provide a JSON response with: score (0-100), strengths (array of strings), weaknesses (array of strings), suggestions (array of strings), and a brief summary. Only return the JSON object.` }]
+      // Step 1: Extract text from resume using OCR
+      const reader = new FileReader();
+      reader.onload = async (event) => {
+        try {
+          const base64 = event.target?.result as string;
+
+          // Extract text using OCR
+          const { data: ocrData, error: ocrError } = await supabase.functions.invoke('ocr-extract', {
+            body: {
+              base64Image: base64,
+              language: 'eng'
+            }
+          });
+
+          if (ocrError) {
+            throw ocrError;
+          }
+
+          if (!ocrData?.text) {
+            throw new Error('No text could be extracted from the resume');
+          }
+
+          setExtractedText(ocrData.text);
+          setIsExtracting(false);
+          toast.success('✓ Text extracted successfully');
+
+          // Step 2: Analyze the extracted text
+          const { data: analysisData, error: analysisError } = await supabase.functions.invoke('resume-analyze', {
+            body: {
+              resumeText: ocrData.text
+            }
+          });
+
+          if (analysisError) {
+            throw analysisError;
+          }
+
+          if (analysisData?.analysis) {
+            setAnalysis(analysisData.analysis);
+            toast.success('✨ Resume analysis complete!');
+          } else {
+            throw new Error('No analysis data received');
+          }
+        } catch (error: any) {
+          console.error('Analysis error:', error);
+          toast.error(error.message || 'Failed to analyze resume');
+        } finally {
+          setIsLoading(false);
+          setIsExtracting(false);
         }
-      ];
+      };
 
-      const stream = await aiApi.chat(chatHistory);
-      const reader = stream.getReader();
-      const decoder = new TextDecoder();
-      let responseText = '';
-
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-        responseText += decoder.decode(value, { stream: true });
-      }
-
-      // Extract JSON from response if needed
-      const jsonMatch = responseText.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        const result = JSON.parse(jsonMatch[0]);
-        setAnalysis(result);
-        toast.success('Resume analysis complete!');
-      } else {
-        // Fallback mock data if LLM doesn't return JSON
-        setAnalysis({
-          score: 85,
-          strengths: ['Strong technical background', 'Clear professional summary', 'Quantifiable achievements'],
-          weaknesses: ['Vague skills section', 'Missing contact details in header', 'Overly long paragraphs'],
-          suggestions: ['Use more action verbs', 'Add a dedicated skills cloud', 'Improve whitespace usage'],
-          summary: 'Your resume shows strong potential with excellent experience. A few structural tweaks will make it stand out to recruiters.'
-        });
-        toast.success('Resume analysis complete!');
-      }
-    } catch (error) {
+      reader.readAsDataURL(uploadedFile);
+    } catch (error: any) {
       console.error('Resume analysis error:', error);
-      toast.error('Failed to analyze resume. Please try again.');
-    } finally {
+      toast.error(error.message || 'Failed to analyze resume');
       setIsLoading(false);
+      setIsExtracting(false);
     }
+  };
+
+  const getScoreColor = (score: number) => {
+    if (score >= 80) return 'text-green-600';
+    if (score >= 60) return 'text-yellow-600';
+    return 'text-red-600';
+  };
+
+  const getScoreLabel = (score: number) => {
+    if (score >= 80) return 'Excellent';
+    if (score >= 60) return 'Good';
+    return 'Needs Improvement';
   };
 
   return (
     <AppLayout>
-      <div className="h-full flex flex-col bg-[#F2F2F7] dark:bg-[#000000]">
-        <div className="ios-blur border-b border-border/50 ios-shadow z-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu08zrguhhc.jpg)]">
-          <div className="content-column py-5 flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold">Resume Lab</h1>
-              <p className="text-[13px] text-muted-foreground font-medium uppercase tracking-wider">AI Analysis by Qazyen AI</p>
-            </div>
-            {analysis && (
-              <div className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold border border-primary/20">
-                Score: {analysis.score}/100
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+        <BackToHome />
+        
+        {/* Header */}
+        <div className="border-b border-border/50 bg-card/50 backdrop-blur-sm">
+          <div className="container mx-auto px-4 py-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-3xl font-bold flex items-center gap-3">
+                  <FileText className="w-8 h-8 text-primary" />
+                  AI Resume Analyzer
+                </h1>
+                <p className="text-muted-foreground mt-1">
+                  Get AI-powered insights and recommendations • 100% Free Forever
+                </p>
               </div>
-            )}
+              {analysis && (
+                <div className="text-center">
+                  <div className={`text-4xl font-bold ${getScoreColor(analysis.score)}`}>
+                    {analysis.score}
+                  </div>
+                  <div className="text-sm text-muted-foreground">Overall Score</div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
-        <ScrollArea className="flex-1">
-          <div className="content-column py-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu13oorxdz5.jpg)]">
-            <div className="grid lg:grid-cols-5 gap-8">
-              {/* Left Column: Upload */}
-              <div className="lg:col-span-2 space-y-6">
-                <div className="ios-card p-6 ios-shadow bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtzfm6wh91c.jpg)]">
-                  <div className="w-full h-48 mb-4">
-                    <TitanRobotAdvanced isListening={isLoading} emotion={isLoading ? 'thinking' : 'neutral'} />
-                  </div>
-                  <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
+        <div className="container mx-auto px-4 py-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Upload Panel */}
+            <div className="lg:col-span-1">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
                     <Upload className="w-5 h-5 text-primary" />
-                    Upload Center
-                  </h2>
-                  
-                  <div className="space-y-6">
-                    <div 
-                      className={`relative border-2 border-dashed rounded-3xl p-10 text-center transition-all duration-300 ${
-                        uploadedFile ? 'border-success/50 bg-success/5' : 'border-border hover:border-primary/50 hover:bg-muted/50'
-                      }`}
-                    >
-                      <input
-                        id="resume-upload"
-                        type="file"
-                        accept=".pdf,.doc,.docx"
-                        onChange={handleFileUpload}
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                        disabled={isLoading}
-                      />
-                      {uploadedFile ? (
-                        <div className="animate-in zoom-in duration-300">
-                          <div className="w-16 h-16 rounded-2xl bg-success/20 flex items-center justify-center mx-auto mb-4">
-                            <FileText className="w-8 h-8 text-success" />
-                          </div>
-                          <p className="text-sm font-bold truncate px-4">{uploadedFile.name}</p>
-                          <p className="text-[11px] text-muted-foreground mt-1 font-medium">
-                            {(uploadedFile.size / (1024 * 1024)).toFixed(2)} MB • Ready
+                    Upload Resume
+                  </CardTitle>
+                  <CardDescription>
+                    Upload your resume for AI analysis
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <input
+                      ref={fileInputRef}
+                      type="file"
+                      accept="image/jpeg,image/jpg,image/png,application/pdf"
+                      onChange={handleFileUpload}
+                      className="hidden"
+                    />
+                    
+                    {!uploadedFile ? (
+                      <Button
+                        onClick={() => fileInputRef.current?.click()}
+                        variant="outline"
+                        className="w-full h-32 border-dashed border-2"
+                      >
+                        <div className="text-center">
+                          <Upload className="w-8 h-8 mx-auto mb-2 text-muted-foreground" />
+                          <p className="text-sm font-medium">Click to upload</p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            JPG, PNG, PDF (Max 5MB)
                           </p>
                         </div>
-                      ) : (
-                        <div className="py-4">
-                          <div className="w-16 h-16 rounded-2xl bg-muted flex items-center justify-center mx-auto mb-4">
-                            <Upload className="w-8 h-8 text-muted-foreground" />
+                      </Button>
+                    ) : (
+                      <div className="border-2 border-primary/50 rounded-lg p-4 bg-primary/5">
+                        <div className="flex items-center gap-3">
+                          <FileText className="w-8 h-8 text-primary" />
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium truncate">{uploadedFile.name}</p>
+                            <p className="text-xs text-muted-foreground">
+                              {(uploadedFile.size / 1024).toFixed(1)} KB
+                            </p>
                           </div>
-                          <p className="text-sm font-bold mb-1">Select Resume</p>
-                          <p className="text-[11px] text-muted-foreground font-medium">PDF, DOC, DOCX up to 5MB</p>
+                          <Button
+                            size="sm"
+                            variant="ghost"
+                            onClick={() => {
+                              setUploadedFile(null);
+                              setAnalysis(null);
+                              setExtractedText('');
+                              if (fileInputRef.current) {
+                                fileInputRef.current.value = '';
+                              }
+                            }}
+                          >
+                            ✕
+                          </Button>
                         </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
+                  </div>
 
-                    <Button
-                      onClick={handleAnalyze}
-                      disabled={isLoading || !uploadedFile}
-                      className="w-full ios-button h-14 text-lg bg-primary hover:bg-primary/90 text-white shadow-lg shadow-primary/20"
-                    >
-                      {isLoading ? (
-                        <>
-                          <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                          Analyzing...
-                        </>
+                  <Button
+                    onClick={handleAnalyze}
+                    disabled={!uploadedFile || isLoading}
+                    className="w-full gap-2"
+                  >
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        {isExtracting ? 'Extracting Text...' : 'Analyzing...'}
+                      </>
+                    ) : (
+                      <>
+                        <Sparkles className="w-4 h-4" />
+                        Analyze Resume
+                      </>
+                    )}
+                  </Button>
+
+                  {isLoading && (
+                    <div className="text-center text-sm text-muted-foreground space-y-2">
+                      {isExtracting ? (
+                        <p>📄 Extracting text from resume...</p>
                       ) : (
-                        <>
-                          <Sparkles className="w-5 h-5 mr-2" />
-                          Analyze Resume
-                        </>
+                        <p>🤖 AI is analyzing your resume...</p>
                       )}
-                    </Button>
+                      <p className="text-xs">This may take 10-30 seconds</p>
+                    </div>
+                  )}
+
+                  {analysis && (
+                    <div className="pt-4 border-t space-y-3">
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Status</span>
+                        <span className="text-green-600 font-medium flex items-center gap-1">
+                          <CheckCircle className="w-4 h-4" />
+                          Complete
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">Overall Score</span>
+                        <span className={`font-bold ${getScoreColor(analysis.score)}`}>
+                          {analysis.score}/100
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm">
+                        <span className="text-muted-foreground">ATS Score</span>
+                        <span className={`font-bold ${getScoreColor(analysis.atsCompatibility)}`}>
+                          {analysis.atsCompatibility}/100
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Results Panel */}
+            <div className="lg:col-span-2">
+              {!analysis ? (
+                <Card className="h-full min-h-[600px] flex items-center justify-center">
+                  <CardContent className="text-center py-12">
+                    <FileText className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+                    <h3 className="text-xl font-semibold mb-2">No Analysis Yet</h3>
+                    <p className="text-muted-foreground max-w-md mx-auto">
+                      Upload your resume and click "Analyze Resume" to get AI-powered insights
+                    </p>
+                  </CardContent>
+                </Card>
+              ) : (
+                <div className="space-y-6">
+                  {/* Score Overview */}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <Award className="w-5 h-5 text-primary" />
+                        Score Overview
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="grid grid-cols-2 gap-4">
+                        <div>
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-sm font-medium">Overall Quality</span>
+                            <span className={`text-lg font-bold ${getScoreColor(analysis.score)}`}>
+                              {analysis.score}%
+                            </span>
+                          </div>
+                          <Progress value={analysis.score} className="h-2" />
+                          <p className="text-xs text-muted-foreground mt-1">
+                            {getScoreLabel(analysis.score)}
+                          </p>
+                        </div>
+                        <div>
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-sm font-medium">ATS Compatibility</span>
+                            <span className={`text-lg font-bold ${getScoreColor(analysis.atsCompatibility)}`}>
+                              {analysis.atsCompatibility}%
+                            </span>
+                          </div>
+                          <Progress value={analysis.atsCompatibility} className="h-2" />
+                          <p className="text-xs text-muted-foreground mt-1">
+                            {getScoreLabel(analysis.atsCompatibility)}
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Summary */}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2">
+                        <FileText className="w-5 h-5 text-primary" />
+                        Summary
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground">{analysis.summary}</p>
+                    </CardContent>
+                  </Card>
+
+                  {/* Strengths */}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-green-600">
+                        <CheckCircle className="w-5 h-5" />
+                        Strengths
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {analysis.strengths.map((strength, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">{strength}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  {/* Weaknesses */}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-red-600">
+                        <AlertCircle className="w-5 h-5" />
+                        Areas for Improvement
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {analysis.weaknesses.map((weakness, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <XCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">{weakness}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  {/* Suggestions */}
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="flex items-center gap-2 text-blue-600">
+                        <Lightbulb className="w-5 h-5" />
+                        Suggestions
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {analysis.suggestions.map((suggestion, idx) => (
+                          <li key={idx} className="flex items-start gap-2">
+                            <Lightbulb className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
+                            <span className="text-sm">{suggestion}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  {/* Skills & Recommendations */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                          <Target className="w-5 h-5 text-primary" />
+                          Key Skills
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2">
+                          {analysis.skills.map((skill, idx) => (
+                            <span
+                              key={idx}
+                              className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card>
+                      <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                          <TrendingUp className="w-5 h-5 text-primary" />
+                          Recommendations
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-2">
+                          {analysis.recommendations.map((rec, idx) => (
+                            <li key={idx} className="flex items-start gap-2">
+                              <TrendingUp className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                              <span className="text-sm">{rec}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
                   </div>
                 </div>
-
-              </div>
-
-              {/* Right Column: Results */}
-              <div className="lg:col-span-3 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu0qyxlsnpc.jpg)]">
-                {isLoading ? (
-                  <div className="ios-card h-[600px] flex flex-col items-center justify-center text-center animate-pulse">
-                    <div className="w-24 h-24 bg-muted rounded-full mb-6"></div>
-                    <div className="h-4 w-48 bg-muted rounded mb-3"></div>
-                    <div className="h-3 w-64 bg-muted rounded"></div>
-                  </div>
-                ) : analysis ? (
-                  <div className="space-y-6 animate-in fade-in slide-in-from-right duration-500">
-                    {/* Score Card */}
-                    <div className="ios-card bg-gradient-to-br from-primary to-blue-600 p-8 text-white border-none shadow-xl shadow-primary/20">
-                      <div className="flex justify-between items-center mb-6">
-                        <Award className="w-10 h-10 opacity-80" />
-                        <span className="text-xs font-bold uppercase tracking-[0.2em] opacity-80">Resume Quality Score</span>
-                      </div>
-                      <div className="text-7xl font-bold tracking-tighter mb-4">
-                        {analysis.score}<span className="text-2xl opacity-60 ml-1">/100</span>
-                      </div>
-                      <p className="text-lg font-medium opacity-90 leading-relaxed italic">
-                        "{analysis.summary}"
-                      </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {/* Strengths */}
-                      <div className="ios-card border-none">
-                        <h3 className="text-sm font-bold mb-4 flex items-center gap-2 uppercase tracking-wider">
-                          <CheckCircle className="w-4 h-4 text-success" />
-                          Strengths
-                        </h3>
-                        <div className="space-y-3">
-                          {analysis.strengths.map((s, i) => (
-                            <div key={i} className="flex gap-3 text-sm font-medium">
-                              <span className="text-success mt-0.5 font-bold">✓</span>
-                              <span className="text-muted-foreground">{s}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Weaknesses */}
-                      <div className="ios-card border-none">
-                        <h3 className="text-sm font-bold mb-4 flex items-center gap-2 uppercase tracking-wider">
-                          <XCircle className="w-4 h-4 text-destructive" />
-                          Weaknesses
-                        </h3>
-                        <div className="space-y-3">
-                          {analysis.weaknesses.map((w, i) => (
-                            <div key={i} className="flex gap-3 text-sm font-medium">
-                              <span className="text-destructive mt-0.5 font-bold">×</span>
-                              <span className="text-muted-foreground">{w}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Suggestions */}
-                    <div className="ios-card border-none">
-                      <h3 className="text-sm font-bold mb-4 flex items-center gap-2 uppercase tracking-wider">
-                        <AlertCircle className="w-4 h-4 text-warning" />
-                        Strategic Recommendations
-                      </h3>
-                      <div className="space-y-3">
-                        {analysis.suggestions.map((s, i) => (
-                          <div key={i} className="flex items-center gap-4 bg-muted/40 p-4 rounded-2xl group hover:bg-muted/60 transition-colors">
-                            <div className="w-8 h-8 rounded-full bg-white dark:bg-black flex items-center justify-center text-primary font-bold text-xs shadow-sm">{i + 1}</div>
-                            <span className="text-sm font-semibold flex-1">{s}</span>
-                            <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="ios-card h-[600px] flex flex-col items-center justify-center text-center text-muted-foreground border-none bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtzu3327dvk.jpg)]">
-                    <div className="w-24 h-24 rounded-[32px] flex items-center justify-center mb-6 shadow-inner bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtz47sh1b7k.jpg)]">
-                      <FileText className="w-10 h-10 opacity-40" />
-                    </div>
-                    <h3 className="text-xl font-bold text-foreground mb-2">Ready to Start</h3>
-                    <p className="max-w-xs font-medium">Upload your resume and let Qazyen AI provide deep strategic analysis for your career.</p>
-                  </div>
-                )}
-              </div>
+              )}
             </div>
           </div>
-        </ScrollArea>
+        </div>
       </div>
     </AppLayout>
   );

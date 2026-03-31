@@ -6,7 +6,7 @@
 Qazyen AI
 
 ### 1.2 Application Description
-Qazyen AI is an enterprise-grade, cross-platform AI Super Application delivering Perplexity AI and Gemini-level conversational intelligence, advanced AI video generation (powered by nand AI), AI image creation (powered by geminit AI and additional lifetime-free services), document processing, multilingual voice assistant, real-time web intelligence, personal productivity tools, a photorealistic 3D virtual humanoid robot (100% matching the uploaded image.png with shiny metallic aluminium body, professional hand and body movements with strictly upward 100% vertical hand movement and 0% rotation during greeting, and a laboratory background environment) for interviews and voice interaction, Gamma-style AI PPT maker, professional video editor, and secure data management — all within a seamless premium interface where the Home page layout and visual design 100% matches the uploaded home page reference image (file-aig01c6yjitc.png) as the primary and definitive visual blueprint for the Home screen, fused with futuristic robot-themed aesthetics, a flexible menu layout system (Circular Mode with iOS-style notch profile panel and Grid Mode), a full-spectrum gradient color palette flowing Cyan → Light Blue → Pink → White → Dark Blue → White throughout every surface, rotating circular icons with smooth click interaction, a dynamic animated background gradient (Cyan + Light Cyan + Dark Blue + Black + White + Silver in random flowing movement) with user-controllable on/off toggle, customizable background images throughout the entire application, and a freely movable and always-accessible Back to Home button on every feature module screen.
+Qazyen AI is an enterprise-grade, cross-platform AI Super Application delivering Perplexity AI and Gemini-level conversational intelligence, advanced AI video generation (powered by nand AI), AI image creation (powered by geminit AI and additional lifetime-free services), document processing, multilingual voice assistant, real-time web intelligence, personal productivity tools, a photorealistic 3D virtual humanoid robot (100% matching the uploaded image.png with shiny metallic aluminium body, professional hand and body movements with strictly upward 100% vertical hand movement and 0% rotation during greeting, and a laboratory background environment) for interviews and voice interaction, a fully operational Gamma-identical AI PPT maker (100% matching all Gamma tool features and workflows), a fully operational AI-powered Resume Analyzer, professional video editor, and secure data management — all within a seamless premium interface where the Home page layout and visual design 100% matches the uploaded home page reference image (file-aig01c6yjitc.png) as the primary and definitive visual blueprint for the Home screen, fused with futuristic robot-themed aesthetics, a flexible menu layout system (Circular Mode with iOS-style notch profile panel and Grid Mode), a full-spectrum gradient color palette flowing Cyan → Light Blue → Pink → White → Dark Blue → White throughout every surface, rotating circular icons with smooth click interaction, a dynamic animated background gradient (Cyan + Light Cyan + Dark Blue + Black + White + Silver in random flowing movement) with user-controllable on/off toggle, customizable background images throughout the entire application, and a freely movable and always-accessible Back to Home button on every feature module screen.
 
 Tagline: Intelligence Beyond Boundaries.
 
@@ -22,7 +22,7 @@ Tagline: Intelligence Beyond Boundaries.
 - Any platform with modern web browser support
 
 ### 1.4 Core Differentiation
-Qazyen AI unifies Perplexity AI and Gemini-level conversational intelligence, 100% operational geminit AI-powered image generation with additional lifetime-free image generation services, 100% operational nand AI-powered video generation (5–10 second configurable duration, multi-resolution output, image-to-video generation with file upload support), a 100% operational photorealistic 3D humanoid robot assistant (100% matching the uploaded image.png) with strictly upward vertical hand movements and zero rotation during greeting, voice-first multilingual interaction, knowledge search engine, Gamma-style AI PPT maker, professional video editor, encrypted cloud storage with database-backed chat history, cross-device synchronization, dual-mode admin/user management console, AI personalization engine, and smart automation workflows — all wrapped in a Home page that 100% mirrors the uploaded home page reference image (file-aig01c6yjitc.png), enhanced with futuristic Material Design robot-themed aesthetics, flexible Circular and Grid menu layouts, a cohesive gradient visual identity, rotating circular icons, a dynamic animated background gradient with disable option, customizable background images, and a freely movable and always-accessible Back to Home button on every feature module screen.
+Qazyen AI unifies Perplexity AI and Gemini-level conversational intelligence, 100% operational geminit AI-powered image generation with additional lifetime-free image generation services, 100% operational nand AI-powered video generation (5–10 second configurable duration, multi-resolution output, image-to-video generation with file upload support), a 100% operational photorealistic 3D humanoid robot assistant (100% matching the uploaded image.png) with strictly upward vertical hand movements and zero rotation during greeting, voice-first multilingual interaction, knowledge search engine, a 100% Gamma-identical AI PPT maker with every Gamma tool feature fully operational, a 100% operational AI-powered Resume Analyzer, professional video editor, encrypted cloud storage with database-backed chat history, cross-device synchronization, dual-mode admin/user management console, AI personalization engine, and smart automation workflows — all wrapped in a Home page that 100% mirrors the uploaded home page reference image (file-aig01c6yjitc.png), enhanced with futuristic Material Design robot-themed aesthetics, flexible Circular and Grid menu layouts, a cohesive gradient visual identity, rotating circular icons, a dynamic animated background gradient with disable option, customizable background images, and a freely movable and always-accessible Back to Home button on every feature module screen.
 
 ### 1.5 Pricing Model
 All services are lifetime free and unlimited. The integrated AI services (killing AI, nand AI, geminit AI, and all additional image/video generation services) are configured for 100% free, perpetual, lifetime access with no cost to the end-user. No subscription plans, billing, credit top-ups, or paywalls exist anywhere in the application. An automatic API key rotation and upgrade system ensures uninterrupted service at all times. The Sora 2 model/service is removed from all available options as it does not meet the lifetime-free criteria.
@@ -34,11 +34,11 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 ### 2.1 Role Overview
 | Role | Access Level | Description |
 |------|-------------|-------------|
-| User | Standard | Access to all core AI generation features, PPT creator, chat, voice assistant, and productivity tools |
+| User | Standard | Access to all core AI generation features, PPT creator, Resume Analyzer, chat, voice assistant, and productivity tools |
 | Administrator | Privileged | Full access including admin dashboard, user management, API key management, role assignment, system monitoring, and AI service health management |
 
 ### 2.2 User Mode
-- Access to: Conversational AI, Image Generation (geminit AI + additional lifetime-free services), Video Generation (nand AI, 5–10s configurable, multi-resolution, image-to-video with file upload), PPT Maker (Gamma-style), Video Editor, 3D Robot Assistant, Voice Assistant, Note Summary, Task Manager, AI Calendar, Productivity Suite, Resume Analyzer, Prompt Generator, History, Advanced Settings
+- Access to: Conversational AI, Image Generation (geminit AI + additional lifetime-free services), Video Generation (nand AI, 5–10s configurable, multi-resolution, image-to-video with file upload), PPT Maker (100% Gamma-identical), Video Editor, 3D Robot Assistant, Voice Assistant, Note Summary, Task Manager, AI Calendar, Productivity Suite, Resume Analyzer (AI-powered, 100% operational), Prompt Generator, History, Advanced Settings
 - No access to: Admin Dashboard, user role management, API key configuration, system monitoring, AI service audit controls
 - No billing, subscription, or paywall elements are visible to users
 
@@ -468,88 +468,233 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - **All API key errors eliminated: automatic key rotation ensures uninterrupted service at all times**
 - **Admin can view and update API keys for all video generation services via the Admin Dashboard**
 - **100% free, lifetime access — no cost to end-user, no subscription or paywall**
-- Text-to-Video generation: user enters a text prompt describing the desired video content; AI generates the video based on the prompt
-- **Image-to-Video generation: user uploads one or more reference images (JPG, PNG, WEBP) and the AI animates or transforms the uploaded image(s) into a video output**
-  - Image upload method: file picker dialog, drag-and-drop, or clipboard paste within the Video Generation panel
-  - Uploaded image is displayed as a preview thumbnail in the panel before generation is initiated
-  - User can optionally combine an image upload with a text prompt to guide the animation style, motion direction, or scene context
-  - Uploaded image is passed as an input parameter to the active video generation service API alongside duration and resolution settings
-  - Supported upload formats for Image-to-Video: JPG, PNG, WEBP
-  - Upload progress indicator shown inline; non-blocking UI during upload
-  - If the selected service does not support image input, the system automatically switches to the next available service that supports Image-to-Video; user sees a non-blocking inline notice: Switched to [service name] — image-to-video not supported by your selected service
-- Video-to-Video transformation: user uploads an existing video file and the AI transforms or re-styles it
-  - Supported upload formats for Video-to-Video: MP4, MOV, AVI
-  - Upload method: file picker dialog or drag-and-drop within the Video Generation panel
-  - Uploaded video preview displayed in panel before generation
+- Text-to-Video generation
+- Image-to-Video generation with file upload support (JPG, PNG, WEBP)
+- Video-to-Video transformation (MP4, MOV, AVI)
 - Scene expansion, motion control, camera pan simulation, cinematic presets
-- Quality output at selected resolution (480p, 720p, 1080p, 2K, 4K) with frame interpolation and AI color grading
+- Quality output at selected resolution with frame interpolation and AI color grading
 - Auto background music, AI subtitles, scene stitching, auto storyboard generation
 - GPU acceleration, parallel rendering, cloud distributed processing
 - Progressive preview playback during rendering
-- All previously available advanced features (video editing capabilities, varied styles, high-quality outputs) are fully retained and mapped to all integrated lifetime-free services
 
 #### Input Mode Selector
-- The Video Generation panel displays a clearly labeled input mode selector at the top of the prompt/input area, allowing the user to choose between:
-  - Text-to-Video: text prompt input only
-  - Image-to-Video: image file upload (with optional text prompt)
-  - Video-to-Video: video file upload (with optional text prompt)
-- The input area adapts dynamically based on the selected mode:
-  - Text-to-Video: shows text prompt field with voice input button
-  - Image-to-Video: shows image upload zone (drag-and-drop or file picker) plus optional text prompt field
-  - Video-to-Video: shows video upload zone (drag-and-drop or file picker) plus optional text prompt field
-- Mode selector styled as a segmented control or tab row with gradient styling consistent with the rest of the panel
+- Text-to-Video, Image-to-Video, Video-to-Video modes with adaptive input area
+- Mode selector styled as a segmented control or tab row with gradient styling
 - Selected mode is persisted per session
 
 #### Lifetime-Free Verification & Monitoring
 - Same background monitoring service as image generation: periodic health checks every 5 minutes per video service endpoint
 - Health check verifies: API reachability, response validity, and absence of paywall/billing gate responses
-- If a service returns a billing-required or quota-exceeded response, it is automatically marked Offline and hidden from the user-facing service list
 - Admin Dashboard displays the last verified timestamp and lifetime-free status for each video service
-- Admin receives a silent internal alert (logged to admin dashboard only) when any service changes status
 
 ### 3.11 File Upload & Multi-Modal AI Processing
 - Users can send, upload, or paste files for AI processing across all applicable modules
 - Supported upload methods: file picker dialog, drag-and-drop, clipboard paste
 - Supported file types: PDF, DOCX, TXT, JPG, PNG, WEBP, MP4, MOV, AVI, and other common formats
-- Multi-modal AI services integrated for file processing:
-  - geminit AI: document understanding, image analysis, video analysis
-  - killing AI / OpenAI GPT-4 (with vision): image and document analysis
-  - Perplexity AI: research and document summarization
-  - All integrated AI services for file analysis are 100% operational with zero failures
-- File processing capabilities:
-  - Document analysis: summarization, key insight extraction, Q&A over document content
-  - Image analysis: content recognition, style analysis, feature extraction
-  - Video analysis: scene description, content summarization
-  - Code file analysis: review, explanation, optimization suggestions
-- File upload is available in the main chat interface, Image Generation module, Video Generation module (Text-to-Video, Image-to-Video, and Video-to-Video modes), Note Summary module, Resume Analyzer module, and Video Editor module
+- Multi-modal AI services integrated for file processing: geminit AI, killing AI / OpenAI GPT-4 (with vision), Perplexity AI
+- File processing capabilities: document analysis, image analysis, video analysis, code file analysis
+- File upload available in main chat interface, Image Generation module, Video Generation module, Note Summary module, Resume Analyzer module, and Video Editor module
 - File upload scanning and validation before processing
 - Encrypted storage of uploaded files
 - Upload progress indicator with non-blocking UI
 - File attachment preview in chat thread
 - Inline upload error hint (non-blocking): Upload could not complete — please try a different file
 
-### 3.12 PPT Maker (Gamma AI Style)
-- AI-powered presentation creation modeled after the Gamma AI platform workflow
-- User provides a text prompt or voice input describing the presentation topic and desired content
-- AI automatically generates a complete, structured PowerPoint-style presentation:
-  - Automatic slide layout generation based on content type
-  - Smart content organization across slides
-  - Professional template library with theme customization
-  - Image and icon integration per slide
-  - Chart and graph generation from data prompts
-  - Transition effects and animation presets
-- Gamma-style generation flow:
-  - Step 1: User enters a prompt (e.g., Create a 10-slide presentation on climate change)
-  - Step 2: AI generates an outline for user review/edit before full generation
-  - Step 3: Full presentation generated with all slides, layouts, and visuals
-  - Step 4: User can edit individual slides, regenerate specific slides, or adjust theme
-- Export: PPTX, PDF
-- Real-time preview, collaborative editing support
-- Integrated chatbox with voice input
-- Back to Home floating button freely draggable and immediately visible on entry
-- Saved to thread history
+### 3.12 PPT Maker — 100% Gamma AI Feature Parity
 
-### 3.13 Video Editor
+#### Overview
+- The PPT Maker module is a 100% functional replica of the Gamma AI tool, implementing every feature, workflow, and capability that Gamma provides
+- All features listed below are 100% working, 100% responsive, and deliver real AI-generated presentation output on every request
+- The module is powered by the integrated AI backend (killing AI / OpenAI GPT-4) with automatic key rotation ensuring zero failures
+
+#### Gamma-Identical Generation Workflow
+- **Step 1 — Prompt Input:**
+  - User enters a natural language prompt describing the desired presentation (e.g., Create a 10-slide presentation on climate change with charts and images)
+  - Voice input supported: user can speak the prompt instead of typing
+  - Prompt field supports multi-line input with character count indicator
+  - AI suggests prompt improvements inline before generation begins
+- **Step 2 — AI Outline Generation:**
+  - AI instantly generates a structured outline of all slides based on the prompt
+  - Outline is displayed in an editable list view: each slide shown as a numbered item with its title and key bullet points
+  - User can edit, reorder, add, or remove slides in the outline before proceeding
+  - User can regenerate the outline with a single click if unsatisfied
+  - Outline generation completes within 5 seconds
+- **Step 3 — Full Presentation Generation:**
+  - User confirms the outline and triggers full presentation generation
+  - AI generates all slides simultaneously with complete content, layouts, visuals, and styling
+  - Real-time progress indicator shows generation status per slide
+  - Full generation completes within 30 seconds for a standard 10-slide deck
+- **Step 4 — Edit & Refine:**
+  - User can edit any individual slide after generation
+  - Per-slide regeneration: user can regenerate a single slide without affecting others
+  - Theme adjustment: user can change the visual theme globally or per slide
+  - AI-assisted editing: user can type a natural language instruction to modify a slide (e.g., Make slide 3 more concise or Add a chart to slide 5)
+
+#### Full Gamma Feature Set (All 100% Operational)
+- **Slide Layout Engine:**
+  - Automatic layout selection based on content type (title slide, content slide, image-heavy slide, data slide, quote slide, comparison slide, timeline slide)
+  - Smart content distribution across slides — AI decides optimal text-to-visual ratio per slide
+  - Multiple layout variants per slide type; user can cycle through layout options
+  - Full-bleed image layouts, split layouts, grid layouts, centered layouts
+- **Template Library:**
+  - 20+ professional templates covering: Business, Education, Marketing, Technology, Creative, Minimal, Bold, Corporate, Startup, Academic
+  - Each template includes a complete color scheme, typography pairing, and icon set
+  - User can preview and apply any template before or after generation
+  - Custom theme creation: user can define primary color, secondary color, font family, and background style
+- **AI Content Generation per Slide:**
+  - Headline generation: AI writes concise, impactful slide titles
+  - Body content generation: AI writes bullet points, paragraphs, or speaker notes per slide
+  - Speaker notes: AI generates detailed speaker notes for every slide automatically
+  - AI rewrites: user can select any text block and request AI to rewrite it (shorter, longer, more formal, more casual, translate to another language)
+  - Content suggestions: AI suggests additional content, statistics, or examples relevant to the slide topic
+- **Visual & Media Integration:**
+  - AI-selected stock images: AI automatically selects and places relevant stock images per slide from a built-in image library
+  - User can replace any AI-selected image by uploading their own (JPG, PNG, WEBP) or searching the built-in library
+  - Icon integration: AI places relevant icons per slide from a built-in icon library (1000+ icons)
+  - Chart and graph generation: user can request a chart (bar, line, pie, area, scatter, donut) by describing the data in natural language; AI generates the chart and embeds it in the slide
+  - Data table generation: AI generates formatted data tables from natural language descriptions
+  - GIF and animation support: user can add animated GIFs to slides
+  - Video embed support: user can embed a video URL into a slide
+- **Slide Editing Tools (Gamma-Level):**
+  - Drag-and-drop element repositioning within slides
+  - Resize handles for all elements (text boxes, images, charts, icons)
+  - Text formatting toolbar: font family, font size, bold, italic, underline, strikethrough, text color, background color, alignment, bullet list, numbered list, link insertion
+  - Element layering: bring to front, send to back, layer order control
+  - Duplicate slide, delete slide, move slide (drag in slide panel or arrow buttons)
+  - Add new blank slide or AI-generated slide at any position
+  - Undo/redo with full history (minimum 50 steps)
+  - Slide notes panel: expandable notes area below each slide in edit view
+  - Zoom in/out on slide canvas
+  - Grid and alignment guides for precise element placement
+- **Presentation Modes:**
+  - Present Mode: full-screen presentation view with slide navigation (arrow keys, click, swipe on mobile)
+  - Presenter View: slide on main screen, notes and next-slide preview on secondary display or split view
+  - Slideshow autoplay with configurable slide duration
+  - Laser pointer simulation in Present Mode
+- **Collaboration Features:**
+  - Real-time collaborative editing: multiple users can edit the same presentation simultaneously
+  - Presence indicators: avatars of active collaborators shown on the slide they are editing
+  - Comment system: users can add comments to any slide element; comments are threaded and resolvable
+  - Share link generation: user can generate a view-only or edit link for the presentation
+  - Version history: full version history with named snapshots; user can restore any previous version
+- **Export Options:**
+  - Export as PPTX (Microsoft PowerPoint format, fully editable)
+  - Export as PDF (print-ready, high resolution)
+  - Export as PNG (individual slide images)
+  - Export as MP4 (animated video of the presentation with transitions)
+  - Export as interactive web link (shareable URL that renders the presentation in-browser)
+- **Import & Integration:**
+  - Import existing PPTX file: AI analyzes and redesigns the imported presentation using the selected template
+  - Import from Google Slides URL: AI fetches and redesigns the presentation
+  - Import from PDF: AI extracts content and generates a new presentation
+- **AI Chat Assistant within PPT Maker:**
+  - A persistent AI chat panel is available within the PPT Maker module
+  - User can type or speak natural language instructions to modify the entire presentation or specific slides
+  - Examples: Add a slide about market trends after slide 4, Change the color scheme to blue and white, Summarize the entire presentation in 3 slides
+  - AI executes the instruction and updates the presentation in real-time
+  - Chat history within the PPT session is preserved
+- **Transition & Animation Effects:**
+  - Slide transition effects: Fade, Slide, Zoom, Flip, Cube, Push (matching Gamma's transition library)
+  - Element entrance animations: Fade In, Slide In (from left/right/top/bottom), Zoom In, Bounce
+  - Animation timing control: delay and duration per element
+  - Global transition apply: apply one transition to all slides with a single click
+- **Accessibility:**
+  - Alt text generation for all images (AI-generated)
+  - Slide reading order configuration for screen readers
+  - High-contrast mode support
+- **Auto-Save & History:**
+  - Presentation auto-saved to database every 30 seconds
+  - Saved to thread history with thumbnail preview
+  - User can resume editing any saved presentation from History
+- **Back to Home floating button:** freely draggable and immediately visible on entry
+- **Animated background visible behind panel surfaces**
+- **Voice input supported throughout the PPT Maker module**
+- **100% operational: all AI generation requests within PPT Maker are successfully processed and delivered with zero failures; automatic retry and fallback ensure uninterrupted service**
+
+### 3.13 Resume Analyzer — 100% Operational AI-Powered Analysis
+
+#### Overview
+- The Resume Analyzer module provides fully operational, AI-powered resume analysis, scoring, feedback, and optimization
+- All analysis features are 100% working and 100% responsive — every uploaded resume receives a complete AI-generated analysis report with zero failures
+- Powered by the integrated AI backend (killing AI / OpenAI GPT-4 with vision + document understanding, geminit AI, Perplexity AI) with automatic key rotation ensuring zero failures
+
+#### File Upload
+- Supported formats: PDF, DOCX, TXT
+- Upload methods: file picker dialog, drag-and-drop, clipboard paste
+- Upload progress indicator shown inline; non-blocking UI during upload
+- Uploaded file preview displayed in the panel before analysis is initiated
+- File size limit: up to 10 MB per file
+- File validation: format check and content scan before processing
+- Inline upload error hint (non-blocking) if upload fails: Upload could not complete — please try a different file
+
+#### AI Analysis Engine (100% Operational)
+- Upon upload, the AI immediately begins analyzing the resume content end-to-end
+- Analysis is performed by the integrated AI backend with automatic retry (up to 5 retries with exponential backoff) and fallback to the next available AI service on failure
+- Analysis completes within 15 seconds for a standard single-page resume; within 30 seconds for multi-page resumes
+- All analysis results are displayed in a structured, visually rich report within the panel
+
+#### Analysis Report — Full Feature Set
+- **Overall Resume Score:**
+  - AI assigns an overall score from 0 to 100 with a visual score ring/gauge
+  - Score breakdown by category: Content Quality, Formatting & Structure, ATS Compatibility, Keyword Optimization, Impact & Achievements, Readability
+  - Each category displays an individual score (0–100) with a color-coded indicator (green ≥ 75, amber 50–74, red < 50)
+- **Section-by-Section Analysis:**
+  - AI analyzes every section of the resume individually: Contact Information, Summary/Objective, Work Experience, Education, Skills, Certifications, Projects, Awards, Languages, References
+  - For each section: completeness rating, quality rating, specific feedback, and actionable improvement suggestions
+  - Missing sections are flagged with a recommendation to add them
+- **ATS (Applicant Tracking System) Compatibility Check:**
+  - AI evaluates the resume for ATS compatibility: font readability, use of standard section headings, absence of tables/graphics that confuse ATS parsers, keyword density
+  - ATS compatibility score displayed prominently
+  - Specific ATS issues listed with fix instructions
+- **Keyword Analysis & Job Match:**
+  - AI extracts all keywords from the resume and categorizes them: hard skills, soft skills, industry terms, tools/technologies, certifications
+  - User can optionally paste a job description into a text field; AI performs a keyword gap analysis comparing the resume keywords against the job description
+  - Missing keywords highlighted with suggestions to incorporate them naturally
+  - Keyword match percentage displayed when a job description is provided
+- **Impact & Achievement Analysis:**
+  - AI identifies bullet points that lack quantifiable achievements and flags them
+  - AI suggests rewrites for weak bullet points, transforming them into achievement-oriented statements with metrics
+  - Example: Changed Managed a team to Led a cross-functional team of 8 engineers, delivering a 30% reduction in deployment time
+- **Grammar, Spelling & Tone Check:**
+  - AI performs a full grammar and spelling check across the entire resume
+  - Tone analysis: AI evaluates whether the language is professional, confident, and active-voice dominant
+  - All grammar/spelling issues listed with corrections
+  - Passive voice instances flagged with active voice rewrites suggested
+- **Formatting & Visual Structure Analysis:**
+  - AI evaluates visual hierarchy, use of white space, font consistency, bullet point consistency, section spacing, and overall readability
+  - Specific formatting issues listed with fix instructions
+  - Recommended formatting improvements displayed with before/after examples
+- **AI-Powered Rewrite Suggestions:**
+  - For every weak section or bullet point identified, AI provides a ready-to-use rewrite suggestion
+  - User can accept a suggestion with a single click, which copies the rewritten text to clipboard
+  - User can request an alternative rewrite if the first suggestion is not satisfactory
+- **Tailored Improvement Roadmap:**
+  - AI generates a prioritized, step-by-step improvement roadmap specific to the uploaded resume
+  - Roadmap items are ranked by impact: High Impact, Medium Impact, Low Impact
+  - Each roadmap item includes: issue description, why it matters, and specific action to take
+- **Industry & Role Benchmarking:**
+  - User can optionally specify their target industry and role level (Entry, Mid, Senior, Executive)
+  - AI benchmarks the resume against industry standards for that role level
+  - Benchmark comparison displayed: how the resume compares to top-performing resumes in the same category
+- **AI Chat Assistant within Resume Analyzer:**
+  - A persistent AI chat panel is available within the Resume Analyzer module
+  - User can ask follow-up questions about their resume analysis (e.g., How do I improve my skills section? or What keywords should I add for a software engineer role?)
+  - AI responds with specific, actionable advice based on the uploaded resume content
+  - Voice input supported in the chat panel
+- **Export Analysis Report:**
+  - User can export the full analysis report as PDF or DOCX
+  - Export includes all scores, section feedback, keyword analysis, and improvement roadmap
+- **Re-Analysis:**
+  - User can upload a revised resume at any time to run a new analysis and compare scores against the previous version
+  - Score delta displayed: improvement or regression per category since last analysis
+- **Auto-Save & History:**
+  - All analysis sessions saved to thread history with resume filename and overall score as preview
+  - User can revisit any past analysis session from History
+- **Back to Home floating button:** freely draggable and immediately visible on entry
+- **Animated background visible behind panel surfaces**
+- **100% operational: all resume analysis requests are successfully processed and delivered with zero failures; automatic retry and fallback ensure uninterrupted service**
+
+### 3.14 Video Editor
 - Timeline-based multi-track video and audio editing
 - Trim, cut, split, merge, transition effects library
 - Text and title overlays, filter and color grading, audio mixing and enhancement
@@ -557,13 +702,13 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Export: MP4, MOV, AVI at 720p / 1080p / 2K / 4K
 - Real-time preview, undo/redo, project auto-save
 
-### 3.14 Smart Note & Knowledge Engine
+### 3.15 Smart Note & Knowledge Engine
 - Document upload: PDF, DOCX, TXT
 - Smart summarization: bullet summary, academic summary, key insights, keyword extraction
 - Mind-map generation, flashcard generator, quiz generator
 - Automatic summary generation on upload
 
-### 3.15 Voice Assistant 2.0
+### 3.16 Voice Assistant 2.0
 - No wake word required — always-on voice detection with optimized battery usage
 - Waits for user to finish speaking before processing
 - Natural conversation memory with context continuity
@@ -578,23 +723,22 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - API: Lifetime free ElevenLabs or Google Cloud TTS with auto key rotation
 - Service uptime indicator in Admin Dashboard: Online / Offline / Degraded
 
-### 3.16 AI Productivity Suite
+### 3.17 AI Productivity Suite
 - Task Manager with smart reminders
 - AI calendar assistant and meeting summarizer
 - Email drafting assistant, resume builder, cover letter generator
 - LinkedIn post generator, blog creator
-- Resume Analyzer: upload PDF/DOCX for AI-powered analysis, feedback, and optimization
 - Prompt Generator: create optimized prompts for various AI tasks
 
-### 3.17 Smart History & Memory Management
+### 3.18 Smart History & Memory Management
 - All interactions automatically stored in database with thread-based organization
 - Full-text search across all threads with AI tagging and date-based filtering
 - Media preview grid, folder organization, starred items
-- History scope: Q&A, generated images, generated videos, note summaries, interview sessions, PPT projects, video editing projects
+- History scope: Q&A, generated images, generated videos, note summaries, interview sessions, PPT projects, video editing projects, resume analysis sessions
 - Sidebar display with Material Design styling and instant thread opening
 - Export all data, secure backup, thread metadata display
 
-### 3.18 Login System & Admin Access
+### 3.19 Login System & Admin Access
 - No user registration required — open access for all users
 - Admin Mode available via admin code: qazyen123 (stored securely server-side)
 - Correct code grants access to full admin dashboard with all features activated
@@ -604,7 +748,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
   - Dedicated Admin Mode access button/link visible on the Home page — accessible and usable only by authorized administrators (button is visible on the Home screen; access is gated by the admin code qazyen123)
   - Admin login prompt overlay: input field for admin code, submit button, rate-limited failed attempts, success grants full admin dashboard access
 
-### 3.19 Admin Dashboard
+### 3.20 Admin Dashboard
 - **Active User Monitoring:** Real-time dashboard showing a list of all currently active/operating users — display includes user identifier, active feature module, session start time, and activity status
 - **User Role Management:**
   - Admin can view all registered user accounts and their current roles
@@ -612,23 +756,11 @@ All services are lifetime free and unlimited. The integrated AI services (killin
   - Admin cannot be demoted by any User — only an Admin can demote another Admin
   - Role changes take effect immediately and are logged in the audit trail
 - **API Key Management:**
-  - Admin can view, update, and rotate API keys for all integrated services:
-    - geminit AI (Image Generation)
-    - Gemini (Google) (Image Generation)
-    - Stable Diffusion via Hugging Face (Image Generation)
-    - FLUX.1-schnell via Hugging Face (Image Generation)
-    - Pollinations AI (Image Generation)
-    - nand AI (Video Generation)
-    - Pollinations AI Video (Video Generation)
-    - Hugging Face Video / zeroscope (Video Generation)
-    - killing AI (Conversational AI / QAZYEN)
-    - ElevenLabs / Google Cloud TTS (Voice Synthesis)
-    - Perplexity AI (Research)
+  - Admin can view, update, and rotate API keys for all integrated services
   - API key input fields are masked by default; admin can reveal/edit
   - Save and rotate buttons per service
   - Real-time API health status indicator per service: Online / Offline / Degraded
   - Last verified timestamp and lifetime-free status displayed per service
-  - All documentation, labels, and settings panels within the Admin Dashboard reflect the backend services (killing AI, nand AI, geminit AI, and all additional lifetime-free services)
 - **AI Service Comprehensive Audit Panel:**
   - Admin can trigger a manual full-system audit of all AI services at any time
   - Audit checks: API reachability, response validity, lifetime-free status, key validity, and error rate
@@ -644,7 +776,7 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Background image customization management
 - No billing, subscription, or paywall management panels
 
-### 3.20 Advanced Settings
+### 3.21 Advanced Settings
 - App Volume Control: Material Design slider
 - Activity Monitor: usage statistics display
 - Voice Settings: voice profile and parameter customization
@@ -660,15 +792,15 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Real-time preview of all setting changes
 - No billing, subscription, or paywall settings
 
-### 3.21 Reset App Data
+### 3.22 Reset App Data
 - Clears all conversation threads and history from database
-- Removes all generated images, videos, PPTs, note summaries, interview sessions, video editing projects
+- Removes all generated images, videos, PPTs, note summaries, interview sessions, video editing projects, resume analysis sessions
 - Resets all user preferences and settings to default (including menu layout → Circular Mode, background → default animated gradient)
 - Confirmation dialog before execution
 - Progress indicator and completion message
 - Completes within 5 seconds
 
-### 3.22 Automatic API Key Management
+### 3.23 Automatic API Key Management
 - Real-time monitoring of API key balance and usage for all integrated services
 - Automatic detection of insufficient balance errors
 - Seamless rotation to backup API keys without service interruption
@@ -676,9 +808,9 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Admin dashboard displays API key health and status for all services
 - Automatic error recovery, retry mechanisms, and fallback providers
 - Zero downtime transitions
-- Covers all AI services: Conversational AI (killing AI / GPT-4), Image Generation (geminit AI, Gemini, Stable Diffusion, FLUX.1-schnell, Pollinations AI), Video Generation (nand AI, Pollinations AI Video, Hugging Face zeroscope), QAZYEN AI, Voice Synthesis (ElevenLabs / Google Cloud TTS), File Processing AI
+- Covers all AI services: Conversational AI (killing AI / GPT-4), Image Generation (geminit AI, Gemini, Stable Diffusion, FLUX.1-schnell, Pollinations AI), Video Generation (nand AI, Pollinations AI Video, Hugging Face zeroscope), QAZYEN AI, Voice Synthesis (ElevenLabs / Google Cloud TTS), File Processing AI, PPT Maker AI, Resume Analyzer AI
 
-### 3.23 Comprehensive AI Service Reliability & Error Resolution System
+### 3.24 Comprehensive AI Service Reliability & Error Resolution System
 
 #### Proactive Service Monitoring
 - A background service health monitor runs continuously, performing health checks every 5 minutes against all AI service endpoints
@@ -704,36 +836,22 @@ All services are lifetime free and unlimited. The integrated AI services (killin
   - Class C (Paywall/Quota): billing required, quota exceeded → mark service Offline, switch to next free service
   - Class D (Structural): API endpoint changed, response format changed → log to admin for manual review; fallback to next service
 - All error events are logged to the admin dashboard with: service name, error class, error message, timestamp, auto-recovery action taken, and resolution status
-- Admin can view a dedicated Error Resolution Log in the Admin Dashboard with filtering by service, error class, date range, and resolution status
 
-#### Virtual Qazyen (3D Robot) — Service Reliability Fix
-- The Virtual Qazyen / 3D Robot Assistant is identified as a previously non-functional service
-- Fix implementation:
-  - QAZYEN AI API (killing AI) integration is re-validated and re-tested end-to-end
-  - API key is verified as valid and active; backup key slot is populated
-  - WebGL rendering pipeline is validated across all target browsers (Chrome, Firefox, Safari, Edge)
-  - 3D model loading is tested with progressive low-poly placeholder to ensure visible output within 3 seconds
-  - Voice synthesis (ElevenLabs / Google Cloud TTS) integration is re-validated
-  - Lip-sync pipeline is re-validated against voice output
-  - All greeting sequence constraints (strictly upward 100% vertical hand movement, 0% rotation) are re-validated in the animation rig
-  - End-to-end interaction test: user initiates → robot greets → user speaks → robot responds with voice + animation → session saved to thread
-- Admin Dashboard displays QAZYEN service status: Online / Offline / Degraded with last verified timestamp
-
-### 3.24 Error Handling & Resilience — No Failure Messages
-- The application must never display the message: App modification failed. Please try again later or submit feedback. under any circumstances, on any screen, in any state, or for any reason.
-- All errors, failures, and exceptions must be handled silently and automatically in the background — the app must always remain functional and visible to the user.
+### 3.25 Error Handling & Resilience — No Failure Messages
+- The application must never display the message: App modification failed. Please try again later or submit feedback. under any circumstances
+- All errors, failures, and exceptions must be handled silently and automatically in the background
 - Error handling strategy:
   - All API call failures trigger automatic silent retry with exponential backoff (up to 5 retries before switching to a fallback provider)
-  - All network failures trigger automatic reconnection attempts in the background; the UI continues to display the last known state without any error overlay
-  - All rendering failures (3D robot, animated background, video generation, image generation) trigger graceful degradation to a simplified fallback UI
-  - All database errors trigger local cache fallback; data is queued for sync when connection is restored
-  - All feature module load failures trigger silent reload attempts; if the module cannot load after 3 attempts, a minimal placeholder UI is shown — never a failure message
+  - All network failures trigger automatic reconnection attempts in the background
+  - All rendering failures trigger graceful degradation to a simplified fallback UI
+  - All database errors trigger local cache fallback
+  - All feature module load failures trigger silent reload attempts
   - All WebGL/3D rendering errors fall back to a 2D animated avatar placeholder
   - All voice synthesis errors fall back to text-only response
   - All file upload errors display a non-blocking inline hint: Upload could not complete — please try a different file
-  - All PPT, video, and image generation timeouts display a non-blocking progress indicator with a silent background retry
-- The app must always show content, always remain interactive, and always provide a path forward for the user — zero dead ends, zero blocking error screens.
-- Admin dashboard displays real-time error logs and API health status for monitoring — errors are surfaced to admins only, never to end users.
+  - All PPT, video, image generation, and resume analysis timeouts display a non-blocking progress indicator with a silent background retry
+- The app must always show content, always remain interactive, and always provide a path forward for the user
+- Admin dashboard displays real-time error logs and API health status for monitoring — errors are surfaced to admins only, never to end users
 
 ---
 
@@ -758,18 +876,18 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - 60 FPS smooth animations throughout
 - Unity 3D humanoid robot rendering integrated seamlessly with UI
 - Flexible Circular and Grid menu layout system
-- Animated background gradient: Cyan + Light Cyan + Dark Blue + Black + White + Silver in continuous random flowing movement, with user-controllable on/off toggle
-- Background image customization: users can replace the default animated gradient with a custom background image throughout the entire application
+- Animated background gradient with user-controllable on/off toggle
+- Background image customization throughout the entire application
 - All UI panels and surfaces use semi-transparent or frosted-glass treatment
 - All menu button icons rotate continuously (ambient slow spin) and spin on click (fast 360° elastic ease-out)
 - Radial context menu (7 options) opens on any menu button click in both layout modes
 - iOS Control Center-style quick access circular menu button available on all screens
-- iOS-styled creator menu button (Muhhamed Yasin / Munaf) present in both Circular and Grid modes; clicking opens control panel with Home, Profile, and Light/Dark Mode Toggle
+- iOS-styled creator menu button (Muhhamed Yasin / Munaf) present in both Circular and Grid modes
 - Back to Home button: freely draggable floating button, always visible above all content layers, present and immediately rendered from the first frame upon entering any feature module screen
 - No blocking error messages or failure overlays are ever displayed to the user
 - No billing, subscription, or paywall UI elements anywhere in the application
 - Admin Mode access point visible on the Home page, gated by admin code qazyen123
-- Image Generation and Video Generation panels are clearly separated with distinct full-screen UIs, each displaying service status indicators (Online / Offline / Degraded) per service
+- Image Generation and Video Generation panels are clearly separated with distinct full-screen UIs
 
 ### 4.2 Dark Mode
 - Background: Animated gradient (Dark Blue, Black, Silver dominant tones with Cyan and White as accent highlights)
@@ -799,13 +917,10 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 #### Image Generation Panel Layout
 - Full-screen dedicated panel with frosted-glass surface over animated background
 - Top section: panel title (AI Image Generation), service selector row or dropdown
-- Service selector row: horizontal scrollable list of available services, each displayed as a pill/chip with:
-  - Service name
-  - Status badge: Online (green dot) / Offline (red dot) / Degraded (amber dot)
-  - Selected state: highlighted with gradient border
+- Service selector row: horizontal scrollable list of available services, each displayed as a pill/chip with service name, status badge, and selected state
 - Center section: prompt input area (text field, voice input button, file upload button)
 - Generation controls: aspect ratio selector, mode selector (Realistic / Anime / 3D / Cinematic), lighting control, mood selector
-- Generate button: full-width gradient button (Cyan → Light Blue → Pink → White → Dark Blue → White) with ripple effect
+- Generate button: full-width gradient button with ripple effect
 - Output section: generated image display with download, share, edit, and regenerate options
 - History strip: horizontal scroll of recent generations at bottom
 - Back to Home floating button: freely draggable, immediately visible on entry
@@ -813,23 +928,39 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 #### Video Generation Panel Layout
 - Full-screen dedicated panel with frosted-glass surface over animated background
 - Top section: panel title (AI Video Generation), service selector row or dropdown
-- Service selector row: same pill/chip format as image generation with Online / Offline / Degraded status badges
-- Input mode selector: segmented control or tab row (Text-to-Video / Image-to-Video / Video-to-Video) displayed prominently below the service selector
-- Center section: adaptive input area based on selected mode:
-  - Text-to-Video: text prompt field with voice input button
-  - Image-to-Video: image upload zone (drag-and-drop area or file picker button, accepts JPG/PNG/WEBP) with optional text prompt field below; uploaded image preview thumbnail displayed before generation
-  - Video-to-Video: video upload zone (drag-and-drop area or file picker button, accepts MP4/MOV/AVI) with optional text prompt field below; uploaded video preview displayed before generation
-- Generation controls:
-  - Duration selector: slider or segmented control (5s / 6s / 7s / 8s / 9s / 10s), clearly labeled
-  - Resolution selector: dropdown or segmented control (480p / 720p / 1080p / 2K / 4K), clearly labeled
-  - Scene style, motion control, camera preset selectors
+- Input mode selector: segmented control or tab row (Text-to-Video / Image-to-Video / Video-to-Video)
+- Center section: adaptive input area based on selected mode
+- Generation controls: duration selector (5s–10s), resolution selector (480p / 720p / 1080p / 2K / 4K), scene style, motion control, camera preset
 - Generate button: full-width gradient button with ripple effect
-- Output section: video player with progressive preview during rendering, download, share, and regenerate options
+- Output section: video player with progressive preview, download, share, and regenerate options
 - Rendering progress indicator: non-blocking progress bar with estimated time remaining
 - History strip: horizontal scroll of recent generations at bottom
 - Back to Home floating button: freely draggable, immediately visible on entry
 
-### 4.6 Visual Details and Micro-Interactions
+### 4.6 PPT Maker Panel UI
+- Full-screen dedicated panel with frosted-glass surface over animated background
+- Left panel: slide thumbnail strip (scrollable, drag-to-reorder, add/delete slide controls)
+- Center canvas: active slide editing area with drag-and-drop element support, resize handles, alignment guides
+- Right panel: properties panel (element formatting, layout options, animation settings, speaker notes)
+- Top toolbar: template selector, theme controls, export button, share button, present button, undo/redo
+- Bottom bar: AI chat assistant input field with voice input button
+- Outline view toggle: switch between slide canvas view and outline list view
+- Real-time preview of all edits
+- Back to Home floating button: freely draggable, immediately visible on entry
+
+### 4.7 Resume Analyzer Panel UI
+- Full-screen dedicated panel with frosted-glass surface over animated background
+- Upload zone: prominent drag-and-drop area with file picker button; displays uploaded file name and preview after upload
+- Analysis trigger: Analyze Resume button (full-width gradient, ripple effect) activated after upload
+- Analysis progress: animated progress indicator during AI processing
+- Results area: structured report with overall score ring, category score cards, section-by-section feedback accordion, keyword analysis panel, improvement roadmap list
+- Job description input: optional collapsible text area for job description paste (for keyword gap analysis)
+- AI chat panel: persistent side panel or bottom drawer for follow-up questions
+- Export button: export full report as PDF or DOCX
+- Re-analyze button: upload a new version for comparison
+- Back to Home floating button: freely draggable, immediately visible on entry
+
+### 4.8 Visual Details and Micro-Interactions
 - 8px border radius on all components
 - Material Design elevation shadows and ripple effects
 - Smooth transitions 200–300ms with Material Design easing
@@ -842,14 +973,11 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Icon rotation on click: 360° fast spin, 300ms, elastic ease-out, 60 FPS
 - Icon ambient idle rotation: slow continuous circular spin at 2–4 RPM
 - Circular button ring: user-draggable with inertial swipe-to-rotate
-- Animated background gradient: continuous random flowing movement at 60 FPS using noise-based algorithm, with on/off toggle
+- Animated background gradient: continuous random flowing movement at 60 FPS
 - Radial context menu: smooth expand/collapse animation, staggered option appearance, frosted-glass backdrop
 - iOS Control Center-style quick access panel: smooth slide-up/expand animation, frosted-glass surface
-- iOS-styled creator button: smooth expand animation on click, frosted-glass control panel overlay
-- Back to Home button: freely draggable floating button, top-left default placement, immediately visible and rendered from first frame upon entering any section, gradient styling, snap-to-edge on mobile, persisted position, slide-out transition on press
+- Back to Home button: freely draggable floating button, top-left default placement, immediately visible from first frame, gradient styling, snap-to-edge on mobile
 - Service status badges: real-time color-coded indicators with subtle pulse animation on Online state
-- Video Generation panel input mode selector: smooth tab transition animation (150ms ease-out) when switching between Text-to-Video, Image-to-Video, and Video-to-Video modes
-- Image/video upload zone in Video Generation panel: dashed gradient border with subtle pulse animation on hover/drag-over; transitions to solid gradient border on active drag-over state
 - No error message overlays or failure modals ever rendered in the UI
 - No billing, subscription, or paywall UI elements
 
@@ -862,10 +990,10 @@ All services are lifetime free and unlimited. The integrated AI services (killin
   - File name: home page reference image
   - File link: https://miaoda-conversation-file.s3cdn.medo.dev/user-8sl3xec2ksn4/conv-8sm6282ej0n4/20260326/file-aig01c6yjitc.png
 - Every visual element visible in the uploaded home page reference image must be faithfully reproduced
-- Animated background gradient flows continuously behind all Home screen elements as the base layer (unless disabled by user toggle)
-- All Home screen surfaces use semi-transparent or frosted-glass treatment consistent with the uploaded reference
-- Admin Mode access point: a dedicated Admin Mode button or link is visible on the Home screen, accessible only to authorized administrators via admin code qazyen123
-- Background animation toggle control: accessible on the Home screen as a quick-access control
+- Animated background gradient flows continuously behind all Home screen elements as the base layer
+- All Home screen surfaces use semi-transparent or frosted-glass treatment
+- Admin Mode access point: a dedicated Admin Mode button or link is visible on the Home screen
+- Background animation toggle control: accessible on the Home screen
 - iOS Control Center-style quick access circular menu button: visible and accessible on the Home screen
 - iOS-styled creator button (Muhhamed Yasin / Munaf): visible on the Home screen in the Circular Mode layout
 - No billing, subscription, or paywall elements on the Home screen
@@ -884,8 +1012,8 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 
 #### Main Content Area
 - Top navigation bar: center user profile panel, settings icon
-- Back to Home floating button: freely draggable, default top-left placement, always rendered above all content from the first frame of any feature section
-- Flexible Menu Layout System (Circular Mode and Grid Mode as described in Section 3.4)
+- Back to Home floating button: freely draggable, default top-left placement, always rendered above all content from the first frame
+- Flexible Menu Layout System (Circular Mode and Grid Mode)
 - iOS Control Center-style quick access circular menu button: always visible
 - iOS-styled creator button: always visible in Circular Mode
 - Center content area: Qazyen branding centered, message column max-width 720–820px, thread title with edit option, generous white space, streaming AI responses, code blocks with syntax highlighting, source citation cards, related questions section
@@ -908,11 +1036,10 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Both Circular and Grid modes optimized for mobile screen sizes
 - Radial context menu adapts to screen edges to avoid clipping
 - iOS Control Center-style quick access panel adapts to mobile screen
-- iOS-styled creator button adapts to mobile screen
 - Responsive 3D humanoid robot rendering
-- Back to Home floating button: freely draggable, snaps to nearest screen edge (left or right) on release with smooth snap animation (150ms ease-out), immediately visible and accessible in every feature section from the first frame, always rendered above all content layers
-- Home screen on mobile must adapt the visual language of the uploaded home page reference image (file-aig01c6yjitc.png) to smaller screens while maintaining 100% visual fidelity to the reference
-- Image Generation and Video Generation panels adapt to single-column layout on mobile; service selector scrolls horizontally; duration and resolution selectors stack vertically; input mode selector (Text-to-Video / Image-to-Video / Video-to-Video) stacks vertically or scrolls horizontally; upload zones adapt to full-width single-column layout
+- Back to Home floating button: freely draggable, snaps to nearest screen edge on release, immediately visible in every feature section from the first frame
+- Home screen on mobile must adapt the visual language of the uploaded home page reference image to smaller screens while maintaining 100% visual fidelity
+- Image Generation, Video Generation, PPT Maker, and Resume Analyzer panels adapt to single-column layout on mobile
 
 ---
 
@@ -950,24 +1077,22 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 ## 7. Interaction Logic
 
 ### 7.1 Application Startup
-- Application loads instantly with optimized asset preloading and code splitting for fast initial render
+- Application loads instantly with optimized asset preloading and code splitting
 - Robot visible in standby within laboratory background environment, with subtle idle animations — silent until user initiates
-- Main interface displays: bottom input, sidebar with thread history, flexible menu layout (user preferred mode), animated background gradient flowing continuously (unless disabled)
-- Home screen renders 100% matching the uploaded home page reference image (file-aig01c6yjitc.png) from the first frame
+- Main interface displays: bottom input, sidebar with thread history, flexible menu layout, animated background gradient flowing continuously
+- Home screen renders 100% matching the uploaded home page reference image from the first frame
 - No registration required; fast loading across all browsers and operating systems
 - Thread list loads most recent first
 - All buttons display gradient colors on startup; all icons begin ambient slow rotation on startup
 - First user interaction with robot triggers greeting with strong bass voice, strictly upward vertical hand movement (0% rotation), and friendly facial expression
-- Critical path assets (Home screen layout, background gradient, menu buttons) are prioritized and loaded first
-- Non-critical assets (3D robot model, video generation modules) are lazy-loaded after initial render
+- Critical path assets prioritized and loaded first
+- Non-critical assets lazy-loaded after initial render
 - Service Worker caches core app shell for instant subsequent loads
-- All static assets served via CDN with aggressive caching headers
-- WebGL context initialized in background after first paint to avoid blocking UI
-- Background service health monitor starts on application startup and begins periodic checks for all AI services
+- Background service health monitor starts on application startup
 
 ### 7.2 Thread Management
 - New Chat button creates fresh thread
-- Clicking any sidebar thread opens conversation instantly with zero delay and smooth Material Design transition
+- Clicking any sidebar thread opens conversation instantly with zero delay
 - Full conversation history loaded on thread open
 - Thread renaming, pinning, archiving, deletion (with confirmation), search, filtering, sharing
 - Auto-save and cross-device sync in real-time
@@ -984,63 +1109,67 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Accessible via menu (Circular or Grid) or voice activation
 - Appears in dedicated overlay with Material Design styling and animated background visible behind overlay
 - Robot rendered within laboratory background environment by default
-- Back to Home floating button visible and freely draggable in overlay immediately upon entering the robot section — rendered from the first frame
+- Back to Home floating button visible and freely draggable in overlay immediately upon entering the robot section
 - Silent until user initiates; first engagement triggers greeting with strictly upward vertical hand movement (0% rotation)
-- QAZYEN AI API is 100% operational; all interactions processed reliably with automatic retry and fallback on any failure
-- Interview mode: structured interview with advanced NLP, context-aware follow-up, authority, upward professional hand gestures (strictly vertical, 0% rotation), session summary, saved to dedicated thread
-- Voice assistant mode: always-ready, context retention, JARVIS-like proactive assistance
-- Customizable personality, camera angle, and background environment (laboratory as default)
+- QAZYEN AI API is 100% operational; all interactions processed reliably with automatic retry and fallback
+- Interview mode and Voice assistant mode as described in Section 3.8
 - 60 FPS minimum rendering
 
 ### 7.5 Image Generation Interaction
-- User opens Image Generation panel from menu (Circular or Grid mode)
-- Service selector displays all available lifetime-free services with real-time Online / Offline / Degraded status badges
-- User selects preferred service (or leaves on default: geminit AI)
-- User enters text prompt or uses voice input; optionally uploads a reference image
-- User selects generation options: aspect ratio, mode (Realistic / Anime / 3D / Cinematic), lighting, mood
-- User taps Generate button
-- If selected service is Online: request is sent to that service API
-- If selected service is Offline or Degraded: system automatically switches to the next available Online service; user sees a non-blocking inline notice: Switched to [service name] — your selected service is temporarily unavailable
+- User opens Image Generation panel from menu
+- Service selector displays all available lifetime-free services with real-time status badges
+- User selects preferred service, enters prompt, configures options, taps Generate
+- Automatic failover to next available service if selected service is offline
 - Generation progress: non-blocking animated indicator
-- On success: generated image displayed in output section with download, share, edit, and regenerate options
-- On failure after all retries: silent fallback to next service; if all services fail, a non-blocking inline message: Generation is taking longer than expected — retrying in background
+- On success: generated image displayed with download, share, edit, and regenerate options
 - Generated image saved to thread history
 - Back to Home floating button freely draggable and immediately visible throughout
 
 ### 7.6 Video Generation Interaction
-- User opens Video Generation panel from menu (Circular or Grid mode)
-- Service selector displays all available lifetime-free services with real-time Online / Offline / Degraded status badges
-- User selects preferred service (or leaves on default: nand AI)
-- User selects input mode via the input mode selector:
-  - **Text-to-Video:** user enters a text prompt (with optional voice input) describing the desired video
-  - **Image-to-Video:** user uploads a reference image (JPG, PNG, WEBP) via drag-and-drop or file picker; uploaded image preview is displayed as a thumbnail; user may optionally add a text prompt to guide animation style or motion direction; the uploaded image is passed as an input parameter to the active video generation service API
-  - **Video-to-Video:** user uploads an existing video file (MP4, MOV, AVI) via drag-and-drop or file picker; uploaded video preview is displayed; user may optionally add a text prompt to guide the transformation style
-- User configures generation parameters:
-  - Duration: slider or segmented control (5s / 6s / 7s / 8s / 9s / 10s)
-  - Resolution: dropdown or segmented control (480p / 720p / 1080p / 2K / 4K)
-  - Scene style, motion control, camera preset
-- User taps Generate button
-- If selected service is Online: request is sent to that service API with duration, resolution, and input parameters (text prompt and/or uploaded image/video)
-- If selected service is Offline or Degraded: system automatically switches to the next available Online service; user sees a non-blocking inline notice: Switched to [service name] — your selected service is temporarily unavailable
-- If the selected service does not support the chosen input mode (e.g., Image-to-Video not supported): system automatically switches to the next available service that supports the mode; user sees a non-blocking inline notice: Switched to [service name] — image-to-video not supported by your selected service
-- Generation progress: non-blocking progress bar with estimated time remaining; progressive preview playback begins as soon as partial output is available
-- On success: video displayed in output section with download, share, and regenerate options
-- On failure after all retries: silent fallback to next service; if all services fail, a non-blocking inline message: Generation is taking longer than expected — retrying in background
+- User opens Video Generation panel from menu
+- Service selector displays all available lifetime-free services with real-time status badges
+- User selects input mode (Text-to-Video / Image-to-Video / Video-to-Video), configures duration and resolution, taps Generate
+- Automatic failover including mode-aware failover for Image-to-Video
+- Generation progress: non-blocking progress bar with estimated time remaining
+- On success: video displayed with download, share, and regenerate options
 - Generated video saved to thread history
 - Back to Home floating button freely draggable and immediately visible throughout
 
-### 7.7 Menu Layout Operations
+### 7.7 PPT Maker Interaction
+- User opens PPT Maker panel from menu
+- User enters a prompt (text or voice) describing the desired presentation
+- AI generates an outline within 5 seconds; user reviews and edits the outline
+- User confirms outline; AI generates full presentation within 30 seconds
+- User edits individual slides, regenerates specific slides, adjusts theme, or uses AI chat assistant for modifications
+- User exports as PPTX, PDF, PNG, MP4, or interactive web link
+- Presentation auto-saved to thread history every 30 seconds
+- All PPT Maker AI requests are 100% operational with automatic retry and fallback
+- Back to Home floating button freely draggable and immediately visible throughout
+
+### 7.8 Resume Analyzer Interaction
+- User opens Resume Analyzer panel from menu
+- User uploads resume file (PDF, DOCX, TXT) via file picker, drag-and-drop, or clipboard paste
+- Uploaded file preview displayed in panel
+- User taps Analyze Resume button
+- AI processes the resume and generates a complete analysis report within 15–30 seconds
+- Analysis report displayed with overall score, category scores, section feedback, keyword analysis, and improvement roadmap
+- User can optionally paste a job description for keyword gap analysis
+- User can interact with the AI chat assistant for follow-up questions
+- User can export the report as PDF or DOCX
+- User can upload a revised resume for re-analysis and score comparison
+- All Resume Analyzer AI requests are 100% operational with automatic retry and fallback
+- Analysis session saved to thread history
+- Back to Home floating button freely draggable and immediately visible throughout
+
+### 7.9 Menu Layout Operations
 
 #### Circular Mode
-- Click any circular button → radial context menu expands with 7 options (Home, Back, Light/Dark, Settings, Profile, Feedback, Admin Mode) in circular arrangement around the clicked button
-- Radial menu opens with staggered scale-in animation (200ms ease-out)
-- Selecting an option executes the action and closes the menu with collapse animation (150ms ease-in)
-- Tapping outside the radial menu dismisses it without action
+- Click any circular button → radial context menu expands with 7 options in circular arrangement
 - Icons spin 360° on click with elastic ease-out (300ms)
 - Icons rotate continuously in ambient slow spin during idle
 - Entire button ring is user-draggable via swipe/drag with inertial momentum
 - Voice feedback on click and on radial menu option selection
-- iOS-styled creator button click → opens iOS Control Center-style control panel with Home, Profile, Light/Dark Mode Toggle
+- iOS-styled creator button click → opens iOS Control Center-style control panel
 
 #### Grid Mode
 - Click any grid button → same 7-option radial context menu expands from the clicked button
@@ -1048,94 +1177,66 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - Icons spin 360° on click with elastic ease-out (300ms)
 - Icons rotate continuously in ambient slow spin during idle
 - Hover effects on desktop
-- iOS-styled creator button click → opens iOS Control Center-style control panel with Home, Profile, Light/Dark Mode Toggle
+- iOS-styled creator button click → opens iOS Control Center-style control panel
 
 #### Quick Access Circular Menu Button (iOS Control Center Style)
 - Single click/tap opens iOS Control Center-style panel
-- Panel contains: Home, User Profile, Dark/Light Mode Toggle (plus optional additional controls)
+- Panel contains: Home, User Profile, Dark/Light Mode Toggle
 - Panel dismisses on tap/click outside or on pressing the circular button again
-- Smooth open/close animation (200ms ease-out / 150ms ease-in)
 
 #### Layout Switching
 - Smooth Material Design transition under 300ms; preference persisted; voice feedback
-- Radial context menu behavior consistent across both modes
 
-### 7.8 Radial Context Menu — Option Behaviors
-- Home: Immediately navigates to main Home screen; closes radial menu with collapse animation
-- Back: Navigates back one level within current module; if at top level, returns to Home; closes radial menu
-- Light/Dark: Toggles Light/Dark Mode; animated background gradient shifts tone accordingly; full UI adapts; closes radial menu
-- Settings: Opens Advanced Settings panel as an overlay or navigates to Settings screen; closes radial menu
-- Profile: Opens user profile panel (avatar, name, status, quick settings access); closes radial menu
-- Feedback: Opens feedback form overlay (text input field, 1–5 star rating, submit button, success confirmation message); closes radial menu
-- Admin Mode: Opens Admin Mode login prompt overlay (input field for admin code, submit button, rate-limited failed attempts, success grants full admin dashboard access); closes radial menu
+### 7.10 Radial Context Menu — Option Behaviors
+- Home: Immediately navigates to main Home screen
+- Back: Navigates back one level within current module; if at top level, returns to Home
+- Light/Dark: Toggles Light/Dark Mode; animated background gradient shifts tone accordingly
+- Settings: Opens Advanced Settings panel
+- Profile: Opens user profile panel
+- Feedback: Opens feedback form overlay (text input field, 1–5 star rating, submit button, success confirmation message)
+- Admin Mode: Opens Admin Mode login prompt overlay
 
-### 7.9 iOS-Styled Creator Button — Control Panel Behaviors
-- Home: Immediately navigates to main Home screen; closes control panel
-- Profile: Opens user profile panel (avatar, name, status, quick settings access); closes control panel
-- Light/Dark Mode Toggle: Toggles between Light Mode and Dark Mode with immediate full UI adaptation; animated background gradient shifts tone accordingly; closes control panel
-
-### 7.10 Back to Home Button — Movability & Navigation Behavior
+### 7.11 Back to Home Button — Movability & Navigation Behavior
 - Back to Home button is a freely draggable floating button present and immediately visible upon entering every feature module screen — rendered from the first frame, never delayed or hidden
 - The button floats above all content layers at all times (highest z-index)
 - User can drag the button to any position on the screen at any time
-- On mobile: button snaps to nearest screen edge (left or right) on release with smooth snap animation (150ms ease-out)
+- On mobile: button snaps to nearest screen edge on release with smooth snap animation (150ms ease-out)
 - On desktop: button can be freely placed anywhere within the viewport
 - Dragged position is persisted per session via local storage
 - Long-press (500ms) on mobile or right-click on desktop reveals Reset Position option
-- While dragging: button scales up to 1.1× with elevated drop shadow; on release: springs back to 1.0× with 200ms spring animation
 - Clicking Back to Home returns user to main Home screen
-- Hardware/browser back button triggers same behavior
 
-### 7.11 Dark / Light Mode Switching
-- Accessible via radial context menu (Light/Dark option), iOS Control Center-style quick access panel, iOS-styled creator button control panel, or dedicated toggle button in menu
+### 7.12 Dark / Light Mode Switching
+- Accessible via radial context menu, iOS Control Center-style quick access panel, iOS-styled creator button control panel, or dedicated toggle button
 - Material Design toggle switch with smooth animation and ripple effect
 - Light mode: animated background shifts to lighter tone dominance; black text throughout
 - Dark mode: animated background shifts to darker tone dominance; white text throughout
 - Voice feedback on mode switch
 
-### 7.12 Admin Mode
+### 7.13 Admin Mode
 - Accessible via radial context menu (Admin Mode option) on any menu button, or via dedicated Admin Mode access point on the Home page
 - Admin code qazyen123 grants full feature access
-- API key management for killing AI, nand AI, geminit AI, Gemini, Stable Diffusion, FLUX.1-schnell, Pollinations AI (image), Pollinations AI Video, Hugging Face zeroscope, ElevenLabs/Google Cloud TTS, Perplexity AI
+- API key management for all integrated services
 - Active user monitoring dashboard
-- User role management (Admin can demote another Admin to User; Users cannot demote Admins)
+- User role management
 - Rate-limited failed login attempts
-- Home page Admin Mode access point is visible on the Home screen but access is gated by the admin code
 - AI Service Audit Panel: manual audit trigger, per-service health status, lifetime-free verification status, error resolution log
-- All internal documentation, error messages, and settings panels within Admin Mode reflect the backend services (killing AI, nand AI, geminit AI, and all additional lifetime-free services)
 
-### 7.13 Background Settings Interaction
-- Animated background toggle: user taps/clicks the background animation toggle on the Home screen or in Advanced Settings; toggle state switches immediately; background transitions smoothly between animated and static states; toggle state persisted via local storage
-- Background image customization: user opens Advanced Settings → Background section; user uploads a custom background image (JPG, PNG, WEBP) via file picker or drag-and-drop; real-time preview shown in settings panel; user confirms; custom image is applied globally across all screens; gradient overlay opacity slider adjusts the blend; Reset to Default button restores the default animated gradient
-
-### 7.14 Feature Interactions
-- Image Generation (multi-service): dedicated full-screen panel, service selector with status badges, prompt input, voice input, file upload, generation controls, gradient Material Design UI, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread; 100% operational AI-powered generation across all listed lifetime-free services; automatic failover between services; 100% free lifetime access
-- Video Generation (multi-service): dedicated full-screen panel, service selector with status badges, input mode selector (Text-to-Video / Image-to-Video / Video-to-Video), prompt input, voice input, image/video file upload (for Image-to-Video and Video-to-Video modes respectively), duration selector (5–10s), resolution selector (480p / 720p / 1080p / 2K / 4K), progressive preview, gradient UI, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread; 100% operational AI-powered generation across all listed lifetime-free services; automatic failover between services including mode-aware failover for Image-to-Video; 100% free lifetime access; Sora 2 permanently excluded
-- PPT Maker (Gamma-style): prompt input → AI outline generation → full presentation generation → edit/export flow, voice input, real-time preview, template selection, export PPTX/PDF, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread
-- Video Editor: timeline interface, upload, effects, real-time preview, multi-format export, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread
-- Resume Analyzer: upload PDF/DOCX, AI analysis, feedback, optimization suggestions, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread
-- Prompt Generator: select use case, generate optimized prompts, copy, animated background visible, Back to Home floating button freely draggable and immediately visible on entry, saved to thread
-- Advanced Settings: volume slider, activity monitor, voice settings, notification/privacy/performance controls, menu layout toggle, background settings (animation toggle, image upload, opacity slider, reset), reset app data, animated background visible, Back to Home floating button freely draggable and immediately visible on entry; no billing or subscription settings
-- Reset App Data: confirmation dialog, clears all data, returns to default Circular Mode and default animated gradient background within 5 seconds
-- History Management: searchable/filterable thread list, date grouping, management options, instant thread opening, animated background visible, Back to Home floating button freely draggable and immediately visible on entry
-- All feature modules: any internal error, API failure, rendering issue, or unexpected exception is handled silently and automatically — the app remains fully visible, interactive, and functional at all times; no failure messages or error overlays are ever shown to the user
+### 7.14 Background Settings Interaction
+- Animated background toggle: toggle state switches immediately; background transitions smoothly between animated and static states; toggle state persisted via local storage
+- Background image customization: user uploads custom background image; real-time preview shown; custom image applied globally; gradient overlay opacity slider adjusts the blend; Reset to Default button restores the default animated gradient
 
 ### 7.15 Global Error Handling Behavior
-- The message App modification failed. Please try again later or submit feedback. is permanently suppressed and must never appear anywhere in the application under any condition.
-- All runtime errors, unhandled promise rejections, network failures, API errors, rendering exceptions, and module load failures are caught by a global error boundary and handled silently.
+- The message App modification failed. Please try again later or submit feedback. is permanently suppressed and must never appear anywhere in the application under any condition
+- All runtime errors, unhandled promise rejections, network failures, API errors, rendering exceptions, and module load failures are caught by a global error boundary and handled silently
 - Global error boundary behavior:
   - Catches all component-level errors and rendering exceptions
-  - On error: the affected component is silently replaced with its last known good state or a minimal placeholder — the rest of the app continues functioning normally
+  - On error: the affected component is silently replaced with its last known good state or a minimal placeholder
   - No error message, no failure modal, no toast notification referencing a failure is shown to the user
   - Error details are logged silently to the admin dashboard for monitoring purposes only
-- Network failure handling:
-  - All fetch/API calls wrapped in try-catch with automatic retry logic (exponential backoff, up to 5 retries)
-  - On persistent failure: the feature gracefully degrades to offline/cached mode; a subtle non-blocking inline indicator may appear within the specific feature area only (e.g., Reconnecting… in small text)
-  - The main app shell, navigation, and all other features remain fully functional
-- WebGL/3D rendering failure handling:
-  - If WebGL context is lost or 3D rendering fails, the robot section falls back to a 2D animated avatar
-  - The fallback is seamless — no error message is shown
-- The app must always render something useful — zero blank screens, zero dead ends, zero blocking error states visible to the user.
+- Network failure handling: all fetch/API calls wrapped in try-catch with automatic retry logic
+- WebGL/3D rendering failure handling: falls back to a 2D animated avatar seamlessly
+- The app must always render something useful — zero blank screens, zero dead ends, zero blocking error states visible to the user
 
 ---
 
@@ -1144,13 +1245,12 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - TLS 1.3 for all data in transit; AES-256 for data at rest
 - Admin code stored and validated server-side; failed attempts rate-limited; JWT sessions
 - **API Key Security:**
-  - All API keys (geminit AI, Gemini, Stable Diffusion, FLUX.1-schnell, Pollinations AI, nand AI, Pollinations AI Video, Hugging Face zeroscope, killing AI, ElevenLabs, Google Cloud TTS, Perplexity AI) are stored encrypted server-side
+  - All API keys stored encrypted server-side
   - API keys are never exposed to the client or end users
   - Only authenticated admins can view (masked), update, or rotate API keys via the Admin Dashboard
-  - API key fields in the Admin Dashboard are masked by default; admin must explicitly reveal to view
   - All API key changes are logged in the audit trail with timestamp and admin identifier
 - Input validation and sanitization against SQL injection and XSS
-- File upload scanning and validation (applies to all uploaded files including images for Image-to-Video and videos for Video-to-Video)
+- File upload scanning and validation
 - Rate limiting on API endpoints against DDoS
 - Firewall rules, network monitoring, secure API key rotation policies
 - GDPR and CCPA compliance; data anonymization layer; audit logs
@@ -1170,62 +1270,48 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 - 60 FPS animations throughout including animated background gradient
 - 3D robot rendering: 60 FPS minimum, loading under 3 seconds
 - Database query: under 500ms; thread list load: under 1 second
-- Thread switching: under 100ms (zero perceived delay)
+- Thread switching: under 100ms
 - Click response: under 50ms
-- PPT generation: under 30 seconds
+- PPT outline generation: within 5 seconds; full presentation generation: within 30 seconds
+- Resume analysis: within 15 seconds for single-page resume; within 30 seconds for multi-page resume
 - Reset app data: within 5 seconds
 - Voice synthesis latency: under 500ms
 - API response: under 1 second with automatic failover
 - Menu layout switch: under 300ms
 - Icon rotation animation response on click: under 50ms
 - Radial context menu open animation: under 200ms
-- iOS Control Center-style quick access panel open animation: under 200ms
-- iOS-styled creator button control panel open animation: under 200ms
 - Animated background gradient: 60 FPS continuous, GPU-accelerated
-- Background animation toggle response: under 100ms
-- Background image apply response: under 500ms
 - Back to Home button render time: 0ms delay — present from first frame of any module screen
 - Back to Home button drag response: under 16ms (60 FPS drag tracking)
 - Mobile edge snap animation: 150ms ease-out
-- Back navigation transition: under 200ms
-- Home screen render time: 0ms delay — Home screen must render 100% matching the uploaded reference from the first frame
+- Home screen render time: 0ms delay
 - 100% error-free and bug-free operation
-- Error boundary response time: under 16ms
-- Image generation API response: 100% successful delivery across all integrated lifetime-free services; automatic retry and failover ensure zero failed requests reaching the user
-- Video generation API response: 100% successful delivery across all integrated lifetime-free services; automatic retry and failover ensure zero failed requests reaching the user
-- Image-to-Video upload processing: file upload completes with progress indicator; uploaded image preview rendered within 500ms of upload completion
-- Video-to-Video upload processing: file upload completes with progress indicator; uploaded video preview rendered within 1 second of upload completion
-- QAZYEN AI API response (killing AI): 100% reliable; automatic retry and fallback ensure zero interaction failures
-- File processing AI API response: 100% reliable across all integrated services (geminit AI, killing AI, Perplexity AI)
-- Service health check cycle: every 5 minutes per service; health check response logged within 1 second
-- Service status badge update latency: under 2 seconds after health check result
-- Input mode selector transition animation: under 150ms
+- Image generation API response: 100% successful delivery across all integrated lifetime-free services
+- Video generation API response: 100% successful delivery across all integrated lifetime-free services
+- PPT Maker AI response: 100% successful delivery; automatic retry and failover ensure zero failed requests reaching the user
+- Resume Analyzer AI response: 100% successful delivery; automatic retry and failover ensure zero failed requests reaching the user
+- Service health check cycle: every 5 minutes per service
 
 ### 9.2 Optimization Strategies
-- Code splitting and lazy loading: only critical path code loaded on initial render; feature modules loaded on demand
-- Service Worker with aggressive caching of app shell, static assets, and API responses
-- CDN delivery for all static assets with long-lived cache headers
-- Image optimization: WebP format, responsive srcset, lazy loading for off-screen images
-- GPU-accelerated rendering for animated background gradient (CSS/WebGL shader-based)
-- Animated background degrades gracefully to static gradient on low-performance devices
-- Icon rotation uses CSS transform for GPU acceleration, minimal CPU impact
+- Code splitting and lazy loading
+- Service Worker with aggressive caching
+- CDN delivery for all static assets
+- Image optimization: WebP format, responsive srcset, lazy loading
+- GPU-accelerated rendering for animated background gradient
+- Icon rotation uses CSS transform for GPU acceleration
 - Radial context menu uses CSS transform and opacity for GPU-accelerated animation
-- iOS-styled creator button control panel uses CSS transform and opacity for GPU-accelerated animation
 - Back to Home floating button drag uses CSS transform for GPU-accelerated repositioning
-- 3D robot model uses progressive loading with low-poly placeholder displayed immediately
-- WebGL context initialized off main thread using OffscreenCanvas where supported
+- 3D robot model uses progressive loading with low-poly placeholder
 - Memory optimization: unused module assets released when navigating away
 - Progressive video rendering, 3D LOD system
 - Database indexing, caching, thread pagination
-- Prefetching for likely-accessed threads
 - WebSocket real-time updates without polling
-- Unity 3D WebGL optimization, adaptive quality settings
 - Bundle size minimized via tree-shaking and minification
 - Critical CSS inlined in HTML for zero render-blocking
-- Global error boundary implemented at the root component level to catch and silently handle all rendering and runtime errors without surfacing any failure message to the user
-- All AI service API integrations use connection pooling, request queuing, and automatic failover to maintain 100% reliability
-- Service health monitor runs on a dedicated background worker thread to avoid blocking the main UI thread
-- Image and video file uploads for Image-to-Video and Video-to-Video modes use chunked upload with resumable upload support to handle large files efficiently
+- Global error boundary implemented at the root component level
+- All AI service API integrations use connection pooling, request queuing, and automatic failover
+- Service health monitor runs on a dedicated background worker thread
+- PPT Maker and Resume Analyzer AI requests use connection pooling and request queuing with automatic failover to maintain 100% reliability
 
 ---
 
@@ -1234,20 +1320,20 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 ### 10.1 Persistent Storage
 - Conversation threads and complete history
 - Thread metadata (title, creation date, last modified, message count)
-- Generated images, videos, note summaries, interview sessions, PPT projects, video editing projects
+- Generated images, videos, note summaries, interview sessions, PPT projects, video editing projects, resume analysis sessions
 - User preferences, menu layout mode preference, robot customization, voice settings, advanced settings configurations
 - User profile information and role assignments
 - Back to Home button position preference (persisted per session via local storage)
 - Background animation toggle state (persisted via local storage)
 - Custom background image (stored in database, synced across devices)
 - Gradient overlay opacity preference (persisted via local storage)
-- API key configurations (encrypted, admin-managed, server-side only) for all integrated services
-- Admin audit logs: role changes, API key updates, login attempts, service health events, error resolution events
-- Service health check logs: per-service status history, lifetime-free verification timestamps
-- User's last selected image generation service preference (persisted per session)
-- User's last selected video generation service preference (persisted per session)
-- User's last selected video duration and resolution preferences (persisted per session)
-- User's last selected video generation input mode preference (Text-to-Video / Image-to-Video / Video-to-Video) (persisted per session)
+- API key configurations (encrypted, admin-managed, server-side only)
+- Admin audit logs
+- Service health check logs
+- User's last selected service preferences for image and video generation
+- User's last selected video duration, resolution, and input mode preferences
+- PPT Maker project auto-save state (every 30 seconds)
+- Resume Analyzer session history with score snapshots for comparison
 
 ### 10.2 Data Security and Backup
 - Encrypted storage and transmission
@@ -1271,39 +1357,38 @@ All services are lifetime free and unlimited. The integrated AI services (killin
 ### 11.2 Enhanced Functionality
 - No wake-up voice required; robot silent until user initiates
 - Creator response: My creator is Muhhamed Yasin and everyone knows him by the name Munaf
-- Seamless dark/light mode switching with full UI adaptation including animated background tone shift
+- Seamless dark/light mode switching with full UI adaptation
 - Text color: white in dark mode, black in light mode throughout entire app
-- File upload for image and video generation (including image upload for Image-to-Video and video upload for Video-to-Video), document processing, and all applicable modules
+- File upload for image and video generation, document processing, PPT Maker, Resume Analyzer, and all applicable modules
 - AI personality and theme customization
 - Offline basic mode, cross-device sync, smart notifications, cloud auto-backup
 - Material Design animations and micro-interactions throughout
 - Voice input/output integrated throughout entire application
 - All services lifetime free with automatic API key rotation; no billing, subscription, or paywall
 - 100% cinematic, gaming-quality, professional, bug-free, error-free operation
-- All menu button icons rotate continuously (ambient slow spin 2–4 RPM) and perform 360° fast spin on click (elastic ease-out, 300ms)
+- All menu button icons rotate continuously (ambient slow spin 2–4 RPM) and perform 360° fast spin on click
 - Circular button ring is user-draggable with inertial swipe-to-rotate
 - Entire app background features continuously animated flowing gradient with user-controllable on/off toggle
-- Background image customization: users can replace the default animated gradient with a custom background image throughout the entire application
-- Radial context menu with 7 options (Home, Back, Light/Dark, Settings, Profile, Feedback, Admin Mode) opens on any menu button click in both layout modes
-- iOS Control Center-style quick access circular menu button available on all screens with at minimum Home, User Profile, and Dark/Light Mode Toggle options
-- iOS-styled creator menu button (Muhhamed Yasin / Munaf) present in both Circular and Grid modes; clicking opens iOS Control Center-style control panel with Home, Profile, and Light/Dark Mode Toggle options
-- Back to Home button is a freely draggable floating button — user can move it anywhere on the screen at any time; it is always rendered above all content layers from the first frame of any module screen with zero delay; position is persisted per session; mobile snaps to nearest edge on release
+- Background image customization throughout the entire application
+- Radial context menu with 7 options opens on any menu button click in both layout modes
+- iOS Control Center-style quick access circular menu button available on all screens
+- iOS-styled creator menu button (Muhhamed Yasin / Munaf) present in both Circular and Grid modes
+- Back to Home button is a freely draggable floating button — always rendered above all content layers from the first frame of any module screen with zero delay
 - Robot appearance 100% matches uploaded image.png with shiny metallic aluminium body
-- Robot greeting hand movement: strictly upward 100% vertical direction, 0% rotation — hand does not rotate at all during greeting sequence; greeting combines hand-to-mouth movement and waving Hi motion within these strict constraints
-- All other robot hand movements and body movements are 100% professional
-- Robot default background environment is a high-fidelity 3D laboratory setting
-- The message App modification failed. Please try again later or submit feedback. must never appear anywhere in the application under any circumstances — all errors are handled silently, automatically, and invisibly to the user
-- Image generation: dedicated multi-service panel with geminit AI, Gemini, Stable Diffusion (Hugging Face), FLUX.1-schnell (Hugging Face), and Pollinations AI; all services 100% operational, lifetime-free, with real-time status indicators; automatic failover between services; admin can manage all API keys; Sora 2 permanently excluded
-- Video generation: dedicated multi-service panel with nand AI, Pollinations AI Video, and Hugging Face zeroscope; all services 100% operational, lifetime-free, with real-time status indicators; user-configurable duration (5–10 seconds) and resolution (480p / 720p / 1080p / 2K / 4K); input mode selector supporting Text-to-Video, Image-to-Video (with image file upload, JPG/PNG/WEBP), and Video-to-Video (with video file upload, MP4/MOV/AVI); automatic failover between services including mode-aware failover; admin can manage all API keys; Sora 2 permanently excluded
-- Comprehensive AI service reliability system: background health monitor (every 5 minutes), proactive error detection and auto-fix, error classification (Transient / Key-Auth / Paywall-Quota / Structural), admin error resolution log, Virtual Qazyen service re-validated and fixed end-to-end
-- Lifetime-free verification mechanism: automated checks per service to detect and suppress any service that introduces billing requirements or paywalls; admin dashboard displays verification status and last check timestamp per service
-- All internal documentation, error messages, and settings panels updated to reflect all backend services
+- Robot greeting hand movement: strictly upward 100% vertical direction, 0% rotation
+- The message App modification failed. Please try again later or submit feedback. must never appear anywhere in the application
+- PPT Maker: 100% Gamma AI feature parity — all Gamma tool features fully operational including outline generation, full presentation generation, per-slide editing, AI chat assistant, template library, chart generation, collaboration, version history, and all export formats
+- Resume Analyzer: 100% operational AI-powered analysis — all analysis features fully working including overall score, section-by-section feedback, ATS compatibility check, keyword analysis, job description matching, grammar check, AI rewrite suggestions, improvement roadmap, industry benchmarking, AI chat assistant, and export
+- Image generation: dedicated multi-service panel with all services 100% operational, lifetime-free, with real-time status indicators; automatic failover; Sora 2 permanently excluded
+- Video generation: dedicated multi-service panel with all services 100% operational, lifetime-free, with real-time status indicators; user-configurable duration and resolution; input mode selector supporting Text-to-Video, Image-to-Video, and Video-to-Video; Sora 2 permanently excluded
+- Comprehensive AI service reliability system: background health monitor (every 5 minutes), proactive error detection and auto-fix, error classification, admin error resolution log
+- Lifetime-free verification mechanism per service
 - Admin Mode access point visible on the Home page, gated by admin code qazyen123
 - Admin can view active users in real-time and manage user roles
 - Admin password is hidden and stored securely server-side
 
 ### 11.3 User Experience Goals
-The application must feel: Premium, Fast, Intelligent, Responsive, Professional, Calm, Trustworthy, Extremely satisfying, Zero-friction, Smart-defaulted, Home screen visually identical to the uploaded home page reference image (file-aig01c6yjitc.png) at 100% fidelity, enhanced with Material Design robot aesthetics, Ultra-clean and futuristic, Friendly yet powerful, Minimal distractions, Cinematic and gaming-quality, 100% error-free, Instantly responsive, Fully interactive, Flexible and customizable with gradient aesthetics, Immersive with animated background gradient (user-controllable), Effortlessly navigable with Back to Home freely movable and immediately visible on every screen upon entry, Satisfyingly tactile with rotating icon interactions, Intuitively contextual with radial menu quick-access options, Empowering with a draggable Back to Home button the user can place wherever is most comfortable, Always functional and always showing content with zero dead ends or blocking error states, Reliably powerful with 100% operational AI services matching Perplexity AI-level performance, Intuitively accessible with iOS Control Center-style quick access panel, Personally connected with iOS-styled creator button (Muhhamed Yasin / Munaf) opening a friendly control panel, Completely free with no billing friction or paywalls anywhere, Transparently reliable with real-time service status indicators showing which AI services are Online and available, Creatively versatile with Image-to-Video generation enabling users to animate their own uploaded images into AI-generated videos.
+The application must feel: Premium, Fast, Intelligent, Responsive, Professional, Calm, Trustworthy, Extremely satisfying, Zero-friction, Smart-defaulted, Home screen visually identical to the uploaded home page reference image at 100% fidelity, Ultra-clean and futuristic, Friendly yet powerful, Minimal distractions, Cinematic and gaming-quality, 100% error-free, Instantly responsive, Fully interactive, Flexible and customizable with gradient aesthetics, Immersive with animated background gradient (user-controllable), Effortlessly navigable with Back to Home freely movable and immediately visible on every screen upon entry, Satisfyingly tactile with rotating icon interactions, Intuitively contextual with radial menu quick-access options, Empowering with a draggable Back to Home button, Always functional and always showing content with zero dead ends or blocking error states, Reliably powerful with 100% operational AI services, Intuitively accessible with iOS Control Center-style quick access panel, Personally connected with iOS-styled creator button opening a friendly control panel, Completely free with no billing friction or paywalls anywhere, Transparently reliable with real-time service status indicators, Creatively versatile with Image-to-Video generation, Productively powerful with a 100% Gamma-identical PPT Maker that generates professional presentations from a single prompt, Analytically insightful with a 100% operational AI Resume Analyzer that delivers comprehensive, actionable feedback on every uploaded resume.
 
 ---
 
@@ -1313,7 +1398,7 @@ The application must feel: Premium, Fast, Intelligent, Responsive, Professional,
 - Admin password (qazyen123) is stored exclusively server-side in an encrypted format
 - Password is never included in client-side code, configuration files, or transmitted in plaintext
 - Admin login prompt validates the code via a secure server-side API call
-- Failed login attempts are rate-limited (e.g., maximum 5 attempts per 15 minutes per IP) to prevent brute force
+- Failed login attempts are rate-limited (maximum 5 attempts per 15 minutes per IP)
 - All admin login attempts (successful and failed) are logged in the audit trail
 
 ### 12.2 API Key Security Plan
@@ -1322,13 +1407,12 @@ The application must feel: Premium, Fast, Intelligent, Responsive, Professional,
 - Admin Dashboard provides masked key display with explicit reveal action
 - Key rotation: admin can manually rotate any key; system also auto-rotates on balance exhaustion
 - All key changes logged with timestamp and admin identifier
-- Separate key slots per service: geminit AI, Gemini, Stable Diffusion (Hugging Face), FLUX.1-schnell (Hugging Face), Pollinations AI (image), nand AI, Pollinations AI Video, Hugging Face zeroscope (video), killing AI, ElevenLabs, Google Cloud TTS, Perplexity AI
-- Primary and backup key slots per service for seamless automatic failover
+- Separate key slots per service with primary and backup key slots for seamless automatic failover
 
 ---
 
 ## 13. Future Expansion Roadmap
-- Phase 1: Stable release with all core features, Unity 3D humanoid robot (strictly upward greeting movement, 0% rotation), flexible menu layout, gradient color system, animated background gradient with toggle, background image customization, rotating icons, radial context menu, iOS Control Center-style quick access panel, iOS-styled creator button (Muhhamed Yasin / Munaf) with Home/Profile/Light-Dark control panel, freely movable Back to Home button, multi-service image generation panel (geminit AI, Gemini, Stable Diffusion, FLUX.1-schnell, Pollinations AI) with status indicators, multi-service video generation panel (nand AI, Pollinations AI Video, Hugging Face zeroscope) with status indicators, configurable duration/resolution, and full input mode support (Text-to-Video, Image-to-Video with image file upload, Video-to-Video with video file upload), comprehensive AI service reliability system with background health monitor and lifetime-free verification, lifetime free APIs, global silent error handling, 100% operational AI services, dual-mode admin/user system with active user monitoring and role management, zero billing or paywall elements
+- Phase 1: Stable release with all core features, Unity 3D humanoid robot, flexible menu layout, gradient color system, animated background gradient with toggle, background image customization, rotating icons, radial context menu, iOS Control Center-style quick access panel, iOS-styled creator button, freely movable Back to Home button, multi-service image generation panel, multi-service video generation panel with full input mode support, 100% Gamma-identical PPT Maker, 100% operational AI Resume Analyzer, comprehensive AI service reliability system, lifetime free APIs, global silent error handling, 100% operational AI services, dual-mode admin/user system, zero billing or paywall elements
 - Phase 2: AI Automation Workflows
 - Phase 3: Enterprise SaaS Version
 - Phase 4: API Marketplace
@@ -1348,7 +1432,7 @@ The application must feel: Premium, Fast, Intelligent, Responsive, Professional,
 ---
 
 ## 14. Product Summary
-Qazyen AI is a Perplexity AI and Gemini-level conversational engine powered by killing AI, a 100% operational AI-powered media generation powerhouse featuring a multi-service image generation panel (geminit AI, Gemini, Stable Diffusion via Hugging Face, FLUX.1-schnell via Hugging Face, and Pollinations AI — all lifetime-free, all with real-time Online/Offline/Degraded status indicators, automatic failover, and admin-manageable API keys) and a multi-service video generation panel (nand AI, Pollinations AI Video, and Hugging Face zeroscope — all lifetime-free, all with real-time status indicators, user-configurable duration from 5 to 10 seconds, user-selectable resolution from 480p to 4K, a dedicated input mode selector supporting Text-to-Video, Image-to-Video with image file upload (JPG/PNG/WEBP) and optional text prompt, and Video-to-Video with video file upload (MP4/MOV/AVI) and optional text prompt, automatic failover including mode-aware failover for Image-to-Video, and admin-manageable API keys; Sora 2 permanently excluded), a photorealistic 3D virtual humanoid robot companion (QAZYEN — 100% matching the uploaded image.png with shiny metallic aluminium body, strictly upward 100% vertical hand movement with 0% rotation during greeting combining hand-to-mouth and waving Hi motion, 100% professional hand and body movements in all other interactions, and a high-fidelity laboratory background environment, powered by a 100% operational killing AI API) featuring animated facial expressions with lip-synced mouth, expressive upward professional hand gestures, gradient color-changing body lighting, and a deep bass AI-generated robotic male voice — combined with a Gamma-style AI PPT maker, professional video editor, productivity assistant, research partner, multilingual voice companion (46+ languages), creative studio, secure knowledge vault, multi-modal file upload and AI processing, and cross-platform AI ecosystem. The Home screen is built to 100% match the visual design shown in the uploaded home page reference image (file-aig01c6yjitc.png) at pixel-perfect fidelity, with all other screens referencing qazyen app design.png for visual guidance, enhanced with Material Design robot-themed aesthetics, a flexible menu layout system (Circular Mode and Grid Mode), a full-spectrum gradient color scheme, a continuously animated flowing background gradient with user-controllable on/off toggle, customizable background images throughout the entire application, rotating circular icons with ambient slow spin and satisfying click-spin interaction, a 7-option radial context menu (Home, Back, Light/Dark, Settings, Profile, Feedback, Admin Mode) that opens in a circular arrangement on any menu button click in both layout modes, an iOS Control Center-style quick access circular menu button available on all screens, an iOS-styled creator menu button (Muhhamed Yasin / Munaf) present in both layout modes, a freely draggable floating Back to Home button that is immediately visible and accessible upon entering every feature section with zero delay, voice input/output throughout without wake word, JARVIS-like features, resume analyzer, prompt generator, image analysis, advanced settings, reset app data, automatic API key rotation, database-backed thread history with instant zero-delay opening, fully interactive and clickable AI messages, a comprehensive AI service reliability system with background health monitoring every 5 minutes, proactive error detection and auto-fix, lifetime-free verification per service, and a detailed admin error resolution log, a global silent error handling system that permanently suppresses all failure messages and ensures the app always remains visible, functional, and seamlessly operational under any condition, a dedicated Admin Mode access point on the Home page (gated by admin code qazyen123) with real-time active user monitoring, user role management, and secure encrypted API key management for all integrated services. Admin password: qazyen123. All services lifetime free and unlimited with zero billing, subscription, or paywall. No registration required. 100% cinematic, gaming-quality, professional, bug-free, error-free, instantly responsive, and gradient-styled throughout.
+Qazyen AI is a Perplexity AI and Gemini-level conversational engine powered by killing AI, a 100% operational AI-powered media generation powerhouse featuring a multi-service image generation panel (geminit AI, Gemini, Stable Diffusion via Hugging Face, FLUX.1-schnell via Hugging Face, and Pollinations AI — all lifetime-free, all with real-time Online/Offline/Degraded status indicators, automatic failover, and admin-manageable API keys) and a multi-service video generation panel (nand AI, Pollinations AI Video, and Hugging Face zeroscope — all lifetime-free, all with real-time status indicators, user-configurable duration from 5 to 10 seconds, user-selectable resolution from 480p to 4K, a dedicated input mode selector supporting Text-to-Video, Image-to-Video with image file upload and optional text prompt, and Video-to-Video with video file upload and optional text prompt, automatic failover including mode-aware failover, and admin-manageable API keys; Sora 2 permanently excluded), a photorealistic 3D virtual humanoid robot companion (QAZYEN — 100% matching the uploaded image.png with shiny metallic aluminium body, strictly upward 100% vertical hand movement with 0% rotation during greeting, 100% professional hand and body movements in all other interactions, and a high-fidelity laboratory background environment, powered by a 100% operational killing AI API), a 100% Gamma-identical AI PPT Maker (implementing every Gamma tool feature including prompt-to-outline-to-full-presentation workflow, per-slide editing, AI chat assistant, template library with 20+ templates, chart and graph generation, collaboration with real-time presence, version history, and export as PPTX/PDF/PNG/MP4/web link — all 100% working and 100% responsive), a 100% operational AI-powered Resume Analyzer (delivering comprehensive analysis including overall score, section-by-section feedback, ATS compatibility check, keyword analysis with job description matching, grammar and tone check, AI rewrite suggestions, improvement roadmap, industry benchmarking, AI chat assistant, and export as PDF/DOCX — all 100% working and 100% responsive), a professional video editor, productivity assistant, research partner, multilingual voice companion (46+ languages), creative studio, secure knowledge vault, multi-modal file upload and AI processing, and cross-platform AI ecosystem. The Home screen is built to 100% match the visual design shown in the uploaded home page reference image (file-aig01c6yjitc.png) at pixel-perfect fidelity, with all other screens referencing qazyen app design.png for visual guidance, enhanced with Material Design robot-themed aesthetics, a flexible menu layout system (Circular Mode and Grid Mode), a full-spectrum gradient color scheme, a continuously animated flowing background gradient with user-controllable on/off toggle, customizable background images throughout the entire application, rotating circular icons, a 7-option radial context menu, an iOS Control Center-style quick access circular menu button, an iOS-styled creator menu button (Muhhamed Yasin / Munaf), a freely draggable floating Back to Home button, voice input/output throughout without wake word, JARVIS-like features, automatic API key rotation, database-backed thread history, a comprehensive AI service reliability system, a global silent error handling system, a dedicated Admin Mode access point on the Home page (gated by admin code qazyen123) with real-time active user monitoring, user role management, and secure encrypted API key management for all integrated services. Admin password: qazyen123. All services lifetime free and unlimited with zero billing, subscription, or paywall. No registration required. 100% cinematic, gaming-quality, professional, bug-free, error-free, instantly responsive, and gradient-styled throughout.
 
 ---
 
@@ -1362,10 +1446,11 @@ Qazyen AI is a Perplexity AI and Gemini-level conversational engine powered by k
 7. iOS Notch Design Reference: iOS device notch design for user profile panel styling in Circular Mode
 8. Grid Layout Reference: traditional application menu design patterns for organized grid layout with rows and columns in Grid Mode
 9. Radial Context Menu Reference: circular radial menu design pattern with 7 options (Home, Back, Light/Dark, Settings, Profile, Feedback, Admin Mode) expanding from clicked button in both Circular and Grid layout modes
-10. iOS Control Center Reference: iOS Control Center design pattern for the quick access circular menu button panel (semi-transparent blur, rounded modules, Home / User Profile / Dark/Light Mode Toggle options)
-11. iOS-Styled Creator Button Reference: iOS Control Center design pattern applied to the creator identity button (Muhhamed Yasin / Munaf) — clicking opens a control panel with Home, Profile, and Light/Dark Mode Toggle options
-12. Gamma AI PPT Reference: Gamma AI platform workflow for AI-powered presentation generation (prompt → outline → full presentation → edit/export)
-13. Error Handling Reference: global silent error boundary — the message App modification failed. Please try again later or submit feedback. is permanently suppressed; all errors handled silently and automatically; app always remains visible and functional
-14. AI Service Reliability Reference: all AI services must achieve 100% operational reliability; background health monitor runs every 5 minutes per service; lifetime-free verification enforced per service; Sora 2 permanently excluded; all services are 100% free with lifetime access and no billing or paywall; admin can manage all API keys securely via Admin Dashboard
-15. Image Generation Services Reference: geminit AI, Gemini (Google), Stable Diffusion via Hugging Face Inference API (stabilityai/stable-diffusion-xl-base-1.0), FLUX.1-schnell via Hugging Face Inference API (black-forest-labs/FLUX.1-schnell), Pollinations AI (pollinations.ai image API) — all lifetime-free, all with real-time status indicators
-16. Video Generation Services Reference: nand AI, Pollinations AI Video (pollinations.ai video API), Hugging Face Video zeroscope (zeroscope_v2_576w via Hugging Face Inference API) — all lifetime-free, all with real-time status indicators, user-configurable duration (5–10 seconds) and resolution (480p / 720p / 1080p / 2K / 4K), input mode selector supporting Text-to-Video, Image-to-Video (image file upload: JPG/PNG/WEBP, with optional text prompt), and Video-to-Video (video file upload: MP4/MOV/AVI, with optional text prompt); Sora 2 permanently excluded
+10. iOS Control Center Reference: iOS Control Center design pattern for the quick access circular menu button panel
+11. iOS-Styled Creator Button Reference: iOS Control Center design pattern applied to the creator identity button (Muhhamed Yasin / Munaf)
+12. Gamma AI PPT Reference: Gamma AI platform — 100% feature parity implementation including every Gamma tool feature: prompt input, AI outline generation, full presentation generation, per-slide editing, AI chat assistant, template library (20+ templates), smart layout engine, AI content generation per slide, visual and media integration (stock images, icons, charts, tables, GIFs, video embeds), drag-and-drop editing, text formatting toolbar, element layering, undo/redo (50+ steps), transition and animation effects, present mode, presenter view, real-time collaboration with presence indicators, comment system, version history, share link generation, export as PPTX/PDF/PNG/MP4/web link, import from PPTX/Google Slides/PDF, and accessibility features — all 100% working and 100% responsive
+13. Resume Analyzer AI Reference: 100% operational AI-powered resume analysis — all features fully working including overall score (0–100) with category breakdown, section-by-section analysis, ATS compatibility check, keyword analysis with job description matching, impact and achievement analysis, grammar and tone check, AI rewrite suggestions, tailored improvement roadmap, industry and role benchmarking, AI chat assistant, export as PDF/DOCX, re-analysis with score comparison, and auto-save to thread history — all 100% working and 100% responsive
+14. Error Handling Reference: global silent error boundary — the message App modification failed. Please try again later or submit feedback. is permanently suppressed; all errors handled silently and automatically; app always remains visible and functional
+15. AI Service Reliability Reference: all AI services must achieve 100% operational reliability; background health monitor runs every 5 minutes per service; lifetime-free verification enforced per service; Sora 2 permanently excluded; all services are 100% free with lifetime access and no billing or paywall; admin can manage all API keys securely via Admin Dashboard
+16. Image Generation Services Reference: geminit AI, Gemini (Google), Stable Diffusion via Hugging Face Inference API (stabilityai/stable-diffusion-xl-base-1.0), FLUX.1-schnell via Hugging Face Inference API (black-forest-labs/FLUX.1-schnell), Pollinations AI (pollinations.ai image API) — all lifetime-free, all with real-time status indicators
+17. Video Generation Services Reference: nand AI, Pollinations AI Video (pollinations.ai video API), Hugging Face Video zeroscope (zeroscope_v2_576w via Hugging Face Inference API) — all lifetime-free, all with real-time status indicators, user-configurable duration (5–10 seconds) and resolution (480p / 720p / 1080p / 2K / 4K), input mode selector supporting Text-to-Video, Image-to-Video (image file upload: JPG/PNG/WEBP, with optional text prompt), and Video-to-Video (video file upload: MP4/MOV/AVI, with optional text prompt); Sora 2 permanently excluded
