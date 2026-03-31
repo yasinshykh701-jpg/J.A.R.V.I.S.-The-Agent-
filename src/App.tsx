@@ -7,6 +7,7 @@ import routes from './routes';
 
 import { AuthProvider } from '@/contexts/AuthContext';
 import { ChatHistoryProvider } from '@/contexts/ChatHistoryContext';
+import { BackgroundProvider } from '@/contexts/BackgroundContext';
 import { RouteGuard } from '@/components/common/RouteGuard';
 import { Toaster } from 'sonner';
 import ThemeToggleButton from '@/components/ThemeToggleButton';
@@ -25,31 +26,33 @@ const App: React.FC = () => {
   return (
     <ErrorBoundary>
       <Router>
-        <AuthProvider>
-          <ChatHistoryProvider>
-            <RouteGuard>
-              <IntersectObserver />
-              <div className="flex flex-col min-h-screen">
-                <main className="flex-grow">
-                  <Suspense fallback={<PageLoader />}>
-                    <Routes>
-                      {routes.map((route, index) => (
-                        <Route
-                          key={index}
-                          path={route.path}
-                          element={route.element}
-                        />
-                      ))}
-                      <Route path="*" element={<Navigate to="/" replace />} />
-                    </Routes>
-                  </Suspense>
-                </main>
-              </div>
-              <ThemeToggleButton />
-              <Toaster />
-            </RouteGuard>
-          </ChatHistoryProvider>
-        </AuthProvider>
+        <BackgroundProvider>
+          <AuthProvider>
+            <ChatHistoryProvider>
+              <RouteGuard>
+                <IntersectObserver />
+                <div className="flex flex-col min-h-screen">
+                  <main className="flex-grow">
+                    <Suspense fallback={<PageLoader />}>
+                      <Routes>
+                        {routes.map((route, index) => (
+                          <Route
+                            key={index}
+                            path={route.path}
+                            element={route.element}
+                          />
+                        ))}
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                      </Routes>
+                    </Suspense>
+                  </main>
+                </div>
+                <ThemeToggleButton />
+                <Toaster />
+              </RouteGuard>
+            </ChatHistoryProvider>
+          </AuthProvider>
+        </BackgroundProvider>
       </Router>
     </ErrorBoundary>
   );

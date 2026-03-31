@@ -5,7 +5,8 @@ import {
   Sun,
   Grid3x3,
   Circle,
-  Shield
+  Shield,
+  Palette
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CircularMenu from '@/components/CircularMenu';
@@ -47,6 +48,17 @@ export default function HomePageCircular() {
           </div>
           
           <div className="flex items-center gap-3 border-solid border-[rgb(218,231,231)] border-[0px] border-[rgb(218,231,231)]">
+            {/* Background Settings Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => navigate('/background-settings')}
+              className="rounded-full backdrop-blur-md bg-white/20 text-white hover:bg-white/30"
+              title="Background Settings"
+            >
+              <Palette className="h-5 w-5" />
+            </Button>
+            
             {/* Admin Mode Button */}
             <Button
               variant="ghost"

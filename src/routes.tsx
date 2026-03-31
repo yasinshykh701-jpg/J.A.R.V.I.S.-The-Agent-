@@ -25,6 +25,7 @@ const VideoEditorPage = lazy(() => import('./pages/VideoEditorPage'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const AIVideoGenerationPage = lazy(() => import('./pages/AIVideoGenerationPage'));
 const AIImageGenerationPage = lazy(() => import('./pages/AIImageGenerationPage'));
+const BackgroundSettingsPage = lazy(() => import('./pages/BackgroundSettingsPage'));
 
 import type { ReactNode } from 'react';
 
@@ -147,6 +148,12 @@ const routes: RouteConfig[] = [
     name: 'Note Summary',
     path: '/note-summary',
     element: <NoteSummaryPage />,
+    visible: false,
+  },
+  {
+    name: 'Background Settings',
+    path: '/background-settings',
+    element: <BackgroundSettingsPage />,
     visible: false,
   },
   {
