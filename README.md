@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to Your Miaoda Project
 Miaoda Application Link URL
     URL:https://medo.dev/projects/app-8sm6282ej0n5
@@ -128,3 +129,7 @@ Configure environment variables and install relevant dependencies.If you need to
 ## Learn More
 
 You can also check the help documentation: Download and Building the app（ [https://intl.cloud.baidu.com/en/doc/MIAODA/s/download-and-building-the-app-en](https://intl.cloud.baidu.com/en/doc/MIAODA/s/download-and-building-the-app-en)）to learn more detailed content.
+=======
+# J.A.R.V.I.S.-The-Agent-
+The AI Agent
+>>>>>>> 7297e82f1af08239bde8c3cf91d1b2897f1da866

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -27,3 +28,7 @@ package-lock.json
 .sync
 history/*.json
 .vite_cache
+=======
+# Google App Engine generated folder
+appengine-generated/
+>>>>>>> 7297e82f1af08239bde8c3cf91d1b2897f1da866
