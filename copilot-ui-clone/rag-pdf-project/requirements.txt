@@ -1,0 +1,11 @@
+langchain
+langchain-classic
+langchain-community
+langchain-text-splitters
+langchain-chroma
+langchain-huggingface
+langchain-ollama
+pypdf
+chromadb
+sentence-transformers
+ollama

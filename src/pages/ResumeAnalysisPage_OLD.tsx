@@ -88,12 +88,12 @@ export default function ResumeAnalysisPage() {
 
   return (
     <AppLayout>
-      <div className="h-full flex flex-col bg-[#F2F2F7] dark:bg-[#000000]">
-        <div className="ios-blur border-b border-border/50 ios-shadow z-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu08zrguhhc.jpg)]">
+      <div className="h-full flex flex-col bg-[#020810] bg-[#020810]">
+        <div className="ios-blur border-b border-border/50 ios-shadow z-10">
           <div className="content-column py-5 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold">Resume Lab</h1>
-              <p className="text-[13px] text-muted-foreground font-medium uppercase tracking-wider">AI Analysis by Qazyen AI</p>
+              <p className="text-[13px] text-muted-foreground font-medium uppercase tracking-wider">AI Analysis by JARVIS AI</p>
             </div>
             {analysis && (
               <div className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold border border-primary/20">
@@ -104,11 +104,11 @@ export default function ResumeAnalysisPage() {
         </div>
 
         <ScrollArea className="flex-1">
-          <div className="content-column py-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu13oorxdz5.jpg)]">
+          <div className="content-column py-10">
             <div className="grid lg:grid-cols-5 gap-8">
               {/* Left Column: Upload */}
               <div className="lg:col-span-2 space-y-6">
-                <div className="ios-card p-6 ios-shadow bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtzfm6wh91c.jpg)]">
+                <div className="ios-card p-6 ios-shadow">
                   <div className="w-full h-48 mb-4">
                     <TitanRobotAdvanced isListening={isLoading} emotion={isLoading ? 'thinking' : 'neutral'} />
                   </div>
@@ -175,7 +175,7 @@ export default function ResumeAnalysisPage() {
               </div>
 
               {/* Right Column: Results */}
-              <div className="lg:col-span-3 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu0qyxlsnpc.jpg)]">
+              <div className="lg:col-span-3">
                 {isLoading ? (
                   <div className="ios-card h-[600px] flex flex-col items-center justify-center text-center animate-pulse">
                     <div className="w-24 h-24 bg-muted rounded-full mb-6"></div>
@@ -250,12 +250,12 @@ export default function ResumeAnalysisPage() {
                     </div>
                   </div>
                 ) : (
-                  <div className="ios-card h-[600px] flex flex-col items-center justify-center text-center text-muted-foreground border-none bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtzu3327dvk.jpg)]">
-                    <div className="w-24 h-24 rounded-[32px] flex items-center justify-center mb-6 shadow-inner bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtz47sh1b7k.jpg)]">
+                  <div className="ios-card h-[600px] flex flex-col items-center justify-center text-center text-muted-foreground border-none">
+                    <div className="w-24 h-24 rounded-[32px] flex items-center justify-center mb-6 shadow-inner">
                       <FileText className="w-10 h-10 opacity-40" />
                     </div>
                     <h3 className="text-xl font-bold text-foreground mb-2">Ready to Start</h3>
-                    <p className="max-w-xs font-medium">Upload your resume and let Qazyen AI provide deep strategic analysis for your career.</p>
+                    <p className="max-w-xs font-medium">Upload your resume and let JARVIS AI provide deep strategic analysis for your career.</p>
                   </div>
                 )}
               </div>

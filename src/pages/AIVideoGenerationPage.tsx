@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+﻿import { useState, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -188,7 +188,7 @@ export default function AIVideoGenerationPage() {
     if (videoUrl) {
       const link = document.createElement('a');
       link.href = videoUrl;
-      link.download = `qazyen-video-${Date.now()}.mp4`;
+      link.download = `JARVIS-video-${Date.now()}.mp4`;
       link.click();
       toast.success('Video download started');
     }

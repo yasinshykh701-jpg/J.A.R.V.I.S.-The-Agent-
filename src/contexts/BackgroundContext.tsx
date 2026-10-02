@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+﻿import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface BackgroundSettings {
   type: 'gradient' | 'image' | 'solid';
@@ -24,12 +24,12 @@ const BackgroundContext = createContext<BackgroundContextType | undefined>(undef
 
 export function BackgroundProvider({ children }: { children: ReactNode }) {
   const [settings, setSettings] = useState<BackgroundSettings>(() => {
-    const saved = localStorage.getItem('qazyene-background-settings');
+    const saved = localStorage.getItem('JARVIS-background-settings');
     return saved ? JSON.parse(saved) : defaultSettings;
   });
 
   useEffect(() => {
-    localStorage.setItem('qazyene-background-settings', JSON.stringify(settings));
+    localStorage.setItem('JARVIS-background-settings', JSON.stringify(settings));
     
     // Apply background to body
     const body = document.body;

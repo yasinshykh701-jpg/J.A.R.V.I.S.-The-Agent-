@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -171,7 +171,7 @@ export default function ImageGenerationPageNew() {
     if (generatedImage) {
       const link = document.createElement('a');
       link.href = generatedImage;
-      link.download = `qazyen-image-${Date.now()}.png`;
+      link.download = `JARVIS-image-${Date.now()}.png`;
       link.click();
       toast.success('Image downloaded!');
     }

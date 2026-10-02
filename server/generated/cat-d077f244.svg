@@ -1,0 +1,16 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'>
+  <rect width='1200' height='800' fill='#050816'/>
+  <rect x='60' y='60' width='1080' height='680' rx='36' fill='url(#g)'/>
+  <circle cx='310' cy='300' r='160' fill='#22d3ee' opacity='0.45'/>
+  <circle cx='780' cy='270' r='190' fill='#8b5cf6' opacity='0.3'/>
+  <rect x='180' y='480' width='840' height='120' rx='24' fill='rgba(255,255,255,0.12)' stroke='rgba(255,255,255,0.42)'/>
+  <text x='220' y='240' fill='white' font-size='56' font-family='Segoe UI, Arial, sans-serif'>J.A.R.V.I.S.</text>
+  <text x='220' y='320' fill='#e2e8f0' font-size='28' font-family='Segoe UI, Arial, sans-serif'>Concept: cat</text>
+  <text x='220' y='560' fill='white' font-size='34' font-family='Segoe UI, Arial, sans-serif'>Local AI generation ready</text>
+  <defs>
+    <linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#0f172a'/>
+      <stop offset='100%' stop-color='#1d4ed8'/>
+    </linearGradient>
+  </defs>
+</svg>

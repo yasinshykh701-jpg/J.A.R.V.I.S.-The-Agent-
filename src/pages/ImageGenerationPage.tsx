@@ -81,7 +81,7 @@ export default function ImageGenerationPage() {
     if (generatedImage) {
       const link = document.createElement('a');
       link.href = generatedImage;
-      link.download = `qazyen-gen-${Date.now()}.png`;
+      link.download = `JARVIS-gen-${Date.now()}.png`;
       link.click();
       toast.success('Image saved to downloads');
     }
@@ -89,34 +89,34 @@ export default function ImageGenerationPage() {
 
   return (
     <AppLayout>
-      <div className="h-full flex flex-col bg-[#F2F2F7] dark:bg-[#000000]">
-        <div className="ios-blur border-b border-border/50 ios-shadow z-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsate0bsqgw.jpg)]">
+      <div className="h-full flex flex-col bg-[#020810] bg-[#020810]">
+        <div className="ios-blur border-b border-border/50 ios-shadow z-10">
           <div className="content-column py-5 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold">Image Studio</h1>
-              <p className="text-[13px] font-medium uppercase tracking-wider text-[#f3e5e5]">Creative Generation by Qazyen AI</p>
+              <p className="text-[13px] font-medium uppercase tracking-wider text-[#f3e5e5]">Creative Generation by JARVIS AI</p>
             </div>
           </div>
         </div>
 
         <ScrollArea className="flex-1">
-          <div className="content-column py-10 border-solid border-[rgb(218,231,231)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agseasf1i3nk.jpg)] rounded-[20px] border-[5px] mr-[0px] ml-[0px] mt-[15px] border-[rgb(218,231,231)]">
+          <div className="content-column py-10 border-solid border-[rgb(218,231,231)] rounded-[20px] border-[5px] mr-[0px] ml-[0px] mt-[15px] border-[rgb(218,231,231)]">
             <div className="grid lg:grid-cols-5 gap-8">
               {/* Controls Column */}
               <div className="lg:col-span-2 space-y-6">
-                <div className="ios-card p-6 ios-shadow bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsdmo9fy4u8.jpg)]">
+                <div className="ios-card p-6 ios-shadow">
                   <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
                     <Wand2 className="w-5 h-5 text-primary" />
                     Creative Prompt
                   </h2>
                   
-                  <div className="space-y-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agseasf1i3nk.jpg)] rounded-[20px] border-[5px] border-solid border-[rgb(218,231,231)]">
+                  <div className="space-y-6 rounded-[20px] border-[5px] border-solid border-[rgb(218,231,231)]">
                     <div>
                       <Textarea
                         value={prompt}
                         onChange={(e) => setPrompt(e.target.value)}
-                        placeholder="Describe what you want Qazyen AI to create..."
-                        className="ios-input min-h-[160px] max-h-[300px] resize-none py-4 text-sm font-medium leading-relaxed bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agschgi78cg0.jpg)]"
+                        placeholder="Describe what you want JARVIS AI to create..."
+                        className="ios-input min-h-[160px] max-h-[300px] resize-none py-4 text-sm font-medium leading-relaxed"
                         disabled={isLoading}
                       />
                     </div>
@@ -183,7 +183,7 @@ export default function ImageGenerationPage() {
 
               {/* Display Column */}
               <div className="lg:col-span-3">
-                <div className="ios-card aspect-square dark:bg-[#1A1A1A] flex items-center justify-center overflow-hidden border-none shadow-2xl relative bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsbbd6gq134.jpg)]">
+                <div className="ios-card aspect-square dark:bg-[#1A1A1A] flex items-center justify-center overflow-hidden border-none shadow-2xl relative">
                   {isLoading ? (
                     <div className="text-center animate-in zoom-in duration-500">
                       <div className="relative w-32 h-32 mx-auto mb-6">
@@ -191,7 +191,7 @@ export default function ImageGenerationPage() {
                         <div className="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
                         <div className="absolute inset-0 flex items-center justify-center font-bold text-primary">Q</div>
                       </div>
-                      <p className="text-lg font-bold">Creating with Qazyen AI...</p>
+                      <p className="text-lg font-bold">Creating with JARVIS AI...</p>
                       <p className="text-sm text-muted-foreground mt-1">This usually takes 15-30 seconds</p>
                     </div>
                   ) : generatedImage ? (
@@ -205,7 +205,7 @@ export default function ImageGenerationPage() {
                         <Button 
                           onClick={handleDownload}
                           size="lg"
-                          className="ios-button bg-white text-black hover:bg-white/90 shadow-xl"
+                          className="ios-button bg-[#0a0f1a] text-black hover:bg-[#0a0f1a]/90 shadow-xl"
                         >
                           <Download className="w-5 h-5 mr-2" />
                           Download
@@ -214,11 +214,11 @@ export default function ImageGenerationPage() {
                     </div>
                   ) : (
                     <div className="text-center text-muted-foreground animate-in fade-in duration-700">
-                      <div className="w-24 h-24 rounded-[32px] flex items-center justify-center mx-auto mb-6 shadow-inner bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsb5nz910xs.jpg)]">
+                      <div className="w-24 h-24 rounded-[32px] flex items-center justify-center mx-auto mb-6 shadow-inner">
                         <ImageIcon className="w-10 h-10 opacity-30" />
                       </div>
                       <h3 className="text-xl font-bold text-foreground mb-2">Awaiting Creativity</h3>
-                      <p className="max-w-xs mx-auto font-medium">Describe your vision on the left, and Qazyen AI will bring it to life here.</p>
+                      <p className="max-w-xs mx-auto font-medium">Describe your vision on the left, and JARVIS AI will bring it to life here.</p>
                     </div>
                   )}
                 </div>

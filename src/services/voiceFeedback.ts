@@ -1,4 +1,4 @@
-import { aiApi } from '@/db/api';
+﻿import { aiApi } from '@/db/api';
 
 class VoiceFeedbackService {
   private audioQueue: HTMLAudioElement[] = [];
@@ -87,7 +87,7 @@ class VoiceFeedbackService {
   }
 
   async welcome() {
-    await this.speak('Hello! I am Qazyen AI AI. How can I assist you today?', 'heart');
+    await this.speak('Hello! I am JARVIS AI AI. How can I assist you today?', 'heart');
   }
 
   async goodbye() {

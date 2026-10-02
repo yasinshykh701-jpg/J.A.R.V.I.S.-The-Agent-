@@ -1,0 +1,14 @@
+--- src/App.tsx
++++ src/App.tsx
+@@ -186,6 +186,11 @@
+           ) : (
+             <video 
+               key={backgroundVideo}
++              ref={(el) => {
++                if (el) {
++                  el.defaultMuted = true;
++                  el.muted = true;
++                }
++              }}
+               src={backgroundVideo}
+               autoPlay 

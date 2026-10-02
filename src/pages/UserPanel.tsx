@@ -17,7 +17,7 @@ export default function UserPanel() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F2F2F7] dark:bg-[#000000] p-6">
+    <div className="min-h-screen bg-[#020810] bg-[#020810] p-6">
       <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500">
         <div className="flex items-center justify-between ios-blur p-6 rounded-[32px] ios-shadow border border-border/40">
           <div className="flex items-center gap-5">
@@ -35,7 +35,7 @@ export default function UserPanel() {
         </div>
 
         <div className="grid gap-8">
-          <div className="ios-card p-8 border-none ios-shadow bg-white dark:bg-[#1C1C1E] rounded-[40px]">
+          <div className="ios-card p-8 border-none ios-shadow bg-[#0a0f1a] rounded-[40px]">
             <div className="flex flex-col md:flex-row items-center gap-10">
               <div className="relative">
                 <Avatar className="h-32 w-32 rounded-[40px] shadow-2xl">
@@ -86,7 +86,7 @@ export default function UserPanel() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="ios-card p-8 border-none bg-white dark:bg-[#1C1C1E] rounded-[40px]">
+            <div className="ios-card p-8 border-none bg-[#0a0f1a] rounded-[40px]">
               <h3 className="text-sm font-bold mb-6 flex items-center gap-2 uppercase tracking-widest text-muted-foreground">
                 <Lock className="w-4 h-4" /> Control Center
               </h3>
@@ -103,7 +103,7 @@ export default function UserPanel() {
             <div className="ios-card p-8 border-none bg-primary/10 rounded-[40px] relative overflow-hidden group">
               <Sparkles className="absolute -top-4 -right-4 w-24 h-24 text-primary/5 group-hover:scale-150 transition-transform duration-1000" />
               <h3 className="text-sm font-bold mb-6 flex items-center gap-2 uppercase tracking-widest text-primary">
-                Qazyen AI Intelligence
+                JARVIS AI Intelligence
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 {[

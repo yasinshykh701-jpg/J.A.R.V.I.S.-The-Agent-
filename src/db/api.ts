@@ -1,36 +1,46 @@
-import { supabase } from './supabase';
+import { supabase, supabaseAnonKey, supabaseUrl } from './supabase';
 import type { ChatContent, ImageGenerationTask, VideoGenerationTask, TranscriptionResult } from '@/types/ai';
 
 export const aiApi = {
   // Chat with LLM
   async chat(contents: ChatContent[]): Promise<ReadableStream> {
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-    
-    const response = await fetch(`${supabaseUrl}/functions/v1/chat-llm`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${supabaseAnonKey}`,
-        'apikey': supabaseAnonKey,
-      },
-      body: JSON.stringify({ contents }),
-    });
+    const fallbackText = 'I’m currently running in offline-safe mode. Please try again in a moment.';
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Edge function error in chat-llm:', errorText);
-      throw new Error(errorText || 'Failed to chat with AI');
+    try {
+      const response = await fetch(`${supabaseUrl}/functions/v1/chat-llm`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`,
+          'apikey': supabaseAnonKey,
+        },
+        body: JSON.stringify({ contents }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Edge function error in chat-llm:', errorText);
+        throw new Error(errorText || 'Failed to chat with AI');
+      }
+
+      if (!response.body) {
+        throw new Error('No response body received from AI');
+      }
+
+      return response.body;
+    } catch (error) {
+      console.warn('Falling back to local chat response:', error);
+      const stream = new ReadableStream({
+        start(controller) {
+          controller.enqueue(new TextEncoder().encode(`data: ${JSON.stringify({ text: fallbackText })}\n\n`));
+          controller.close();
+        }
+      });
+      return stream;
     }
-
-    if (!response.body) {
-      throw new Error('No response body received from AI');
-    }
-
-    return response.body;
   },
 
-  // Text to Speech with emoji/special character removal - BASS ROBOTIC VOICE - Multilingual Support
+  // Text to Speech — Voice API key first, then Supabase edge TTS
   async textToSpeech(input: string, language = 'en', voice = 'onyx'): Promise<ArrayBuffer> {
     // Clean text: remove emojis, markdown formatting, and special characters
     let cleanText = input
@@ -58,45 +68,58 @@ export const aiApi = {
 
     console.log('TTS Request:', { text: cleanText.substring(0, 50), voice, language });
 
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-
-    const response = await fetch(`${supabaseUrl}/functions/v1/text-to-speech`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${supabaseAnonKey}`,
-        'apikey': supabaseAnonKey,
-      },
-      body: JSON.stringify({ input: cleanText, voice, response_format: 'mp3', language }),
-    });
-
-    console.log('TTS Response Status:', response.status, response.statusText);
-
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Edge function error in text-to-speech:', errorText);
-      throw new Error(errorText || 'Failed to convert text to speech');
+    // 1) Configured voice API key (VoiceRSS / ElevenLabs)
+    try {
+      const { speakWithVoiceApiKey } = await import('@/services/voiceRssTts');
+      const keyed = await speakWithVoiceApiKey(cleanText, language, voice);
+      if (keyed && keyed.byteLength > 0) {
+        console.log('TTS via voice API key, bytes:', keyed.byteLength);
+        return keyed;
+      }
+    } catch (e) {
+      console.warn('Voice API key TTS unavailable:', e);
     }
 
-    const contentType = response.headers.get('content-type');
-    console.log('TTS Response Content-Type:', contentType);
+    try {
+      const response = await fetch(`${supabaseUrl}/functions/v1/text-to-speech`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${supabaseAnonKey}`,
+          'apikey': supabaseAnonKey,
+        },
+        body: JSON.stringify({ input: cleanText, voice, response_format: 'mp3', language }),
+      });
 
-    // Check if response is JSON (error) or binary (audio)
-    if (contentType?.includes('application/json')) {
-      const errorData = await response.json();
-      console.error('TTS returned JSON error:', errorData);
-      throw new Error(errorData.error || 'Failed to convert text to speech');
+      console.log('TTS Response Status:', response.status, response.statusText);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Edge function error in text-to-speech:', errorText);
+        throw new Error(errorText || 'Failed to convert text to speech');
+      }
+
+      const contentType = response.headers.get('content-type');
+      console.log('TTS Response Content-Type:', contentType);
+
+      if (contentType?.includes('application/json')) {
+        const errorData = await response.json();
+        console.error('TTS returned JSON error:', errorData);
+        throw new Error(errorData.error || 'Failed to convert text to speech');
+      }
+
+      const arrayBuffer = await response.arrayBuffer();
+      console.log('TTS Audio Buffer Size:', arrayBuffer.byteLength);
+
+      if (arrayBuffer.byteLength === 0) {
+        throw new Error('Received empty audio data');
+      }
+
+      return arrayBuffer;
+    } catch (error) {
+      console.warn('Falling back to empty audio buffer:', error);
+      return new ArrayBuffer(0);
     }
-
-    const arrayBuffer = await response.arrayBuffer();
-    console.log('TTS Audio Buffer Size:', arrayBuffer.byteLength);
-    
-    if (arrayBuffer.byteLength === 0) {
-      throw new Error('Received empty audio data');
-    }
-
-    return arrayBuffer;
   },
 
   // Speech to Text
@@ -108,17 +131,26 @@ export const aiApi = {
       formData.append('speaker_labels', 'true');
     }
 
-    const { data, error } = await supabase.functions.invoke('speech-to-text', {
-      body: formData,
-    });
+    try {
+      const { data, error } = await supabase.functions.invoke('speech-to-text', {
+        body: formData,
+      });
 
-    if (error) {
-      const errorMsg = await error?.context?.text();
-      console.error('Edge function error in speech-to-text:', errorMsg || error?.message);
-      throw new Error(errorMsg || error?.message || 'Failed to transcribe audio');
+      if (error) {
+        const errorMsg = await error?.context?.text();
+        console.error('Edge function error in speech-to-text:', errorMsg || error?.message);
+        throw new Error(errorMsg || error?.message || 'Failed to transcribe audio');
+      }
+
+      return data;
+    } catch (error) {
+      console.warn('Falling back to local transcription placeholder:', error);
+      return {
+        text: 'Speech transcription unavailable right now.',
+        language: 'en',
+        duration: 0,
+      } as TranscriptionResult;
     }
-
-    return data;
   },
 
   // Image Generation - Advanced API with polling
@@ -128,74 +160,79 @@ export const aiApi = {
       parts: [{ text: prompt }]
     }];
 
-    const { data: submitData, error: submitError } = await supabase.functions.invoke('image-generation-submit', {
-      body: { contents },
-    });
+    try {
+      const { data: submitData, error: submitError } = await supabase.functions.invoke('image-generation-submit', {
+        body: { contents },
+      });
 
-    if (submitError) {
-      const errorMsg = await submitError?.context?.text();
-      console.error('Edge function error in image-generation-submit:', errorMsg || submitError?.message);
-      throw new Error(errorMsg || submitError?.message || 'Failed to submit image generation');
-    }
+      if (submitError) {
+        const errorMsg = await submitError?.context?.text();
+        console.error('Edge function error in image-generation-submit:', errorMsg || submitError?.message);
+        throw new Error(errorMsg || submitError?.message || 'Failed to submit image generation');
+      }
 
-    if (submitData.status !== 0) {
-      throw new Error(submitData.message || 'Failed to submit image generation');
-    }
+      if (submitData.status !== 0) {
+        throw new Error(submitData.message || 'Failed to submit image generation');
+      }
 
-    const taskId = submitData.data.taskId;
-    console.log('Image generation task submitted:', taskId);
+      const taskId = submitData.data.taskId;
+      console.log('Image generation task submitted:', taskId);
 
     // Step 2: Poll for task completion (every 8 seconds, max 10 minutes)
     const maxAttempts = 75; // 75 * 8 seconds = 10 minutes
     let attempts = 0;
 
-    while (attempts < maxAttempts) {
-      // Wait 8 seconds before polling
-      await new Promise(resolve => setTimeout(resolve, 8000));
-      attempts++;
+      while (attempts < maxAttempts) {
+        // Wait 8 seconds before polling
+        await new Promise(resolve => setTimeout(resolve, 8000));
+        attempts++;
 
-      const { data: queryData, error: queryError } = await supabase.functions.invoke('image-generation-query', {
-        body: { taskId },
-      });
+        const { data: queryData, error: queryError } = await supabase.functions.invoke('image-generation-query', {
+          body: { taskId },
+        });
 
-      if (queryError) {
-        const errorMsg = await queryError?.context?.text();
-        console.error('Edge function error in image-generation-query:', errorMsg || queryError?.message);
-        throw new Error(errorMsg || queryError?.message || 'Failed to query image generation');
-      }
-
-      if (queryData.status !== 0) {
-        throw new Error(queryData.message || 'Failed to query image generation');
-      }
-
-      const taskStatus = queryData.data.status;
-      console.log(`Image generation status (attempt ${attempts}):`, taskStatus);
-
-      if (taskStatus === 'SUCCESS') {
-        // Extract image from result
-        const result = queryData.data.result;
-        if (result?.candidates?.[0]?.content?.parts?.[0]?.text) {
-          const markdownText = result.candidates[0].content.parts[0].text;
-          // Extract Base64 image from markdown format: ![image](data:image/jpeg;base64,XXXXX)
-          const match = markdownText.match(/!\[image\]\((data:image\/[^;]+;base64,[^)]+)\)/);
-          if (match && match[1]) {
-            return {
-              image_urls: [match[1]],
-              success_count: 1,
-            };
-          }
+        if (queryError) {
+          const errorMsg = await queryError?.context?.text();
+          console.error('Edge function error in image-generation-query:', errorMsg || queryError?.message);
+          throw new Error(errorMsg || queryError?.message || 'Failed to query image generation');
         }
-        throw new Error('Image generated but could not extract image data');
-      } else if (taskStatus === 'FAILED') {
-        const errorMsg = queryData.data.error?.message || 'Image generation failed';
-        throw new Error(errorMsg);
-      } else if (taskStatus === 'TIMEOUT') {
-        throw new Error('Image generation timed out');
-      }
-      // Status is PENDING, continue polling
-    }
 
-    throw new Error('Image generation timed out after 10 minutes');
+        if (queryData.status !== 0) {
+          throw new Error(queryData.message || 'Failed to query image generation');
+        }
+
+        const taskStatus = queryData.data.status;
+        console.log(`Image generation status (attempt ${attempts}):`, taskStatus);
+
+        if (taskStatus === 'SUCCESS') {
+          const result = queryData.data.result;
+          if (result?.candidates?.[0]?.content?.parts?.[0]?.text) {
+            const markdownText = result.candidates[0].content.parts[0].text;
+            const match = markdownText.match(/!\[image\]\((data:image\/[^;]+;base64,[^)]+)\)/);
+            if (match && match[1]) {
+              return {
+                image_urls: [match[1]],
+                success_count: 1,
+              };
+            }
+          }
+          throw new Error('Image generated but could not extract image data');
+        } else if (taskStatus === 'FAILED') {
+          const errorMsg = queryData.data.error?.message || 'Image generation failed';
+          throw new Error(errorMsg);
+        } else if (taskStatus === 'TIMEOUT') {
+          throw new Error('Image generation timed out');
+        }
+      }
+
+      throw new Error('Image generation timed out after 10 minutes');
+    } catch (error) {
+      console.warn('Falling back to placeholder image result:', error);
+      return {
+        image_urls: [],
+        success_count: 0,
+      };
+    }
   },
 
   // Image-to-Image Generation - Advanced API with reference image

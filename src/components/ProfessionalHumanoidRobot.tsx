@@ -9,7 +9,7 @@
  * - Realistic lighting and reflections
  */
 
-import { useRef, useEffect } from 'react';
+import { createElement, useRef, useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei';
 import * as THREE from 'three';
@@ -409,6 +409,9 @@ function HumanoidRobotMesh({ isListening = false, isSpeaking = false }: RobotPro
 }
 
 export default function ProfessionalHumanoidRobot({ isListening = false, isSpeaking = false, emotion = 'neutral' }: RobotProps) {
+  const floorGeometry = useMemo(() => new THREE.PlaneGeometry(20, 20), []);
+  const floorGrid = useMemo(() => new THREE.GridHelper(20, 40, '#999999', '#cccccc'), []);
+
   return (
     <div className="w-full h-full">
       <Canvas shadows>
@@ -445,7 +448,7 @@ export default function ProfessionalHumanoidRobot({ isListening = false, isSpeak
 
         {/* Laboratory Floor */}
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3.3, 0]} receiveShadow>
-          <planeGeometry args={[20, 20]} />
+          {createElement('primitive', { object: floorGeometry })}
           <meshStandardMaterial 
             color="#e0e0e0" 
             metalness={0.3} 
@@ -454,7 +457,7 @@ export default function ProfessionalHumanoidRobot({ isListening = false, isSpeak
         </mesh>
 
         {/* Laboratory Grid */}
-        <gridHelper args={[20, 40, '#999999', '#cccccc']} position={[0, -3.29, 0]} />
+        {createElement('primitive', { object: floorGrid, position: [0, -3.29, 0] })}
       </Canvas>
     </div>
   );

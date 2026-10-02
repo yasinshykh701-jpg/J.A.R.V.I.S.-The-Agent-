@@ -218,16 +218,16 @@ export default function VideoGenerationPage() {
     
     const a = document.createElement('a');
     a.href = generatedVideo;
-    a.download = `qazyen-video-${Date.now()}.mp4`;
+    a.download = `JARVIS-video-${Date.now()}.mp4`;
     a.click();
     toast.success('⬇️ Video download started!');
   };
 
   return (
     <AppLayout>
-      <div className="h-full flex flex-col bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 dark:from-slate-900 dark:via-purple-950 dark:to-slate-900">
+      <div className="h-full flex flex-col bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 from-[#030508] via-[#040c18] to-[#030508]">
         {/* Header */}
-        <div className="ios-blur ios-shadow border-solid border-[18.3784px] rounded-tl-[12px] rounded-bl-[12px] rounded-tr-[12px] rounded-br-[12px] border-[#f2f8f2e6] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsnnj0xj1mo.jpg)]">
+        <div className="ios-blur ios-shadow border-solid border-[18.3784px] rounded-tl-[12px] rounded-bl-[12px] rounded-tr-[12px] rounded-br-[12px] border-[#f2f8f2e6]">
           <div className="content-column py-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-2xl from-purple-500 to-pink-500 flex items-center justify-center ios-shadow bg-cover bg-center bg-no-repeat bg-[#211d1c]">
@@ -242,10 +242,10 @@ export default function VideoGenerationPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 overflow-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a1chw19mbj7k.png)]">
-          <div className="content-column space-y-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsn2hd29ssg.jpg)] rounded-[20px]">
+        <div className="flex-1 overflow-auto p-6">
+          <div className="content-column space-y-6 rounded-[20px]">
             {/* Mode Selection */}
-            <Card className="ios-card border-0 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsoyfzdxu68.jpg)]">
+            <Card className="ios-card border-0">
               <CardHeader>
                 <CardTitle>Generation Mode</CardTitle>
                 <CardDescription>Choose how you want to create your video</CardDescription>
@@ -255,7 +255,7 @@ export default function VideoGenerationPage() {
                   <Button
                     variant={mode === 'text' ? 'default' : 'outline'}
                     onClick={() => setMode('text')}
-                    className="h-20 flex-col gap-2 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsmeszpmg3k.jpg)]"
+                    className="h-20 flex-col gap-2"
                     disabled={isGenerating}
                   >
                     <Sparkles className="h-6 w-6" />
@@ -310,14 +310,14 @@ export default function VideoGenerationPage() {
             )}
 
             {/* Settings Card */}
-            <Card className="ios-card border-0 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsokevh3m68.jpg)]">
+            <Card className="ios-card border-0">
               <CardHeader
-                className="bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtgx5j2tibk.jpg)]">
-                <CardTitle className="text-[13px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtnwtx01zwg.jpg)] rounded-[20px]">{"Video Settings"}</CardTitle>
+                className="">
+                <CardTitle className="text-[13px] rounded-[20px]">{"Video Settings"}</CardTitle>
                 <CardDescription>Configure your video generation</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid grid-cols-2 gap-4 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtv3iuvomps.jpg)] rounded-[20px] border-[5px] border-solid border-[rgb(218,231,231)]">
+                <div className="grid grid-cols-2 gap-4 rounded-[20px] border-[5px] border-solid border-[rgb(218,231,231)]">
                   <div className="space-y-2">
                     <Label>Model</Label>
                     <Select value={modelName} onValueChange={setModelName} disabled={isGenerating}>
@@ -370,7 +370,7 @@ export default function VideoGenerationPage() {
                     placeholder="Describe the video you want to create..."
                     value={prompt}
                     onChange={(e) => setPrompt(e.target.value)}
-                    className="ios-input min-h-[100px] resize-none bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agsmsu3mghs0.jpg)]"
+                    className="ios-input min-h-[100px] resize-none"
                     disabled={isGenerating}
                   />
                 </div>
@@ -381,7 +381,7 @@ export default function VideoGenerationPage() {
                     placeholder="What you don't want in the video..."
                     value={negativePrompt}
                     onChange={(e) => setNegativePrompt(e.target.value)}
-                    className="ios-input min-h-[80px] resize-none bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtf54yz9lhc.jpg)]"
+                    className="ios-input min-h-[80px] resize-none"
                     disabled={isGenerating}
                   />
                 </div>
@@ -389,7 +389,7 @@ export default function VideoGenerationPage() {
                 <Button
                   onClick={handleGenerate}
                   disabled={isGenerating}
-                  className="w-full ios-button gap-2 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agtg9wxz2rr4.jpg)]"
+                  className="w-full ios-button gap-2"
                 >
                   {isGenerating ? (
                     <>

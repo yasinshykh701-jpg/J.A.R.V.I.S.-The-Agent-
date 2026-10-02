@@ -53,7 +53,7 @@ export default function HomePage() {
   const playGreeting = async () => {
     try {
       const greetings = {
-        en: 'Hello! This is Qazyen AI. Tell me how can I help you today?',
+        en: 'Hello! This is JARVIS AI. Tell me how can I help you today?',
         hi: 'नमस्ते! मैं काज़येन हूं। बताइए मैं आज आपकी कैसे मदद कर सकता हूं?',
         mr: 'नमस्कार! मी काझयेन आहे। सांगा मी आज तुम्हाला कशी मदत करू शकतो?',
         ar: 'مرحبا! أنا قازين. أخبرني كيف يمكنني مساعدتك اليوم؟',
@@ -206,10 +206,10 @@ export default function HomePage() {
         // Add special system prompt for virtual robot mode
         let systemPrompt = '';
         if (selectedFeature === 'chat') {
-          systemPrompt = `You are Qazyen AI, an AI assistant created by Yasin to help users with various tasks.
+          systemPrompt = `You are JARVIS AI, an AI assistant created by Yasin to help users with various tasks.
 
 IDENTITY:
-- Your name is Qazyen AI
+- Your name is JARVIS AI
 - Your creator is Yasin
 - When asked about your creator, respond: "My creator is Yasin. He created me to help you!"
 
@@ -220,16 +220,16 @@ Be helpful, friendly, and concise in your responses.`;
           });
           contents.push({
             role: 'model' as const,
-            parts: [{ text: "Hello! I'm Qazyen AI. How can I help you today?" }],
+            parts: [{ text: "Hello! I'm JARVIS AI. How can I help you today?" }],
           });
         } else if (selectedFeature === 'virtual-robot') {
-          systemPrompt = `You are Qazyen AI, a friendly 3D virtual robot assistant created by Yasin. 
+          systemPrompt = `You are JARVIS AI, a friendly 3D virtual robot assistant created by Yasin. 
 
 IMPORTANT IDENTITY INFORMATION:
-- Your name is Qazyen AI
+- Your name is JARVIS AI
 - Your creator is Yasin, who created you to help people
 - When asked "Who is your creator?" or "Who created you?", respond: "My creator is Yasin. He created me to help you!"
-- When introducing yourself, say: "I'm Qazyen AI, your AI assistant. How can I help you today?"
+- When introducing yourself, say: "I'm JARVIS AI, your AI assistant. How can I help you today?"
 
 PERSONALITY:
 - Respond in a warm, helpful, and conversational manner
@@ -238,14 +238,14 @@ PERSONALITY:
 - Keep responses concise and engaging
 - Be friendly and approachable
 
-Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
+Remember: You are JARVIS AI, created by Yasin to assist and help users. 🤖`;
           contents.unshift({
             role: 'user' as const,
             parts: [{ text: systemPrompt }],
           });
           contents.push({
             role: 'model' as const,
-            parts: [{ text: "Hello! I'm Qazyen AI, your AI assistant created by Yasin. How can I help you today? 🤖" }],
+            parts: [{ text: "Hello! I'm JARVIS AI, your AI assistant created by Yasin. How can I help you today? 🤖" }],
           });
         } else if (selectedFeature === 'interview-prep') {
           systemPrompt = 'You are an experienced interview coach. Conduct a professional interview, ask relevant questions, and provide constructive feedback. Be encouraging but thorough.';
@@ -445,11 +445,11 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
   };
 
   return (
-    <div className="min-h-screen flex flex-col gradient-mesh-bg bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-95niyasov7k0.jpg)]">
+    <div className="min-h-screen flex flex-col gradient-mesh-bg">
       {/* Samsung Z Fold Toggle Button */}
       <button
         onClick={() => setIsFolded(!isFolded)}
-        className="fold-toggle bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-9d347qmet43k.png)]"
+        className="fold-toggle"
         aria-label={isFolded ? "Unfold" : "Fold"}
         title={isFolded ? "Unfold Layout" : "Fold Layout"}
       >
@@ -462,7 +462,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
         </svg>
       </button>
       {/* Modern Glassmorphism Header */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-gray-900/80 border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
+      <header className="sticky top-0 z-50 backdrop-blur-xl bg-[#0a0f1a]/80 dark:bg-[#030508]/80 border-b border-gray-200/50 dark:border-gray-700/50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             
@@ -472,7 +472,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-gray-900 dark:text-white">Qazyen AI</span>
+                <span className="text-lg font-bold text-gray-900 dark:text-white">JARVIS AI</span>
                 <span className="text-xs text-gray-500 dark:text-gray-400">AI Platform</span>
               </div>
             </div>
@@ -484,7 +484,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedFeature === 'chat'
                     ? 'bg-blue-500 text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-[#0a0f1a] dark:hover:bg-gray-800'
                 }`}
               >
                 Chat
@@ -494,14 +494,14 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedFeature === 'image-generation'
                     ? 'bg-blue-500 text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-[#0a0f1a] dark:hover:bg-gray-800'
                 }`}
               >
                 Images
               </button>
               <button
                 onClick={() => navigate('/video-generation')}
-                className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-[#0a0f1a] dark:hover:bg-gray-800 transition-all"
               >
                 Videos
               </button>
@@ -510,7 +510,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   selectedFeature === 'notes-summary'
                     ? 'bg-blue-500 text-white shadow-md'
-                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                    : 'text-gray-600 dark:text-gray-300 hover:bg-[#0a0f1a] dark:hover:bg-gray-800'
                 }`}
               >
                 Notes
@@ -526,7 +526,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="gap-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                    className="gap-2 rounded-full hover:bg-[#0a0f1a] dark:hover:bg-gray-800"
                   >
                     <Languages className="h-4 w-4" />
                     <span className="hidden sm:inline text-xs">{languageNames[selectedLanguage].split(' ')[0]}</span>
@@ -551,7 +551,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="gap-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 pl-2 pr-3"
+                    className="gap-2 rounded-full hover:bg-[#0a0f1a] dark:hover:bg-gray-800 pl-2 pr-3"
                   >
                     <Avatar className="h-7 w-7 ring-2 ring-blue-500/20">
                       <AvatarFallback className="text-xs bg-gradient-to-br from-blue-500 to-purple-600 text-white font-semibold">
@@ -601,7 +601,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
         </div>
       </header>
       {/* Main Content */}
-      <div className="flex-1 max-w-7xl mx-auto w-full px-4 xl:px-6 py-6 xl:py-8 flex flex-col gap-6 xl:gap-8 robotic-bg circuit-pattern bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-9d34nivb8kcg.png)]">
+      <div className="flex-1 max-w-7xl mx-auto w-full px-4 xl:px-6 py-6 xl:py-8 flex flex-col gap-6 xl:gap-8 robotic-bg circuit-pattern">
         {/* iOS 17 Launcher Style - App Icons Grid */}
         <div className="space-y-5 xl:space-y-6">
           <h2 className="text-3xl xl:text-4xl font-bold text-foreground px-1 holographic-text flex items-center gap-3">
@@ -667,7 +667,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
                       ? 'Virtual Robot Mode' 
                       : selectedFeature === 'interview-prep'
                       ? 'Interview Preparation'
-                      : 'Hello! This is Qazyen AI'}
+                      : 'Hello! This is JARVIS AI'}
                   </p>
                   <p className="text-base xl:text-lg text-muted-foreground font-medium">
                     {selectedFeature === 'virtual-robot'
@@ -757,7 +757,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
               <Textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="This is Qazyen AI is here for you!"
+                placeholder="This is JARVIS AI is here for you!"
                 className="min-h-[56px] xl:min-h-[64px] max-h-32 pr-16 xl:pr-18 resize-none rounded-3xl xl:rounded-[32px] robot-input robot-card samsung-input samsung-rounded border-primary/30 focus:ring-2 focus:ring-primary text-base xl:text-lg text-foreground placeholder:text-muted-foreground font-medium shadow-lg ios-widget"
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {

@@ -1,0 +1,51 @@
+{
+  "collections": {
+    "users": {
+      "type": "document",
+      "fields": {
+        "id": { "type": "string" },
+        "displayName": { "type": "string" },
+        "handle": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "wallpaperURL": { "type": "string" },
+        "bio": { "type": "string" },
+        "followersCount": { "type": "number" },
+        "followingCount": { "type": "number" },
+        "likesCount": { "type": "number" },
+        "createdAt": { "type": "timestamp" }
+      }
+    },
+    "videos": {
+      "type": "document",
+      "fields": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "description": { "type": "string" },
+        "likesCount": { "type": "number" },
+        "commentsCount": { "type": "number" },
+        "sharesCount": { "type": "number" },
+        "visibility": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      }
+    },
+    "likes": {
+      "type": "document",
+      "fields": {
+        "id": { "type": "string" },
+        "videoId": { "type": "string" },
+        "userId": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      }
+    },
+    "saves": {
+      "type": "document",
+      "fields": {
+        "id": { "type": "string" },
+        "videoId": { "type": "string" },
+        "userId": { "type": "string" },
+        "createdAt": { "type": "timestamp" }
+      }
+    }
+  }
+}

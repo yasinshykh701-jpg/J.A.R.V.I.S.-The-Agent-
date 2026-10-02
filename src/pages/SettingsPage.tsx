@@ -92,7 +92,7 @@ export default function SettingsPage() {
 
         {/* Lifetime Free Badge */}
         <Card className="bg-gradient-to-r from-primary/5 to-primary/10 border-solid border-[rgba(255,255,255,0.2)] border-[10.8108px] border-[#ffffff]">
-          <CardContent className="pt-6 border-solid border-[#8e4c4c33] border-[0px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a4n4y9r28sg0.jpg)] rounded-[10px] border-[#8e4c4c33]">
+          <CardContent className="pt-6 border-solid border-[#8e4c4c33] border-[0px] rounded-[10px] border-[#8e4c4c33]">
             <div className="flex items-center justify-between">
               <div className="space-y-1">
                 <div className="flex items-center gap-2">

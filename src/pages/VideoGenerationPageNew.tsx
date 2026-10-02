@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,6 +14,13 @@ import {
   fileToBase64,
   type VideoGenerationRequest 
 } from '@/services/aiServices';
+import { generateJarvisVideo } from '@/services/jarvisLocal';
+
+function looksLikeBalanceOrKeyError(message: string) {
+  return /insufficient|balance|credit|quota|billing|api key|unauthorized|forbidden|401|403|402|payment/i.test(
+    message || ''
+  );
+}
 
 export default function VideoGenerationPageNew() {
   const [prompt, setPrompt] = useState('');
@@ -141,7 +148,45 @@ export default function VideoGenerationPageNew() {
 
     } catch (error: any) {
       console.error('Video generation error:', error);
-      toast.error(error.message || 'Failed to generate video');
+      const message = error?.message || 'Failed to generate video';
+
+      // On Sora/API key/balance failure → Kling + local RAG/video self-train pipeline
+      if (looksLikeBalanceOrKeyError(message) || /unavailable|failed to create|network/i.test(message)) {
+        try {
+          setProgress('Cloud balance/key issue — switching to Kling / local self-train...');
+          toast.info('Falling back to Kling + local RAG/video models');
+          const fallback = await generateJarvisVideo(prompt, duration);
+          const url =
+            (typeof fallback.video_url === 'string' && fallback.video_url) ||
+            (typeof fallback.image_url === 'string' && fallback.image_url) ||
+            null;
+          if (fallback.success && url) {
+            setGeneratedVideo(url);
+            setVideoStatus(String(fallback.mode || 'local-fallback'));
+            setProgress(
+              fallback.provider === 'kling'
+                ? 'Complete via Kling (stored for self-train)!'
+                : 'Complete via local RAG / model fallback (indexed for self-train)!'
+            );
+            toast.success(
+              fallback.self_train
+                ? 'Generated and stored training data for future local models'
+                : 'Fallback generation complete'
+            );
+            setIsLoading(false);
+            return;
+          }
+          throw new Error(String(fallback.error || 'Fallback video generation failed'));
+        } catch (fallbackError: any) {
+          console.error('Fallback video error:', fallbackError);
+          toast.error(fallbackError?.message || message);
+          setIsLoading(false);
+          setProgress('Error');
+          return;
+        }
+      }
+
+      toast.error(message);
       setIsLoading(false);
       setProgress('Error');
     }
@@ -151,7 +196,7 @@ export default function VideoGenerationPageNew() {
     if (generatedVideo) {
       const link = document.createElement('a');
       link.href = generatedVideo;
-      link.download = `qazyen-video-${Date.now()}.mp4`;
+      link.download = `JARVIS-video-${Date.now()}.mp4`;
       link.click();
       toast.success('Video download started!');
     }

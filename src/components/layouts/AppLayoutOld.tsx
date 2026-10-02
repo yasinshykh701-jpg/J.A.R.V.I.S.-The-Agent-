@@ -54,7 +54,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <div className="flex h-screen bg-gray-50 overflow-hidden">
+    <div className="flex h-screen bg-[#020810] overflow-hidden">
       {/* Left Sidebar */}
       <aside className="w-64 bg-slate-800 text-white flex flex-col shadow-xl">
         {/* Logo */}
@@ -63,7 +63,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
             <div className="w-10 h-10 gradient-blue rounded-xl flex items-center justify-center shadow-lg">
               <Sparkles className="w-6 h-6 text-white" strokeWidth={2.5} />
             </div>
-            <span className="text-xl font-bold">Qazyen AI</span>
+            <span className="text-xl font-bold">JARVIS AI</span>
           </div>
         </div>
         {/* Main Menu */}
@@ -113,7 +113,7 @@ export default function AppLayout({ children }: AppLayoutProps) {
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Top Bar */}
-        <header className="bg-white border-b border-gray-200 px-6 py-4 shadow-sm">
+        <header className="bg-[#0a0f1a] border-b border-gray-200 px-6 py-4 shadow-sm">
           <div className="flex items-center justify-between">
             {/* Search */}
             <div className="flex-1 max-w-xl">
@@ -131,10 +131,10 @@ export default function AppLayout({ children }: AppLayoutProps) {
 
             {/* Right Actions */}
             <div className="flex items-center gap-4 ml-6">
-              <Button variant="ghost" size="icon" className="rounded-full hover:bg-gray-100">
+              <Button variant="ghost" size="icon" className="rounded-full hover:bg-[#0a0f1a]">
                 <Bell className="w-5 h-5 text-gray-600" />
               </Button>
-              <Button variant="ghost" size="icon" className="rounded-full hover:bg-gray-100">
+              <Button variant="ghost" size="icon" className="rounded-full hover:bg-[#0a0f1a]">
                 <HelpCircle className="w-5 h-5 text-gray-600" />
               </Button>
               <Avatar className="h-10 w-10 cursor-pointer ring-2 ring-gray-200 hover:ring-blue-500 transition-all" onClick={() => navigate('/profile')}>

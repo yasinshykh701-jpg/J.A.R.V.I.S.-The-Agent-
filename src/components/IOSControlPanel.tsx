@@ -1,120 +1,138 @@
 import { useState } from 'react';
-import { Home, User, Moon, Sun, X, Menu } from 'lucide-react';
+import { Home, User, X, Cpu, Settings } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useTheme } from '@/components/theme-provider';
 
 export default function IOSControlPanel() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { theme, setTheme } = useTheme();
 
-  const togglePanel = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const handleNavigation = (path: string) => {
+  const handleNav = (path: string) => {
     navigate(path);
     setIsOpen(false);
   };
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  const navItems = [
+    { icon: Home,     label: 'Home',     path: '/',        color: '#00c8ff' },
+    { icon: User,     label: 'Profile',  path: '/profile', color: '#a855f7' },
+    { icon: Settings, label: 'Settings', path: '/settings',color: '#fbbf24' },
+  ];
 
   return (
     <>
-      {/* iOS-Style Menu Button */}
+      {/* Trigger button */}
       <button
-        onClick={togglePanel}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full from-blue-500 to-purple-600 shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-transform bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrqy81et1q8.jpg)]"
-        aria-label="Open Control Panel"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Open JARVIS Control Panel"
+        className="fixed bottom-6 right-6 z-50 w-13 h-13 p-3.5 rounded-full transition-all duration-300 hover:scale-110 active:scale-95"
+        style={{
+          background: 'linear-gradient(135deg, #00c8ff 0%, #0050a0 100%)',
+          boxShadow: '0 0 20px rgba(0,200,255,0.5), 0 0 40px rgba(0,200,255,0.25)',
+          border: '1px solid rgba(0,200,255,0.6)',
+        }}
       >
         {isOpen ? (
-          <X className="w-6 h-6 text-white" />
+          <X className="w-5 h-5 text-white" />
         ) : (
-          <Menu className="w-6 h-6 text-white" />
+          <Cpu className="w-5 h-5 text-white" />
         )}
       </button>
+
       {/* Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 transition-opacity"
-          onClick={togglePanel}
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity"
+          onClick={() => setIsOpen(false)}
         />
       )}
-      {/* iOS Control Panel */}
+
+      {/* Panel */}
       <div
-        className={`fixed bottom-24 right-6 z-50 w-80 transition-all duration-300 ${
-          isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        className={`fixed bottom-24 right-6 z-50 w-72 transition-all duration-300 ${
+          isOpen ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
-        <div className="dark:bg-gray-900/90 backdrop-blur-2xl rounded-3xl shadow-2xl p-6 border border-white/20 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrur0ujyvpc.jpg)]">
+        <div
+          className="rounded-2xl p-5 overflow-hidden relative"
+          style={{
+            background: '#00050f',
+            border: '1px solid rgba(0,200,255,0.25)',
+            boxShadow: '0 0 40px rgba(0,200,255,0.1), 0 20px 60px rgba(0,0,0,0.5)',
+          }}
+        >
+          {/* Scan lines */}
+          <div
+            className="absolute inset-0 pointer-events-none opacity-50"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,200,255,0.015) 3px, rgba(0,200,255,0.015) 6px)',
+            }}
+          />
+
+          {/* Corner brackets */}
+          <div className="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-[#00c8ff60] rounded-tl" />
+          <div className="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-[#00c8ff60] rounded-br" />
+
           {/* Header */}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold text-foreground">Control Panel</h3>
-            <p className="text-xs text-muted-foreground">Quick Access Menu</p>
-          </div>
-
-          {/* Menu Grid */}
-          <div className="space-y-3">
-            {/* Home Button */}
-            <button
-              onClick={() => handleNavigation('/')}
-              className="w-full flex items-center gap-4 p-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                <Home className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-sm font-medium text-white">Home</span>
-            </button>
-
-            {/* Profile Button */}
-            <button
-              onClick={() => handleNavigation('/profile')}
-              className="w-full flex items-center gap-4 p-4 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                <User className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-sm font-medium text-white">Profile</span>
-            </button>
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-gray-700 to-gray-800 dark:from-gray-200 dark:to-gray-300 rounded-2xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/20 dark:bg-gray-800/20 flex items-center justify-center">
-                  {theme === 'dark' ? (
-                    <Moon className="w-5 h-5 text-white dark:text-gray-800" />
-                  ) : (
-                    <Sun className="w-5 h-5 text-white dark:text-gray-800" />
-                  )}
-                </div>
-                <span className="text-sm font-medium text-white dark:text-gray-800">
-                  {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
-                </span>
-              </div>
-              <div className={`w-12 h-6 rounded-full transition-colors ${
-                theme === 'dark' ? 'bg-blue-500' : 'bg-gray-400'
-              }`}>
-                <div
-                  className={`w-5 h-5 bg-white rounded-full mt-0.5 transition-transform ${
-                    theme === 'dark' ? 'translate-x-6' : 'translate-x-1'
-                  }`}
-                />
-              </div>
-            </button>
-          </div>
-
-          {/* Footer - Creator Credit */}
-          <div className="mt-6 pt-4 border-t border-white/10">
-            <p className="text-xs text-center text-muted-foreground">
-              Created by <span className="font-semibold text-primary">Yasin (Munaf)</span>
+          <div className="relative mb-5">
+            <div className="flex items-center gap-2 mb-0.5">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#00c8ff] animate-arc-pulse" />
+              <h3 className="text-xs font-bold tracking-[0.25em] uppercase jarvis-gradient-text">
+                Control Panel
+              </h3>
+            </div>
+            <p className="text-[8px] tracking-[0.3em] text-[#00c8ff50] uppercase pl-3.5">
+              Quick Navigation
             </p>
-            <p className="text-xs text-center text-muted-foreground mt-1">
-              100% Free • Lifetime Access
+          </div>
+
+          {/* Nav buttons */}
+          <div className="relative space-y-2">
+            {navItems.map((item) => (
+              <button
+                key={item.path}
+                onClick={() => handleNav(item.path)}
+                className="w-full flex items-center gap-3 p-3.5 rounded-xl transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] group"
+                style={{
+                  background: `${item.color}0a`,
+                  border: `1px solid ${item.color}20`,
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.background = `${item.color}18`;
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = `${item.color}50`;
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = `0 0 12px ${item.color}25`;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.background = `${item.color}0a`;
+                  (e.currentTarget as HTMLButtonElement).style.borderColor = `${item.color}20`;
+                  (e.currentTarget as HTMLButtonElement).style.boxShadow = 'none';
+                }}
+              >
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                  style={{
+                    background: `${item.color}18`,
+                    border: `1px solid ${item.color}40`,
+                  }}
+                >
+                  <item.icon className="w-4 h-4" style={{ color: item.color }} />
+                </div>
+                <span
+                  className="text-xs font-semibold tracking-[0.2em] uppercase"
+                  style={{ color: item.color }}
+                >
+                  {item.label}
+                </span>
+              </button>
+            ))}
+          </div>
+
+          {/* Footer */}
+          <div className="relative mt-5 pt-4 border-t border-[#00c8ff10] text-center">
+            <p className="text-[8px] tracking-[0.35em] text-[#00c8ff40] uppercase">
+              J.A.R.V.I.S · Created by Yasin
+            </p>
+            <p className="text-[8px] tracking-[0.25em] text-[#00c8ff30] uppercase mt-0.5">
+              100% Free · Lifetime Access
             </p>
           </div>
         </div>

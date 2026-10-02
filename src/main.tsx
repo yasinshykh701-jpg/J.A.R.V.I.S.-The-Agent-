@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+﻿import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
@@ -17,7 +17,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <ThemeProvider defaultTheme="light" storageKey="qazyen-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="jarvis-theme">
       <AppWrapper>
         <App />
       </AppWrapper>

@@ -60,7 +60,7 @@ export default function VideoEditorPage() {
     <AppLayout>
       <div className="h-full flex flex-col bg-gradient-to-br from-background to-muted/20">
         {/* Header */}
-        <div className="ios-blur border-b border-border/50 ios-shadow z-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alsb4r73w1s0.jpg)]">
+        <div className="ios-blur border-b border-border/50 ios-shadow z-10">
           <div className="content-column py-5 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold flex items-center gap-2">
@@ -82,14 +82,14 @@ export default function VideoEditorPage() {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alsac971bim8.jpg)]">
+        <div className="flex-1 overflow-y-auto p-6">
           <div className="max-w-6xl mx-auto space-y-6">
             {/* Upload Section */}
             {!videoFile ? (
-              <Card className="ios-card bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-af619u2sb7r4.jpg)]">
-                <CardContent className="p-12 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-af5zip36kphc.jpg)] rounded-[20px]">
+              <Card className="ios-card">
+                <CardContent className="p-12 rounded-[20px]">
                   <div className="flex flex-col items-center justify-center space-y-4 bg-cover bg-center bg-no-repeat bg-[#14141400] bg-none">
-                    <div className="w-20 h-20 rounded-full flex items-center justify-center bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-af604mbjmnls.jpg)]">
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center">
                       <Upload className="w-10 h-10 text-primary" />
                     </div>
                     <div className="text-center">
@@ -101,7 +101,7 @@ export default function VideoEditorPage() {
                     <label htmlFor="video-upload">
                       <Button asChild className="ios-button">
                         <span
-                          className="bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-af5zwq73eku8.jpg)]">
+                          className="">
                           <Upload className="w-4 h-4 mr-2" />
                           Choose Video File
                         </span>

@@ -13,7 +13,7 @@ import { toast } from 'sonner';
 import { Shield, Users, ArrowLeft, Lock, Loader2 } from 'lucide-react';
 import type { Profile } from '@/types/types';
 
-const ADMIN_PASSWORD = 'qazyen123';
+const ADMIN_PASSWORD = 'JARVIS123';
 
 export default function AdminPanel() {
   const { profile } = useAuth();
@@ -49,13 +49,13 @@ export default function AdminPanel() {
   // Show password prompt if not authenticated
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#F2F2F7] dark:bg-[#000000] flex items-center justify-center p-4">
+      <div className="min-h-screen bg-[#020810] bg-[#020810] flex items-center justify-center p-4">
         <div className="w-full max-w-md ios-card ios-shadow border-none p-8 fade-in text-center">
           <div className="mx-auto w-20 h-20 bg-primary/10 rounded-[24px] flex items-center justify-center mb-6 shadow-lg shadow-primary/10">
             <Lock className="h-10 w-10 text-primary" />
           </div>
           <h1 className="text-3xl font-bold mb-2">Admin Terminal</h1>
-          <p className="text-muted-foreground font-medium mb-8">Secure access required to manage Qazyen AI</p>
+          <p className="text-muted-foreground font-medium mb-8">Secure access required to manage JARVIS AI</p>
           
           <form onSubmit={handlePasswordSubmit} className="space-y-6">
             <div className="space-y-1.5 text-left">
@@ -124,14 +124,14 @@ export default function AdminPanel() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F2F2F7] dark:bg-[#000000]">
+      <div className="min-h-screen flex items-center justify-center bg-[#020810] bg-[#020810]">
         <Loader2 className="h-10 w-10 animate-spin text-primary" />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#F2F2F7] dark:bg-[#000000] p-6">
+    <div className="min-h-screen bg-[#020810] bg-[#020810] p-6">
       <div className="max-w-6xl mx-auto space-y-8 animate-in fade-in duration-500">
         <div className="flex items-center justify-between ios-blur p-6 rounded-[32px] ios-shadow border border-border/40">
           <div className="flex items-center gap-5">
@@ -149,21 +149,21 @@ export default function AdminPanel() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="ios-card p-6 border-none shadow-md bg-white dark:bg-[#1C1C1E]">
+          <div className="ios-card p-6 border-none shadow-md bg-[#0a0f1a]">
             <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-1">Total Residents</p>
             <p className="text-4xl font-bold text-primary">{users.length}</p>
           </div>
-          <div className="ios-card p-6 border-none shadow-md bg-white dark:bg-[#1C1C1E]">
+          <div className="ios-card p-6 border-none shadow-md bg-[#0a0f1a]">
             <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-1">System Admins</p>
             <p className="text-4xl font-bold text-blue-500">{users.filter((u) => u.role === 'admin').length}</p>
           </div>
-          <div className="ios-card p-6 border-none shadow-md bg-white dark:bg-[#1C1C1E]">
+          <div className="ios-card p-6 border-none shadow-md bg-[#0a0f1a]">
             <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest mb-1">Active Accounts</p>
             <p className="text-4xl font-bold text-success">{users.filter((u) => u.role === 'user').length}</p>
           </div>
         </div>
 
-        <div className="ios-card border-none ios-shadow overflow-hidden bg-white dark:bg-[#1C1C1E] rounded-[32px]">
+        <div className="ios-card border-none ios-shadow overflow-hidden bg-[#0a0f1a] rounded-[32px]">
           <div className="p-6 border-b border-border/40 bg-muted/30">
             <h2 className="text-xl font-bold flex items-center gap-2">
               <Users className="h-5 w-5 text-primary" /> User Registry

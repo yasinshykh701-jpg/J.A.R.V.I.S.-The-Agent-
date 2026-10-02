@@ -10,7 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { 
+import {
   MessageSquare,
   Plus,
   Clock,
@@ -20,7 +20,7 @@ import {
   Shield,
   Menu,
   X,
-  Sparkles
+  Cpu,
 } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useChatHistory } from '@/contexts/ChatHistoryContext';
@@ -35,20 +35,20 @@ export default function AppLayout({ children }: AppLayoutProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const { profile, signOut } = useAuth();
-  const { threads, currentThread, createNewThread, selectThread, deleteThreadById } = useChatHistory();
+  const { threads, currentThread, createNewThread, selectThread } = useChatHistory();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = async () => {
     await signOut();
     navigate('/login');
-    toast.success('Logged out successfully');
+    toast.success('Session terminated');
   };
 
   const handleNewThread = async () => {
     await createNewThread();
     navigate('/chat');
     setSidebarOpen(false);
-    toast.success('New conversation started');
+    toast.success('New session initialized');
   };
 
   const handleSelectThread = async (threadId: string) => {
@@ -63,7 +63,6 @@ export default function AppLayout({ children }: AppLayoutProps) {
     const diffMs = now.getTime() - date.getTime();
     const diffHours = Math.floor(diffMs / 3600000);
     const diffDays = Math.floor(diffMs / 86400000);
-
     if (diffHours < 1) return 'Just now';
     if (diffHours < 24) return `${diffHours}h ago`;
     if (diffDays === 1) return 'Yesterday';
@@ -72,138 +71,189 @@ export default function AppLayout({ children }: AppLayoutProps) {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amj9kzzx8sn4.jpg)]">
-      {/* Mobile Sidebar Overlay */}
+    <div className="app-shell flex h-screen overflow-hidden bg-[#020810]">
+      {/* Mobile overlay */}
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
-      {/* Sidebar - Google Studio Style */}
-      <aside
-        className={`fixed lg:relative inset-y-0 left-0 z-50 w-[280px] bg-background border-r border-border flex flex-col transition-transform duration-300 ${
-          sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        }`}
-      >
-        {/* Header */}
-        <div className="p-4 border-b border-border bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrn5v0ilerk.jpg)]">
-          <div className="flex items-center justify-between mb-4 rounded-[20px] bg-cover bg-center bg-no-repeat bg-[#060505] bg-none">
-            <div className="flex items-center gap-2">
 
-              <h1 className="font-medium qazyen-gradient-text Pro Text'] Pro Text'] font-['MF-b09bb18e300fbc3fa8af0aeb95295328'] text-[52px] text-[#0e0202] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-akwegxghyeps.png)]">{""}</h1>
+      {/* ── Sidebar ── */}
+      <aside
+        className={`fixed lg:relative inset-y-0 left-0 z-50 w-[270px] flex flex-col transition-transform duration-300
+          glass-sidebar border-r border-[#00c8ff15] ${
+            sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+          }`}
+      >
+        {/* Scan lines overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none opacity-30"
+          style={{
+            backgroundImage:
+              'repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,200,255,0.02) 3px, rgba(0,200,255,0.02) 6px)',
+          }}
+        />
+
+        {/* Header */}
+        <div className="relative p-4 border-b border-[#00c8ff15]">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2.5">
+              <div className="relative w-9 h-9 rounded-full bg-gradient-to-br from-[#00c8ff] to-[#0050a0] flex items-center justify-center arc-glow-sm">
+                <Cpu className="w-4 h-4 text-white" />
+                <div className="absolute inset-[-2px] rounded-full border border-dashed border-[#00c8ff40] animate-hud-spin" />
+              </div>
+              <div>
+                <span className="text-sm font-bold tracking-[0.2em] uppercase jarvis-gradient-text">
+                  J.A.R.V.I.S
+                </span>
+                <p className="text-[8px] tracking-[0.25em] text-[#00c8ff50] uppercase leading-none">
+                  AI Interface
+                </p>
+              </div>
             </div>
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden"
+              className="lg:hidden text-[#00c8ff80] hover:text-[#00c8ff] hover:bg-[#00c8ff10]"
               onClick={() => setSidebarOpen(false)}
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4" />
             </Button>
           </div>
 
-          {/* New Chat Button */}
+          {/* New chat */}
           <Button
             onClick={handleNewThread}
-            className="w-full hover:bg-primary/90 text-primary-foreground rounded-full google-shadow bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-adxbss9duzgg.jpg)]"
+            className="w-full rounded-lg bg-gradient-to-r from-[#00c8ff18] to-[#0050a018] border border-[#00c8ff30] text-[#00c8ff] hover:from-[#00c8ff25] hover:to-[#0050a025] hover:border-[#00c8ff60] transition-all font-semibold tracking-wider uppercase text-xs h-9"
           >
-            <Plus className="w-4 h-4 mr-2" />
-            New chat
+            <Plus className="w-3.5 h-3.5 mr-2" />
+            New Session
           </Button>
         </div>
 
-        {/* Chat History */}
-        <ScrollArea className="flex-1 px-2 py-4 border-solid rounded-[25px] border-[1.62162px] border-[#1d1919] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amj4zp6pj4sg.jpg)]">
+        {/* Thread history */}
+        <ScrollArea className="flex-1 px-2 py-3">
           {threads.length > 0 ? (
             <div className="space-y-1">
-              <div className="px-3 py-2 border-solid bg-cover bg-center bg-no-repeat border-[#7e6e6e] border-[0px] bg-[#0a090900] bg-none border-[#7e6e6e]">
-                <h3 className="text-xs font-medium uppercase tracking-wider text-[#1e1a1a]">
-                  Recent
+              <div className="px-2 py-1.5">
+                <h3 className="text-[8px] font-bold uppercase tracking-[0.35em] text-[#00c8ff50]">
+                  Recent Sessions
                 </h3>
               </div>
               {threads.slice(0, 20).map((thread) => (
                 <button
                   key={thread.id}
                   onClick={() => handleSelectThread(thread.id)}
-                  className={`group w-full text-left px-3 py-2 rounded-lg transition-colors ${
+                  className={`group w-full text-left px-3 py-2.5 rounded-lg transition-all ${
                     currentThread?.id === thread.id
-                      ? 'bg-muted text-foreground'
-                      : 'text-muted-foreground hover:bg-muted/50 hover:text-foreground'
+                      ? 'bg-[#00c8ff12] border border-[#00c8ff30] text-white'
+                      : 'text-white/50 hover:bg-[#00c8ff08] hover:border hover:border-[#00c8ff15] hover:text-white/80 border border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-2">
-                    <MessageSquare className="w-4 h-4 flex-shrink-0" />
-                    <span className="text-sm truncate flex-1 border-solid border-[4.32432px] border-[#f1fcfc] rounded-[10px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-als8csaqfytc.jpg)]">{thread.title}</span>
+                    <MessageSquare className="w-3.5 h-3.5 shrink-0 text-[#00c8ff60]" />
+                    <span className="text-xs truncate flex-1">{thread.title}</span>
                   </div>
-                  <span className="text-xs text-muted-foreground mt-1 block pl-6 bg-cover bg-center bg-no-repeat bg-[transparent00] bg-none">
+                  <span className="text-[9px] text-[#00c8ff40] mt-0.5 block pl-5">
                     {formatDate(thread.updated_at)}
                   </span>
                 </button>
               ))}
             </div>
           ) : (
-            <div className="px-3 py-8 text-center">
-              <Clock className="w-8 h-8 text-muted-foreground mx-auto mb-2" />
-              <p className="text-sm text-muted-foreground">No conversations yet</p>
+            <div className="px-3 py-10 text-center">
+              <Clock className="w-8 h-8 text-[#00c8ff30] mx-auto mb-2" />
+              <p className="text-xs text-[#00c8ff50] tracking-widest uppercase">No sessions yet</p>
             </div>
           )}
         </ScrollArea>
 
-        {/* User Profile */}
-        <div className="p-4 border-t border-border bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-af64iwkswlc0.jpg)]">
+        {/* User profile */}
+        <div className="relative p-3 border-t border-[#00c8ff15]">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="w-full flex items-center gap-3 px-3 py-2 hover:bg-muted rounded-lg transition-colors">
-                <Avatar className="h-8 w-8">
-                  <AvatarFallback className="bg-primary text-primary-foreground text-sm font-medium">
-                    {profile?.username?.[0]?.toUpperCase() || 'Q'}
+              <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#00c8ff08] hover:border hover:border-[#00c8ff20] border border-transparent transition-all">
+                <Avatar className="h-8 w-8 border border-[#00c8ff40]">
+                  <AvatarFallback className="bg-gradient-to-br from-[#00c8ff] to-[#0050a0] text-white text-xs font-bold">
+                    {profile?.username?.[0]?.toUpperCase() || 'J'}
                   </AvatarFallback>
                 </Avatar>
                 <div className="flex-1 text-left min-w-0">
-                  <p className="text-sm font-medium text-foreground truncate">
-                    {profile?.username || 'Guest'}
+                  <p className="text-xs font-semibold text-white/80 truncate tracking-wide">
+                    {profile?.username || 'Agent'}
                   </p>
-                  <p className="text-xs text-muted-foreground truncate">
-                    {profile?.email || 'guest@qazyen.ai'}
+                  <p className="text-[9px] text-[#00c8ff50] truncate tracking-wider">
+                    {profile?.email || 'agent@jarvis.ai'}
                   </p>
                 </div>
               </button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" side="top" className="w-56">
-              <DropdownMenuItem onClick={() => navigate('/profile')} className="cursor-pointer">
-                <User className="mr-2 h-4 w-4" />
-                <span>Profile</span>
+            <DropdownMenuContent
+              align="end"
+              side="top"
+              className="w-52 bg-[#00050f] border border-[#00c8ff25] text-white/80"
+            >
+              <DropdownMenuItem
+                onClick={() => navigate('/profile')}
+                className="cursor-pointer hover:bg-[#00c8ff12] hover:text-white focus:bg-[#00c8ff12]"
+              >
+                <User className="mr-2 h-4 w-4 text-[#00c8ff]" />
+                Profile
               </DropdownMenuItem>
               {profile?.role === 'admin' && (
-                <DropdownMenuItem onClick={() => navigate('/admin')} className="cursor-pointer">
-                  <Shield className="mr-2 h-4 w-4" />
-                  <span>Admin Panel</span>
+                <DropdownMenuItem
+                  onClick={() => navigate('/admin')}
+                  className="cursor-pointer hover:bg-[#00c8ff12] hover:text-white focus:bg-[#00c8ff12]"
+                >
+                  <Shield className="mr-2 h-4 w-4 text-[#00c8ff]" />
+                  Admin Panel
                 </DropdownMenuItem>
               )}
-              <DropdownMenuItem onClick={() => navigate('/settings')} className="cursor-pointer">
-                <Settings className="mr-2 h-4 w-4" />
-                <span>Settings</span>
+              <DropdownMenuItem
+                onClick={() => navigate('/settings')}
+                className="cursor-pointer hover:bg-[#00c8ff12] hover:text-white focus:bg-[#00c8ff12]"
+              >
+                <Settings className="mr-2 h-4 w-4 text-[#00c8ff]" />
+                Settings
               </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleLogout} className="cursor-pointer text-destructive">
+              <DropdownMenuSeparator className="bg-[#00c8ff15]" />
+              <DropdownMenuItem
+                onClick={handleLogout}
+                className="cursor-pointer hover:bg-red-950/30 text-red-400 focus:bg-red-950/30 focus:text-red-400"
+              >
                 <LogOut className="mr-2 h-4 w-4" />
-                <span>Log out</span>
+                Disconnect
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
       </aside>
-      {/* Main Content Area */}
-      <main className="flex-1 flex flex-col overflow-hidden">
-        {/* Top Bar - Mobile */}
 
-        {/* Page Content */}
-        <div className="flex-1 overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amj5oowsv9xc.jpg)]">
+      {/* ── Main content ── */}
+      <main className="flex-1 flex flex-col overflow-hidden">
+        {/* Mobile top bar */}
+        <div className="glass-topbar lg:hidden flex items-center gap-3 px-4 py-3 border-b border-[#00c8ff15] bg-[#00050f]">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setSidebarOpen(true)}
+            className="text-[#00c8ff80] hover:text-[#00c8ff] hover:bg-[#00c8ff10]"
+          >
+            <Menu className="w-5 h-5" />
+          </Button>
+          <span className="text-sm font-bold tracking-[0.2em] uppercase jarvis-gradient-text">
+            J.A.R.V.I.S
+          </span>
+        </div>
+
+        {/* Page content */}
+        <div className="app-content flex-1 overflow-hidden bg-[#020810]">
           {children}
         </div>
       </main>
-      {/* iOS Control Panel */}
+
       <IOSControlPanel />
     </div>
   );

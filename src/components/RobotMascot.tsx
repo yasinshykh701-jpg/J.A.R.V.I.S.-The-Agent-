@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+﻿import { useEffect, useState } from 'react';
 import { Bot, Zap, Radio, Cpu } from 'lucide-react';
 
 export default function RobotMascot() {
@@ -130,7 +130,7 @@ export default function RobotMascot() {
         {/* Name Tag */}
         <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap">
           <div className="bg-zinc-900/95 backdrop-blur-sm px-4 py-2 rounded-full border-2 border-primary/50 shadow-2xl robot-card">
-            <p className="text-sm font-bold text-primary tracking-wider holographic-text">QAZYEN</p>
+            <p className="text-sm font-bold text-primary tracking-wider holographic-text">JARVIS</p>
           </div>
         </div>
         

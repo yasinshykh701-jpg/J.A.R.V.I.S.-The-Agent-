@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+﻿import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import type { ChatThread, ChatMessage } from '@/types/types';
 import {
   getUserThreads,
@@ -10,6 +10,7 @@ import {
   updateThreadTitle
 } from '@/db/chatApi';
 import { useAuth } from './AuthContext';
+import { askJarvis } from '@/services/jarvisLocal';
 
 interface ChatHistoryContextType {
   threads: ChatThread[];
@@ -131,80 +132,29 @@ export function ChatHistoryProvider({ children }: { children: ReactNode }) {
                 lowerContent.includes('who created you') || 
                 lowerContent.includes('who made you') ||
                 lowerContent.includes('your creator')) {
-              aiResponse = "My creator is Muhhamed Yasin (also known as Munaf) is referenced in the Qazyen AI project as the creator of the application.";
+              aiResponse = "My creator is Muhhamed Yasin (also known as Munaf) is referenced in the JARVIS AI project as the creator of the application.";
               
               const assistantMessage = await addMessage(currentThread.id, 'assistant', aiResponse);
               if (assistantMessage) {
                 setMessages(prev => [...prev, assistantMessage]);
               }
             } else {
-              // Use real AI API for response
-              const { aiApi } = await import('@/db/api');
-              
-              const chatHistory: { role: 'user' | 'model'; parts: { text: string }[] }[] = messages
-                .filter(m => m.thread_id === currentThread.id)
-                .map(m => ({
-                  role: m.role === 'user' ? 'user' as const : 'model' as const,
-                  parts: [{ text: m.content }]
-                }));
-              
-              chatHistory.push({
-                role: 'user',
-                parts: [{ text: content }]
-              });
-
-              const stream = await aiApi.chat(chatHistory);
-              const reader = stream.getReader();
-              const decoder = new TextDecoder();
-              let fullResponse = '';
-
-              // Create placeholder message for streaming
-              const placeholderId = `temp-${Date.now()}`;
-              const placeholderMessage: ChatMessage = {
-                id: placeholderId,
-                thread_id: currentThread.id,
-                user_id: currentThread.user_id,
-                role: 'assistant',
-                content: '',
-                created_at: new Date().toISOString(),
-              };
-              setMessages(prev => [...prev, placeholderMessage]);
-
-              // Stream the response
-              while (true) {
-                const { done, value } = await reader.read();
-                if (done) break;
-
-                const chunk = decoder.decode(value, { stream: true });
-                const lines = chunk.split('\n');
-
-                for (const line of lines) {
-                  if (line.startsWith('data: ')) {
-                    const jsonStr = line.slice(6);
-                    if (jsonStr === '[DONE]') continue;
-
-                    try {
-                      const data = JSON.parse(jsonStr);
-                      const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-                      if (text) {
-                        fullResponse += text;
-                        setMessages(prev =>
-                          prev.map(m =>
-                            m.id === placeholderId ? { ...m, content: fullResponse } : m
-                          )
-                        );
-                      }
-                    } catch (e) {
-                      // Ignore parse errors
-                    }
-                  }
+              try {
+                const jarvisResult = await askJarvis(content, profile?.username);
+                const assistantMessage = await addMessage(currentThread.id, 'assistant', jarvisResult.response);
+                if (assistantMessage) {
+                  setMessages(prev => [...prev, assistantMessage]);
                 }
-              }
-
-              // Save the final AI response to database
-              const assistantMessage = await addMessage(currentThread.id, 'assistant', fullResponse);
-              if (assistantMessage) {
-                setMessages(prev => prev.filter(m => m.id !== placeholderId).concat(assistantMessage));
+              } catch (error) {
+                console.error('Local J.A.R.V.I.S. response error:', error);
+                const fallbackMessage = await addMessage(
+                  currentThread.id,
+                  'assistant',
+                  'J.A.R.V.I.S. is online but the local brain service is unavailable right now.'
+                );
+                if (fallbackMessage) {
+                  setMessages(prev => [...prev, fallbackMessage]);
+                }
               }
             }
           } catch (error) {

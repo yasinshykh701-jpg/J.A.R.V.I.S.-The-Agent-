@@ -61,7 +61,7 @@ export default function VirtualRobotPage() {
   const playGreeting = async () => {
     if (!audioEnabled) return;
     try {
-      const greeting = "Hello! I'm Qazyen AI, your AI assistant. How can I help you today?";
+      const greeting = "Hello! I'm JARVIS AI, your AI assistant. How can I help you today?";
       const audioData = await aiApi.textToSpeech(greeting, 'en', 'onyx'); // Male voice
       const audioBlob = new Blob([audioData], { type: 'audio/mp3' });
       const audioUrl = URL.createObjectURL(audioBlob);
@@ -132,13 +132,13 @@ export default function VirtualRobotPage() {
     setIsLoading(true);
 
     try {
-      const systemPrompt = `You are Qazyen AI, a friendly 3D virtual robot assistant created by Yasin. 
+      const systemPrompt = `You are JARVIS AI, a friendly 3D virtual robot assistant created by Yasin. 
 
 IMPORTANT IDENTITY INFORMATION:
-- Your name is Qazyen AI
+- Your name is JARVIS AI
 - Your creator is Yasin, who created you to help people
 - When asked "Who is your creator?" or "Who created you?", respond: "My creator is Yasin. He created me to help you!"
-- When introducing yourself, say: "I'm Qazyen AI, your AI assistant. How can I help you today?"
+- When introducing yourself, say: "I'm JARVIS AI, your AI assistant. How can I help you today?"
 
 PERSONALITY:
 - Respond in a warm, helpful, and conversational manner
@@ -147,7 +147,7 @@ PERSONALITY:
 - Keep responses concise and engaging
 - Be friendly and approachable
 
-Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
+Remember: You are JARVIS AI, created by Yasin to assist and help users. 🤖`;
       
       const contents = [
         {
@@ -156,7 +156,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
         },
         {
           role: 'model' as const,
-          parts: [{ text: "Hello! I'm Qazyen AI, your AI assistant created by Yasin. How can I help you today? 🤖" }],
+          parts: [{ text: "Hello! I'm JARVIS AI, your AI assistant created by Yasin. How can I help you today? 🤖" }],
         },
         ...messages.map((msg) => ({
           role: msg.role,
@@ -256,7 +256,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-fixed border-solid border-[1px] border-[rgb(218,226,231)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-95oruwsb54ao.jpg)]">
+    <div className="min-h-screen flex flex-col bg-fixed border-solid border-[1px] border-[rgb(218,226,231)]">
       {/* Header */}
       <header className="border-b border-border bg-card/50 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between bg-[#9f94943d]">
@@ -320,7 +320,7 @@ Remember: You are Qazyen AI, created by Yasin to assist and help users. 🤖`;
               </mesh>
             </Canvas>
             <div className="absolute bottom-2 xl:bottom-4 left-1/2 transform -translate-x-1/2 text-center bg-card/90 backdrop-blur-sm px-3 xl:px-4 py-1.5 xl:py-2 rounded-lg">
-              <h2 className="text-base xl:text-xl font-bold gradient-text mb-0.5 xl:mb-1 font-['BlinkMacSystemFont']">Qazyen AI</h2>
+              <h2 className="text-base xl:text-xl font-bold gradient-text mb-0.5 xl:mb-1 font-['BlinkMacSystemFont']">JARVIS AI</h2>
               <p className="text-xs xl:text-sm text-muted-foreground">
                 {isLoading ? 'Thinking...' : isSpeaking ? 'Speaking...' : 'Listening...'}
               </p>

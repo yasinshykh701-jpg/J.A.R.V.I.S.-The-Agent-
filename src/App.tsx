@@ -8,9 +8,11 @@ import routes from './routes';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { ChatHistoryProvider } from '@/contexts/ChatHistoryContext';
 import { BackgroundProvider } from '@/contexts/BackgroundContext';
+import { JarvisBackendProvider } from '@/contexts/JarvisBackendContext';
 import { RouteGuard } from '@/components/common/RouteGuard';
 import { Toaster } from 'sonner';
 import ThemeToggleButton from '@/components/ThemeToggleButton';
+import BackendStatusBar from '@/components/BackendStatusBar';
 
 // Loading fallback component
 const PageLoader = () => (
@@ -29,9 +31,11 @@ const App: React.FC = () => {
         <BackgroundProvider>
           <AuthProvider>
             <ChatHistoryProvider>
+              <JarvisBackendProvider>
               <RouteGuard>
                 <IntersectObserver />
-                <div className="flex flex-col min-h-screen">
+                <BackendStatusBar />
+                <div className="flex flex-col min-h-screen pt-8">  {/* pt-8 to clear the status bar */}
                   <main className="flex-grow">
                     <Suspense fallback={<PageLoader />}>
                       <Routes>
@@ -50,6 +54,7 @@ const App: React.FC = () => {
                 <ThemeToggleButton />
                 <Toaster />
               </RouteGuard>
+              </JarvisBackendProvider>
             </ChatHistoryProvider>
           </AuthProvider>
         </BackgroundProvider>

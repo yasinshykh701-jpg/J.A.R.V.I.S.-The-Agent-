@@ -81,7 +81,7 @@ export default function VideoProgress({ status, taskId, onComplete, onError }: V
           icon: <Loader2 className="h-6 w-6 animate-spin text-gray-500" />,
           title: 'Processing',
           description: 'Please wait...',
-          color: 'bg-gray-500',
+          color: 'bg-[#030508]0',
         };
     }
   };

@@ -7,14 +7,14 @@ settings:
 catalogs:
   default:
     '@react-three/drei':
-      specifier: 'catalog:'
+      specifier: ^9.108.0
       version: 9.122.0
     '@react-three/fiber':
-      specifier: 'catalog:'
+      specifier: ^8.16.0
       version: 8.18.0
     three:
-      specifier: 'catalog:'
-      version: 0.180.0
+      specifier: ^0.157.0
+      version: 0.157.0
 
 importers:
 
@@ -103,10 +103,10 @@ importers:
         version: 1.2.8(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-three/drei':
         specifier: 'catalog:'
-        version: 9.122.0(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0))(@types/react@19.2.2)(@types/three@0.182.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)(use-sync-external-store@1.5.0(react@18.3.1))
+        version: 9.122.0(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0))(@types/react@19.2.2)(@types/three@0.182.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0)(use-sync-external-store@1.5.0(react@18.3.1))
       '@react-three/fiber':
         specifier: 'catalog:'
-        version: 8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)
+        version: 8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0)
       '@supabase/supabase-js':
         specifier: ^2.76.1
         version: 2.76.1
@@ -138,14 +138,14 @@ importers:
         specifier: ^1.13.0
         version: 1.13.0
       lucide-react:
-        specifier: ^0.553.0
-        version: 0.553.0(react@18.3.1)
+        specifier: ^0.576.0
+        version: 0.576.0(react@18.3.1)
       miaoda-auth-react:
         specifier: 2.0.6
         version: 2.0.6(@supabase/supabase-js@2.76.1)(react-dom@18.3.1(react@18.3.1))(react-router-dom@7.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
       miaoda-sc-plugin:
-        specifier: 1.0.56
-        version: 1.0.56(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1))
+        specifier: 1.0.58
+        version: 1.0.58(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6))
       motion:
         specifier: ^12.23.25
         version: 12.23.25(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -202,7 +202,7 @@ importers:
         version: 2.2.0(tailwindcss@3.4.17)
       three:
         specifier: 'catalog:'
-        version: 0.180.0
+        version: 0.157.0
       vaul:
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -214,8 +214,8 @@ importers:
         version: 3.25.76
     devDependencies:
       '@biomejs/biome':
-        specifier: 2.3.4
-        version: 2.3.4
+        specifier: 2.4.5
+        version: 2.4.5
       '@tailwindcss/container-queries':
         specifier: ^0.1.1
         version: 0.1.1(tailwindcss@3.4.17)
@@ -239,7 +239,7 @@ importers:
         version: 7.0.0-dev.20251103.1
       '@vitejs/plugin-react':
         specifier: ^4.3.4
-        version: 4.7.0(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1))
+        version: 4.7.0(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6))
       autoprefixer:
         specifier: ^10.4.21
         version: 10.4.21(postcss@8.5.6)
@@ -249,15 +249,18 @@ importers:
       tailwindcss:
         specifier: ^3.4.11
         version: 3.4.17
+      terser:
+        specifier: 5.31.6
+        version: 5.31.6
       typescript:
         specifier: ~5.9.3
         version: 5.9.3
       vite:
         specifier: ^5.1.4
-        version: 5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)
+        version: 5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6)
       vite-plugin-svgr:
         specifier: ^4.5.0
-        version: 4.5.0(rollup@4.46.2)(typescript@5.9.3)(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1))
+        version: 4.5.0(rollup@4.46.2)(typescript@5.9.3)(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6))
 
 packages:
 
@@ -362,59 +365,59 @@ packages:
     resolution: {integrity: sha512-ruv7Ae4J5dUYULmeXw1gmb7rYRz57OWCPM57pHojnLq/3Z1CK2lNSLTCVjxVk1F/TZHwOZZrOWi0ur95BbLxNQ==}
     engines: {node: '>=6.9.0'}
 
-  '@biomejs/biome@2.3.4':
-    resolution: {integrity: sha512-TU08LXjBHdy0mEY9APtEtZdNQQijXUDSXR7IK1i45wgoPD5R0muK7s61QcFir6FpOj/RP1+YkPx5QJlycXUU3w==}
+  '@biomejs/biome@2.4.5':
+    resolution: {integrity: sha512-OWNCyMS0Q011R6YifXNOg6qsOg64IVc7XX6SqGsrGszPbkVCoaO7Sr/lISFnXZ9hjQhDewwZ40789QmrG0GYgQ==}
     engines: {node: '>=14.21.3'}
     hasBin: true
 
-  '@biomejs/cli-darwin-arm64@2.3.4':
-    resolution: {integrity: sha512-w40GvlNzLaqmuWYiDU6Ys9FNhJiclngKqcGld3iJIiy2bpJ0Q+8n3haiaC81uTPY/NA0d8Q/I3Z9+ajc14102Q==}
+  '@biomejs/cli-darwin-arm64@2.4.5':
+    resolution: {integrity: sha512-lGS4Nd5O3KQJ6TeWv10mElnx1phERhBxqGP/IKq0SvZl78kcWDFMaTtVK+w3v3lusRFxJY78n07PbKplirsU5g==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [darwin]
 
-  '@biomejs/cli-darwin-x64@2.3.4':
-    resolution: {integrity: sha512-3s7TLVtjJ7ni1xADXsS7x7GMUrLBZXg8SemXc3T0XLslzvqKj/dq1xGeBQ+pOWQzng9MaozfacIHdK2UlJ3jGA==}
+  '@biomejs/cli-darwin-x64@2.4.5':
+    resolution: {integrity: sha512-6MoH4tyISIBNkZ2Q5T1R7dLd5BsITb2yhhhrU9jHZxnNSNMWl+s2Mxu7NBF8Y3a7JJcqq9nsk8i637z4gqkJxQ==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [darwin]
 
-  '@biomejs/cli-linux-arm64-musl@2.3.4':
-    resolution: {integrity: sha512-IruVGQRwMURivWazchiq7gKAqZSFs5so6gi0hJyxk7x6HR+iwZbO2IxNOqyLURBvL06qkIHs7Wffl6Bw30vCbQ==}
+  '@biomejs/cli-linux-arm64-musl@2.4.5':
+    resolution: {integrity: sha512-iqLDgpzobG7gpBF0fwEVS/LT8kmN7+S0E2YKFDtqliJfzNLnAiV2Nnyb+ehCDCJgAZBASkYHR2o60VQWikpqIg==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@biomejs/cli-linux-arm64@2.3.4':
-    resolution: {integrity: sha512-y7efHyyM2gYmHy/AdWEip+VgTMe9973aP7XYKPzu/j8JxnPHuSUXftzmPhkVw0lfm4ECGbdBdGD6+rLmTgNZaA==}
+  '@biomejs/cli-linux-arm64@2.4.5':
+    resolution: {integrity: sha512-U1GAG6FTjhAO04MyH4xn23wRNBkT6H7NentHh+8UxD6ShXKBm5SY4RedKJzkUThANxb9rUKIPc7B8ew9Xo/cWg==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@biomejs/cli-linux-x64-musl@2.3.4':
-    resolution: {integrity: sha512-mzKFFv/w66e4/jCobFmD3kymCqG+FuWE7sVa4Yjqd9v7qt2UhXo67MSZKY9Ih18V2IwPzRKQPCw6KwdZs6AXSA==}
+  '@biomejs/cli-linux-x64-musl@2.4.5':
+    resolution: {integrity: sha512-NlKa7GpbQmNhZf9kakQeddqZyT7itN7jjWdakELeXyTU3pg/83fTysRRDPJD0akTfKDl6vZYNT9Zqn4MYZVBOA==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@biomejs/cli-linux-x64@2.3.4':
-    resolution: {integrity: sha512-gKfjWR/6/dfIxPJCw8REdEowiXCkIpl9jycpNVHux8aX2yhWPLjydOshkDL6Y/82PcQJHn95VCj7J+BRcE5o1Q==}
+  '@biomejs/cli-linux-x64@2.4.5':
+    resolution: {integrity: sha512-NdODlSugMzTlENPTa4z0xB82dTUlCpsrOxc43///aNkTLblIYH4XpYflBbf5ySlQuP8AA4AZd1qXhV07IdrHdQ==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@biomejs/cli-win32-arm64@2.3.4':
-    resolution: {integrity: sha512-5TJ6JfVez+yyupJ/iGUici2wzKf0RrSAxJhghQXtAEsc67OIpdwSKAQboemILrwKfHDi5s6mu7mX+VTCTUydkw==}
+  '@biomejs/cli-win32-arm64@2.4.5':
+    resolution: {integrity: sha512-EBfrTqRIWOFSd7CQb/0ttjHMR88zm3hGravnDwUA9wHAaCAYsULKDebWcN5RmrEo1KBtl/gDVJMrFjNR0pdGUw==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [win32]
 
-  '@biomejs/cli-win32-x64@2.3.4':
-    resolution: {integrity: sha512-FGCijXecmC4IedQ0esdYNlMpx0Jxgf4zceCaMu6fkjWyjgn50ZQtMiqZZQ0Q/77yqPxvtkgZAvt5uGw0gAAjig==}
+  '@biomejs/cli-win32-x64@2.4.5':
+    resolution: {integrity: sha512-Pmhv9zT95YzECfjEHNl3mN9Vhusw9VA5KHY0ZvlGsxsjwS5cb7vpRnHzJIv0vG7jB0JI7xEaMH9ddfZm/RozBw==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
@@ -614,6 +617,9 @@ packages:
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
     engines: {node: '>=6.0.0'}
+
+  '@jridgewell/source-map@0.3.11':
+    resolution: {integrity: sha512-ZMp1V8ZFcPG5dIWnQLr3NSI1MiCU7UETdS/A0G8V/XWHvJv3ZsFqutJn1Y5RPmAPX6F3BiE397OqveU/9NCuIA==}
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
@@ -1891,6 +1897,9 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
+  buffer-from@1.1.2:
+    resolution: {integrity: sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ==}
+
   buffer@6.0.3:
     resolution: {integrity: sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==}
 
@@ -1981,6 +1990,9 @@ packages:
 
   comma-separated-tokens@2.0.3:
     resolution: {integrity: sha512-Fu4hJdvzeylCfQPp9SGWidpzrMs7tTrlu6Vb8XGaRGck8QSNZJJp538Wrb60Lax4fPwR64ViY468OIUTbRlGZg==}
+
+  commander@2.20.3:
+    resolution: {integrity: sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==}
 
   commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
@@ -2789,8 +2801,8 @@ packages:
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  lucide-react@0.553.0:
-    resolution: {integrity: sha512-BRgX5zrWmNy/lkVAe0dXBgd7XQdZ3HTf+Hwe3c9WK6dqgnj9h+hxV+MDncM88xDWlCq27+TKvHGE70ViODNILw==}
+  lucide-react@0.576.0:
+    resolution: {integrity: sha512-koNxU14BXrxUfZQ9cUaP0ES1uyPZKYDjk31FQZB6dQ/x+tXk979sVAn9ppZ/pVeJJyOxVM8j1E+8QEuSc02Vug==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -2886,8 +2898,8 @@ packages:
       react-dom: '*'
       react-router-dom: '*'
 
-  miaoda-sc-plugin@1.0.56:
-    resolution: {integrity: sha512-Co9uOxU7CETJDX33h6ydF0DPQoS0x2zc0AMsxS9S6+KDTen2lxLH/eEvXtYzkfiX/8ylWtMGSOzFnOSAv099NQ==}
+  miaoda-sc-plugin@1.0.58:
+    resolution: {integrity: sha512-sCpF839H/BRMENvqjhgjHvx4MaU0b50BAviWoI07EAf7bdssPSBPmRbYRO/MA9CEizVN+QZx4Ikk85YjYBwOIA==}
     peerDependencies:
       vite: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
@@ -3512,6 +3524,9 @@ packages:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
+  source-map-support@0.5.21:
+    resolution: {integrity: sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==}
+
   source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
@@ -3596,6 +3611,11 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
+  terser@5.31.6:
+    resolution: {integrity: sha512-PQ4DAriWzKj+qgehQ7LK5bQqCFNMmlhjR2PFFLuqGCpuCAauxemVBWwWOxo3UIwWQx8+Pr61Df++r76wDmkQBg==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   thenify-all@1.6.0:
     resolution: {integrity: sha512-RNxQH/qI8/t3thXJDwcstUO4zeqo64+Uy/+sNVRBx4Xn2OX+OZ9oP+iJnNFqplFra2ZUVeKCSa2oVWi3T4uVmA==}
     engines: {node: '>=0.8'}
@@ -3614,8 +3634,8 @@ packages:
     peerDependencies:
       three: '>=0.128.0'
 
-  three@0.180.0:
-    resolution: {integrity: sha512-o+qycAMZrh+TsE01GqWUxUIKR1AL0S8pq7zDkYOQw8GqfX8b8VoCKYUoHbhiX5j+7hr8XsuHDVU6+gkQJQKg9w==}
+  three@0.157.0:
+    resolution: {integrity: sha512-CeAwQrf4x3z0/e+MC4F+nXLW5t0gh3pw+L6CCBqpHvOq3bGYIgRYub7Pv0j/9wR+d++OiEglyZzWyuSYbwWGOA==}
 
   tiny-invariant@1.3.3:
     resolution: {integrity: sha512-+FbBPE1o9QAYvviau/qC5SE3caw21q3xkvWKBtja5vgqOWIHHJ3ioaq1VPfn/Szqctz2bU/oYeKd9/z5BL+PVg==}
@@ -4063,39 +4083,39 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@biomejs/biome@2.3.4':
+  '@biomejs/biome@2.4.5':
     optionalDependencies:
-      '@biomejs/cli-darwin-arm64': 2.3.4
-      '@biomejs/cli-darwin-x64': 2.3.4
-      '@biomejs/cli-linux-arm64': 2.3.4
-      '@biomejs/cli-linux-arm64-musl': 2.3.4
-      '@biomejs/cli-linux-x64': 2.3.4
-      '@biomejs/cli-linux-x64-musl': 2.3.4
-      '@biomejs/cli-win32-arm64': 2.3.4
-      '@biomejs/cli-win32-x64': 2.3.4
+      '@biomejs/cli-darwin-arm64': 2.4.5
+      '@biomejs/cli-darwin-x64': 2.4.5
+      '@biomejs/cli-linux-arm64': 2.4.5
+      '@biomejs/cli-linux-arm64-musl': 2.4.5
+      '@biomejs/cli-linux-x64': 2.4.5
+      '@biomejs/cli-linux-x64-musl': 2.4.5
+      '@biomejs/cli-win32-arm64': 2.4.5
+      '@biomejs/cli-win32-x64': 2.4.5
 
-  '@biomejs/cli-darwin-arm64@2.3.4':
+  '@biomejs/cli-darwin-arm64@2.4.5':
     optional: true
 
-  '@biomejs/cli-darwin-x64@2.3.4':
+  '@biomejs/cli-darwin-x64@2.4.5':
     optional: true
 
-  '@biomejs/cli-linux-arm64-musl@2.3.4':
+  '@biomejs/cli-linux-arm64-musl@2.4.5':
     optional: true
 
-  '@biomejs/cli-linux-arm64@2.3.4':
+  '@biomejs/cli-linux-arm64@2.4.5':
     optional: true
 
-  '@biomejs/cli-linux-x64-musl@2.3.4':
+  '@biomejs/cli-linux-x64-musl@2.4.5':
     optional: true
 
-  '@biomejs/cli-linux-x64@2.3.4':
+  '@biomejs/cli-linux-x64@2.4.5':
     optional: true
 
-  '@biomejs/cli-win32-arm64@2.3.4':
+  '@biomejs/cli-win32-arm64@2.4.5':
     optional: true
 
-  '@biomejs/cli-win32-x64@2.3.4':
+  '@biomejs/cli-win32-x64@2.4.5':
     optional: true
 
   '@braintree/sanitize-url@7.1.1': {}
@@ -4241,6 +4261,11 @@ snapshots:
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
+  '@jridgewell/source-map@0.3.11':
+    dependencies:
+      '@jridgewell/gen-mapping': 0.3.13
+      '@jridgewell/trace-mapping': 0.3.30
+
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
   '@jridgewell/trace-mapping@0.3.30':
@@ -4254,10 +4279,10 @@ snapshots:
     dependencies:
       langium: 3.3.1
 
-  '@monogrid/gainmap-js@3.4.0(three@0.180.0)':
+  '@monogrid/gainmap-js@3.4.0(three@0.157.0)':
     dependencies:
       promise-worker-transferable: 1.0.4
-      three: 0.180.0
+      three: 0.157.0
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -4941,42 +4966,42 @@ snapshots:
       '@react-spring/types': 9.7.5
       react: 18.3.1
 
-  '@react-spring/three@9.7.5(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0))(react@18.3.1)(three@0.180.0)':
+  '@react-spring/three@9.7.5(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0))(react@18.3.1)(three@0.157.0)':
     dependencies:
       '@react-spring/animated': 9.7.5(react@18.3.1)
       '@react-spring/core': 9.7.5(react@18.3.1)
       '@react-spring/shared': 9.7.5(react@18.3.1)
       '@react-spring/types': 9.7.5
-      '@react-three/fiber': 8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)
+      '@react-three/fiber': 8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0)
       react: 18.3.1
-      three: 0.180.0
+      three: 0.157.0
 
   '@react-spring/types@9.7.5': {}
 
-  '@react-three/drei@9.122.0(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0))(@types/react@19.2.2)(@types/three@0.182.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)(use-sync-external-store@1.5.0(react@18.3.1))':
+  '@react-three/drei@9.122.0(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0))(@types/react@19.2.2)(@types/three@0.182.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0)(use-sync-external-store@1.5.0(react@18.3.1))':
     dependencies:
       '@babel/runtime': 7.28.2
       '@mediapipe/tasks-vision': 0.10.17
-      '@monogrid/gainmap-js': 3.4.0(three@0.180.0)
-      '@react-spring/three': 9.7.5(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0))(react@18.3.1)(three@0.180.0)
-      '@react-three/fiber': 8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)
+      '@monogrid/gainmap-js': 3.4.0(three@0.157.0)
+      '@react-spring/three': 9.7.5(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0))(react@18.3.1)(three@0.157.0)
+      '@react-three/fiber': 8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0)
       '@use-gesture/react': 10.3.1(react@18.3.1)
-      camera-controls: 2.10.1(three@0.180.0)
+      camera-controls: 2.10.1(three@0.157.0)
       cross-env: 7.0.3
       detect-gpu: 5.0.70
       glsl-noise: 0.0.0
       hls.js: 1.6.15
-      maath: 0.10.8(@types/three@0.182.0)(three@0.180.0)
-      meshline: 3.3.1(three@0.180.0)
+      maath: 0.10.8(@types/three@0.182.0)(three@0.157.0)
+      meshline: 3.3.1(three@0.157.0)
       react: 18.3.1
       react-composer: 5.0.3(react@18.3.1)
-      stats-gl: 2.4.2(@types/three@0.182.0)(three@0.180.0)
+      stats-gl: 2.4.2(@types/three@0.182.0)(three@0.157.0)
       stats.js: 0.17.0
       suspend-react: 0.1.3(react@18.3.1)
-      three: 0.180.0
-      three-mesh-bvh: 0.7.8(three@0.180.0)
-      three-stdlib: 2.36.1(three@0.180.0)
-      troika-three-text: 0.52.4(three@0.180.0)
+      three: 0.157.0
+      three-mesh-bvh: 0.7.8(three@0.157.0)
+      three-stdlib: 2.36.1(three@0.157.0)
+      troika-three-text: 0.52.4(three@0.157.0)
       tunnel-rat: 0.1.2(@types/react@19.2.2)(react@18.3.1)
       utility-types: 3.11.0
       zustand: 5.0.9(@types/react@19.2.2)(react@18.3.1)(use-sync-external-store@1.5.0(react@18.3.1))
@@ -4988,7 +5013,7 @@ snapshots:
       - immer
       - use-sync-external-store
 
-  '@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)':
+  '@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.157.0)':
     dependencies:
       '@babel/runtime': 7.28.2
       '@types/react-reconciler': 0.26.7
@@ -5001,7 +5026,7 @@ snapshots:
       react-use-measure: 2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       scheduler: 0.21.0
       suspend-react: 0.1.3(react@18.3.1)
-      three: 0.180.0
+      three: 0.157.0
       zustand: 3.7.2(react@18.3.1)
     optionalDependencies:
       react-dom: 18.3.1(react@18.3.1)
@@ -5495,7 +5520,7 @@ snapshots:
       '@use-gesture/core': 10.3.1
       react: 18.3.1
 
-  '@vitejs/plugin-react@4.7.0(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1))':
+  '@vitejs/plugin-react@4.7.0(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6))':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.0)
@@ -5503,7 +5528,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.27
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)
+      vite: 5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6)
     transitivePeerDependencies:
       - supports-color
 
@@ -5589,6 +5614,8 @@ snapshots:
       node-releases: 2.0.19
       update-browserslist-db: 1.1.3(browserslist@4.25.2)
 
+  buffer-from@1.1.2: {}
+
   buffer@6.0.3:
     dependencies:
       base64-js: 1.5.1
@@ -5607,9 +5634,9 @@ snapshots:
 
   camelcase@6.3.0: {}
 
-  camera-controls@2.10.1(three@0.180.0):
+  camera-controls@2.10.1(three@0.157.0):
     dependencies:
-      three: 0.180.0
+      three: 0.157.0
 
   caniuse-lite@1.0.30001734: {}
 
@@ -5686,6 +5713,8 @@ snapshots:
       delayed-stream: 1.0.0
 
   comma-separated-tokens@2.0.3: {}
+
+  commander@2.20.3: {}
 
   commander@4.1.1: {}
 
@@ -6519,14 +6548,14 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  lucide-react@0.553.0(react@18.3.1):
+  lucide-react@0.576.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 
-  maath@0.10.8(@types/three@0.182.0)(three@0.180.0):
+  maath@0.10.8(@types/three@0.182.0)(three@0.157.0):
     dependencies:
       '@types/three': 0.182.0
-      three: 0.180.0
+      three: 0.157.0
 
   magic-string@0.30.17:
     dependencies:
@@ -6730,9 +6759,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  meshline@3.3.1(three@0.180.0):
+  meshline@3.3.1(three@0.157.0):
     dependencies:
-      three: 0.180.0
+      three: 0.157.0
 
   meshoptimizer@0.22.0: {}
 
@@ -6743,13 +6772,13 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       react-router-dom: 7.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
-  miaoda-sc-plugin@1.0.56(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)):
+  miaoda-sc-plugin@1.0.58(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6)):
     dependencies:
       '@babel/parser': 7.28.0
       '@babel/traverse': 7.28.0
       magic-string: 0.30.17
       recast: 0.23.11
-      vite: 5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)
+      vite: 5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6)
     transitivePeerDependencies:
       - supports-color
 
@@ -7536,14 +7565,19 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
+  source-map-support@0.5.21:
+    dependencies:
+      buffer-from: 1.1.2
+      source-map: 0.6.1
+
   source-map@0.6.1: {}
 
   space-separated-tokens@2.0.2: {}
 
-  stats-gl@2.4.2(@types/three@0.182.0)(three@0.180.0):
+  stats-gl@2.4.2(@types/three@0.182.0)(three@0.157.0):
     dependencies:
       '@types/three': 0.182.0
-      three: 0.180.0
+      three: 0.157.0
 
   stats.js@0.17.0: {}
 
@@ -7657,6 +7691,13 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
+  terser@5.31.6:
+    dependencies:
+      '@jridgewell/source-map': 0.3.11
+      acorn: 8.15.0
+      commander: 2.20.3
+      source-map-support: 0.5.21
+
   thenify-all@1.6.0:
     dependencies:
       thenify: 3.3.1
@@ -7665,11 +7706,11 @@ snapshots:
     dependencies:
       any-promise: 1.3.0
 
-  three-mesh-bvh@0.7.8(three@0.180.0):
+  three-mesh-bvh@0.7.8(three@0.157.0):
     dependencies:
-      three: 0.180.0
+      three: 0.157.0
 
-  three-stdlib@2.36.1(three@0.180.0):
+  three-stdlib@2.36.1(three@0.157.0):
     dependencies:
       '@types/draco3d': 1.4.10
       '@types/offscreencanvas': 2019.7.3
@@ -7677,9 +7718,9 @@ snapshots:
       draco3d: 1.5.7
       fflate: 0.6.10
       potpack: 1.0.2
-      three: 0.180.0
+      three: 0.157.0
 
-  three@0.180.0: {}
+  three@0.157.0: {}
 
   tiny-invariant@1.3.3: {}
 
@@ -7693,17 +7734,17 @@ snapshots:
 
   trim-lines@3.0.1: {}
 
-  troika-three-text@0.52.4(three@0.180.0):
+  troika-three-text@0.52.4(three@0.157.0):
     dependencies:
       bidi-js: 1.0.3
-      three: 0.180.0
-      troika-three-utils: 0.52.4(three@0.180.0)
+      three: 0.157.0
+      troika-three-utils: 0.52.4(three@0.157.0)
       troika-worker-utils: 0.52.0
       webgl-sdf-generator: 1.1.1
 
-  troika-three-utils@0.52.4(three@0.180.0):
+  troika-three-utils@0.52.4(three@0.157.0):
     dependencies:
-      three: 0.180.0
+      three: 0.157.0
 
   troika-worker-utils@0.52.0: {}
 
@@ -7854,18 +7895,18 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       redux: 4.2.1
 
-  vite-plugin-svgr@4.5.0(rollup@4.46.2)(typescript@5.9.3)(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)):
+  vite-plugin-svgr@4.5.0(rollup@4.46.2)(typescript@5.9.3)(vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6)):
     dependencies:
       '@rollup/pluginutils': 5.2.0(rollup@4.46.2)
       '@svgr/core': 8.1.0(typescript@5.9.3)
       '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.9.3))
-      vite: 5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)
+      vite: 5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6)
     transitivePeerDependencies:
       - rollup
       - supports-color
       - typescript
 
-  vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1):
+  vite@5.4.19(@types/node@24.2.1)(lightningcss@1.30.1)(terser@5.31.6):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.6
@@ -7874,6 +7915,7 @@ snapshots:
       '@types/node': 24.2.1
       fsevents: 2.3.3
       lightningcss: 1.30.1
+      terser: 5.31.6
 
   vscode-jsonrpc@8.2.0: {}
 

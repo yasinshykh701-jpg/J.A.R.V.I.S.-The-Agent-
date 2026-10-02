@@ -1,0 +1,6 @@
+{
+  "name": "ZarZayn",
+  "description": "Premium AI solutions.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

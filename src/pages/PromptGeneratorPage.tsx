@@ -89,9 +89,9 @@ export default function PromptGeneratorPage() {
 
   return (
     <AppLayout>
-      <div className="h-full flex flex-col bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 dark:from-slate-900 dark:via-purple-950 dark:to-slate-900">
+      <div className="h-full flex flex-col bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50 from-[#030508] via-[#040c18] to-[#030508]">
         {/* Header */}
-        <div className="ios-blur border-b border-border/50 ios-shadow bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrjkijkqosg.png)]">
+        <div className="ios-blur border-b border-border/50 ios-shadow">
           <div className="content-column py-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center ios-shadow">
@@ -106,10 +106,10 @@ export default function PromptGeneratorPage() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 overflow-auto p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amk1z209naww.jpg)]">
+        <div className="flex-1 overflow-auto p-6">
           <div className="content-column space-y-6">
             {/* Input Card */}
-            <Card className="ios-card border-0 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agudphsojj7k.jpg)]">
+            <Card className="ios-card border-0">
               <CardHeader>
                 <CardTitle>What do you want to create?</CardTitle>
                 <CardDescription>Describe your goal and we'll generate an optimized prompt</CardDescription>
@@ -122,7 +122,7 @@ export default function PromptGeneratorPage() {
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent
-                      className="bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrp0y2cgkjk.jpg)]">
+                      className="">
                       {promptTypes.map((type) => (
                         <SelectItem key={type.value} value={type.value}>
                           {type.label}
@@ -200,7 +200,7 @@ export default function PromptGeneratorPage() {
             )}
 
             {/* Tips Card */}
-            <Card className="ios-card border-0 from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrqnp7h77r4.jpg)]">
+            <Card className="ios-card border-0 from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30">
               <CardHeader>
                 <CardTitle className="text-lg">💡 Tips for Better Prompts</CardTitle>
               </CardHeader>

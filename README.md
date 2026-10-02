@@ -1,4 +1,8 @@
 # Welcome to Your Miaoda Project
+Miaoda Application Link URL
+    URL:https://medo.dev/projects/app-8sm6282ej0n5
+
+# Welcome to Your Miaoda Project
 
 ## Project Info
 
@@ -81,6 +85,41 @@ Alternatively, use the official installer: Visit the Node.js official website. D
 # Step 5: In the IDE terminal, run the command to start the development server: npm run dev -- --host 127.0.0.1
 # Step 6: if step 5 failed, try this command to start the development server: npx vite --host 127.0.0.1
 ```
+
+## Run the complete local system
+
+The complete Windows startup launches the React frontend and all local backend
+services:
+
+```powershell
+cd D:\J.A.R.V.I.S\app-8sm6282ej0n5
+npm install
+python -m pip install -r requirements.txt
+python -m pip install -r "D:\J.A.R.V.I.S\SYSTEM CONTROL ON VOICE\Jarvis\requirements.txt"
+npm run start:all
+```
+
+Open `http://127.0.0.1:5173`.
+
+The launcher starts these services:
+
+| Service | Port | Health check |
+| --- | ---: | --- |
+| React/Vite frontend | 5173 | `http://127.0.0.1:5173` |
+| J.A.R.V.I.S unified gateway | 8000 | `http://127.0.0.1:8000/health` |
+| Zevorix LLM/RAG FastAPI | 8001 | `http://127.0.0.1:8001/health` |
+| IoT device FastAPI | 8010 | `http://127.0.0.1:8010/health` |
+
+The Vite frontend connects to the services through these development proxy
+paths:
+
+- `/jarvis` -> gateway `8000`
+- `/zevorix` -> Zevorix `8001`
+- `/iot` -> IoT API `8010`
+
+To start each process manually, see
+[`docs/RUN_LOCAL.md`](docs/RUN_LOCAL.md). To use the repository launcher,
+run `D:\J.A.R.V.I.S\START_JARVIS.bat`.
 
 ### How to develop backend services?
 

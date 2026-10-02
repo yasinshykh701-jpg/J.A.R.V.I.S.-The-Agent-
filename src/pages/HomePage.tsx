@@ -46,7 +46,7 @@ export default function HomePage() {
       icon: ImageIcon,
       title: 'Image Generation',
       description: 'Create stunning images',
-      path: '/image-generation'
+      path: '/ai-image-generation'
     },
     {
       icon: Video,
@@ -82,7 +82,7 @@ export default function HomePage() {
       icon: Edit3,
       title: 'Photo Editor',
       description: 'Edit photos',
-      path: '/image-generation'
+      path: '/ai-image-generation'
     },
     {
       icon: UserCheck,
@@ -111,14 +111,14 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 relative">
+    <div className="min-h-screen bg-[#0a0f1a] relative">
       {/* Dark Mode Toggle - Top Right */}
       <div className="absolute top-6 right-6 z-50">
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-          className="w-12 h-12 rounded-full dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-all bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9hn2jeb203k.jpg)]"
+          className="w-12 h-12 rounded-full dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-all"
         >
           {theme === 'dark' ? (
             <Sun className="h-5 w-5 text-gray-900" />
@@ -128,15 +128,15 @@ export default function HomePage() {
         </Button>
       </div>
       {/* Main Container */}
-      <div className="container mx-auto px-4 py-8 max-w-7xl bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9hmtbx442yo.png)]">
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           
           {/* Left Side - Robot Section */}
           <div className="flex flex-col items-center justify-center">
-            <Card className="w-full max-w-md dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9zh9cf6e7ls.jpg)] rounded-[20px]">
-              <CardContent className="p-8 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9zgoarb5o1s.jpg)]">
+            <Card className="w-full max-w-md dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm rounded-[20px]">
+              <CardContent className="p-8">
                 {/* Titan Robot 3D */}
-                <div className="w-full h-[400px] mb-6">
+                <div className="w-full h-[520px] mb-6">
                   <ErrorBoundary
                     fallback={
                       <div className="flex items-center justify-center h-full">
@@ -162,7 +162,7 @@ export default function HomePage() {
                   <div className="flex gap-3 justify-center pt-4">
                     <Button
                       onClick={() => navigate('/interview-prep')}
-                      className="hover:bg-primary/90 px-6 py-2 rounded-lg font-medium text-[#0f0d0d] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9hogiuhr5z4.jpg)]"
+                      className="hover:bg-primary/90 px-6 py-2 rounded-lg font-medium text-[#0f0d0d]"
                     >
                       <Mic className="w-4 h-4 mr-2" />
                       Start Interview
@@ -182,10 +182,10 @@ export default function HomePage() {
           </div>
 
           {/* Right Side - Features Section */}
-          <div className="space-y-6 rounded-[20px] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9zjro240t8g.jpg)]">
+          <div className="space-y-6 rounded-[20px]">
             {/* Free Services Banner */}
             <Card className="border-2 border-primary/20 bg-gradient-to-r from-primary/5 to-primary/10">
-              <CardContent className="p-4 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9zbkkzplx4w.jpg)] rounded-[20px]">
+              <CardContent className="p-4 rounded-[20px]">
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg icon-gradient-blue">
@@ -210,9 +210,9 @@ export default function HomePage() {
             </Card>
 
             {/* Header */}
-            <div className="text-center lg:text-left space-y-2 border-solid border-[rgb(0,0,0)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9znjlarcjcw.jpg)] rounded-[20px] border-[5px] border-[rgb(0,0,0)]">
+            <div className="text-center lg:text-left space-y-2 border-solid border-[rgb(0,0,0)] rounded-[20px] border-[5px] border-[rgb(0,0,0)]">
               <h1 className="text-4xl font-bold dark:text-white Pro SC'] font-['MF-f0763b1188a38fbccf16e7fb9c79794c'] text-[#ffffff]">
-                Qazyen AI
+                JARVIS AI
               </h1>
               <p className="dark:text-gray-400 text-sm font-['MF-161c1cccba2988a536baab22d5bf4334'] text-[#18212f]">
                 Your intelligent AI companion for creativity, productivity, and conversation
@@ -221,15 +221,15 @@ export default function HomePage() {
 
             {/* Search Bar */}
             <div className="relative">
-              <div className="flex items-center gap-2 dark:bg-gray-800 dark:border-gray-700 px-4 py-3 shadow-sm border-solid rounded-[20px] border-[1.08108px] border-[#230d23] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9zm3upl1fy8.jpg)]">
+              <div className="flex items-center gap-2 dark:bg-gray-800 dark:border-gray-700 px-4 py-3 shadow-sm border-solid rounded-[20px] border-[1.08108px] border-[#230d23]">
                 <Paperclip className="w-5 h-5 text-gray-400" />
                 <Input
                   type="text"
-                  placeholder="Ask Qazyen anything..."
+                  placeholder="Ask JARVIS anything..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  className="flex-1 focus-visible:ring-0 focus-visible:ring-offset-0 text-gray-900 dark:text-white placeholder:text-gray-400 border-solid rounded-[20px] border-[1.08108px] border-[#230d23] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-a9zmj768k3r4.jpg)]"
+                  className="flex-1 focus-visible:ring-0 focus-visible:ring-offset-0 text-gray-900 dark:text-white placeholder:text-gray-400 border-solid rounded-[20px] border-[1.08108px] border-[#230d23]"
                 />
                 <Mic className="w-5 h-5 text-gray-400 cursor-pointer hover:text-primary transition-colors" onClick={() => navigate('/virtual-robot')} />
                 <Button
@@ -261,7 +261,7 @@ export default function HomePage() {
                 return (
                   <Card
                     key={index}
-                    className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer group"
+                    className="bg-[#0a0f1a] border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-md transition-all cursor-pointer group"
                     onClick={() => navigate(feature.path)}
                   >
                     <CardContent className="p-6 space-y-3">

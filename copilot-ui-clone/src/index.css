@@ -1,0 +1,100 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap');
+
+/* Import Tailwind */
+@import "tailwindcss";
+
+/* Theme variables */
+@theme {
+  --font-sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Syne", sans-serif;
+  
+  --color-bg: #F2F2F7;
+  --color-ink: #1C1C1E;
+  --color-accent: #FF3B30;
+  --color-surface: #FFFFFF;
+  --color-ink-faint: rgba(28, 28, 30, 0.06);
+
+  --shadow-neu-flat: 6px 6px 12px rgba(0, 0, 0, 0.08), -6px -6px 12px rgba(255, 255, 255, 0.85);
+  --shadow-neu-flat-hover: 10px 10px 20px rgba(0, 0, 0, 0.12), -10px -10px 20px rgba(255, 255, 255, 0.95);
+  --shadow-neu-inset: inset 4px 4px 8px rgba(0, 0, 0, 0.08), inset -4px -4px 8px rgba(255, 255, 255, 0.85);
+  --shadow-neu-sm: 3px 3px 6px rgba(0, 0, 0, 0.06), -3px -3px 6px rgba(255, 255, 255, 0.8);
+  --shadow-neu-sm-inset: inset 2px 2px 5px rgba(0, 0, 0, 0.06), inset -2px -2px 5px rgba(255, 255, 255, 0.85);
+  --shadow-neu-lg: 20px 20px 45px rgba(0, 0, 0, 0.08), -20px -20px 45px rgba(255, 255, 255, 0.85);
+
+  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Tailwind layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Extend Tailwind's base layer */
+@layer base {
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-ink);
+    font-family: theme('fontFamily.sans');
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: white;
+  }
+}
+
+/* Dark theme overrides */
+.dark {
+  --color-bg: #0D0D0E;
+  --color-ink: #F2F2F7;
+  --color-accent: #FF453A;
+  --color-surface: #1C1C1E;
+  --color-ink-faint: rgba(242, 242, 247, 0.08);
+
+  --shadow-neu-flat: 6px 6px 14px rgba(0, 0, 0, 0.6), -6px -6px 14px rgba(255, 255, 255, 0.015);
+  --shadow-neu-flat-hover: 10px 10px 24px rgba(0, 0, 0, 0.7), -10px -10px 24px rgba(255, 255, 255, 0.02);
+  --shadow-neu-inset: inset 4px 4px 8px rgba(0, 0, 0, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.015);
+  --shadow-neu-sm: 3px 3px 6px rgba(0, 0, 0, 0.5), -3px -3px 6px rgba(255, 255, 255, 0.015);
+  --shadow-neu-sm-inset: inset 2px 2px 5px rgba(0, 0, 0, 0.5), inset -2px -2px 5px rgba(255, 255, 255, 0.015);
+  --shadow-neu-lg: 24px 24px 48px rgba(0, 0, 0, 0.7), -24px -24px 48px rgba(255, 255, 255, 0.015);
+}
+
+/* Custom animation */
+@keyframes sand-aqua-cyan-cycle {
+  0% { fill: #FF3B30; stroke: #FF3B30; }
+  33% { fill: #FF9500; stroke: #FF9500; }
+  66% { fill: #34C759; stroke: #34C759; }
+  100% { fill: #FF3B30; stroke: #FF3B30; }
+}
+
+.animated-svg-paths path:nth-of-type(2) {
+  animation: sand-aqua-cyan-cycle 4s infinite ease-in-out;
+}
+
+/* Custom utilities */
+@layer utilities {
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

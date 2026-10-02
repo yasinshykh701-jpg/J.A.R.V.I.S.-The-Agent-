@@ -179,7 +179,7 @@ export default function NoteSummaryPage() {
 
   return (
     <AppLayout>
-      <div className="h-full flex flex-col bg-gradient-to-br from-slate-50 via-green-50 to-slate-50 dark:from-slate-900 dark:via-green-950 dark:to-slate-900">
+      <div className="h-full flex flex-col bg-gradient-to-br from-slate-50 via-green-50 to-slate-50 from-[#030508] via-[#040c18] to-[#030508]">
         {/* Header */}
         <div className="ios-blur border-b border-border/50 ios-shadow">
           <div className="content-column py-4">

@@ -9,6 +9,7 @@ import { toast } from 'sonner';
 import AppLayout from '@/components/layouts/AppLayout';
 import TitanRobotAdvanced from '@/components/TitanRobotAdvanced';
 import { deviceTTS } from '@/utils/deviceTTS';
+import { speechEvents } from '@/utils/speechEvents';
 import BackToHome from '@/components/BackToHome';
 
 interface Message {
@@ -48,7 +49,7 @@ export default function InterviewPrepPage() {
 
   const startInterview = () => {
     setInterviewStarted(true);
-    const greetingText = 'Hello! I am Qazyen AI, your AI interviewer. I will be conducting your interview today. Are you ready to begin?';
+    const greetingText = 'Hello! I am JARVIS AI, your AI interviewer. I will be conducting your interview today. Are you ready to begin?';
     const greeting: Message = {
       id: 'greeting',
       role: 'interviewer',
@@ -155,7 +156,9 @@ export default function InterviewPrepPage() {
 
     console.log('Interview TTS - Speaking with strong bass male voice:', text.substring(0, 50));
     setIsSpeaking(true);
-    
+    speechEvents.emit('speech.start', { text, source: 'api-tts' });
+    speechEvents.emit('gesture.explain', { source: 'api-tts' });
+
     try {
       // Call TTS Edge Function with male bass voice
       const { data, error } = await supabase.functions.invoke('text-to-speech', {
@@ -175,41 +178,48 @@ export default function InterviewPrepPage() {
           pitch: 0.7, // Lower pitch for bass male voice
           volume: 1.0
         });
+        setIsSpeaking(false);
+        speechEvents.emit('speech.stop', { source: 'device-tts', intensity: 0 });
       } else if (data) {
         // Play the audio from TTS API
         const audioBlob = new Blob([data], { type: 'audio/mpeg' });
         const audioUrl = URL.createObjectURL(audioBlob);
         const audio = new Audio(audioUrl);
-        
+
         audio.onended = () => {
           setIsSpeaking(false);
+          speechEvents.emit('speech.stop', { source: 'api-tts', intensity: 0 });
           URL.revokeObjectURL(audioUrl);
         };
-        
+
         audio.onerror = () => {
           setIsSpeaking(false);
+          speechEvents.emit('speech.stop', { source: 'api-tts', intensity: 0 });
           URL.revokeObjectURL(audioUrl);
-          toast.error('Audio playback failed');
         };
-        
+
+        // Rhythmic mouth while audio plays (no MediaElementSource needed)
+        let tick = 0;
+        const pulse = window.setInterval(() => {
+          if (audio.paused || audio.ended) {
+            window.clearInterval(pulse);
+            return;
+          }
+          tick += 1;
+          const intensity = 0.3 + Math.abs(Math.sin(tick * 0.5)) * 0.55;
+          speechEvents.emit('speech.intensity', { intensity, source: 'api-tts' });
+        }, 80);
+
         await audio.play();
-        toast.success('🔊 Speaking with strong bass male voice');
       }
-      
-      console.log('Interview TTS - Voice playback completed');
     } catch (error: any) {
-      console.error('Interview TTS error:', error);
-      // Fallback to device TTS
+      console.error('TTS error:', error);
+      setIsSpeaking(false);
+      speechEvents.emit('speech.stop', { intensity: 0 });
       try {
-        await deviceTTS.speak(text, {
-          lang: 'en-US',
-          rate: 0.9,
-          pitch: 0.7, // Bass male voice
-          volume: 1.0
-        });
-      } catch (fallbackError) {
-        console.error('Fallback TTS error:', fallbackError);
-        toast.error('Failed to generate speech');
+        await deviceTTS.speak(text, { lang: 'en-US', rate: 0.9, pitch: 0.7 });
+      } catch {
+        toast.error('Failed to speak');
       }
       setIsSpeaking(false);
     }
@@ -245,11 +255,11 @@ export default function InterviewPrepPage() {
     <AppLayout>
       <div className="h-full flex flex-col bg-gradient-to-br from-[#F2F2F7] to-[#E5E5EA] dark:from-[#000000] dark:to-[#1C1C1E]">
         <BackToHome />
-        <div className="ios-blur border-b border-border/50 ios-shadow z-10 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu2w514dwxs.jpg)]">
-          <div className="content-column py-5 flex items-center justify-between bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu34wq2evb4.jpg)] rounded-[20px] border-[5px] border-solid border-[rgb(218,231,231)]">
+        <div className="ios-blur border-b border-border/50 ios-shadow z-10">
+          <div className="content-column py-5 flex items-center justify-between rounded-[20px] border-[5px] border-solid border-[rgb(218,231,231)]">
             <div>
               <h1 className="text-2xl font-bold text-[#ffffff]">Interview Lab</h1>
-              <p className="text-[13px] text-muted-foreground font-medium uppercase tracking-wider">Practice Session with Qazyen AI</p>
+              <p className="text-[13px] text-muted-foreground font-medium uppercase tracking-wider">Practice Session with JARVIS AI</p>
             </div>
             {interviewStarted && (
               <div className="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold border border-primary/20">
@@ -261,13 +271,13 @@ export default function InterviewPrepPage() {
 
         <div className="flex-1 flex overflow-hidden">
           {!interviewStarted ? (
-            <div className="flex-1 flex flex-col items-center justify-center p-6 text-center animate-in fade-in zoom-in duration-500 overflow-y-auto bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-alrxbz6yypkw.jpg)]">
+            <div className="flex-1 flex flex-col items-center justify-center p-6 text-center animate-in fade-in zoom-in duration-500 overflow-y-auto">
               <div className="w-full max-w-lg h-[400px] mb-8">
                 <TitanRobotAdvanced isListening={false} emotion="neutral" />
               </div>
               <h2 className="text-4xl font-bold mb-4 text-[#ffffff]">Master Your Interview</h2>
               <p className="text-lg max-w-md mb-10 font-medium text-[#f8f5f5]">
-                Our advanced 3D AI recruiter "Qazyen AI" will guide you through a realistic interview simulation.
+                Our advanced 3D AI recruiter "JARVIS AI" will guide you through a realistic interview simulation.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl mb-12">
@@ -277,7 +287,7 @@ export default function InterviewPrepPage() {
                   { icon: Trophy, title: 'Expert Feedback', desc: 'Detailed performance review' },
                   { icon: Zap, title: 'Instant Prep', desc: 'Practice anytime, anywhere' },
                 ].map((item, i) => (
-                  <div key={i} className="ios-card flex items-start gap-4 text-left p-5 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu4bfu1sqv4.jpg)]">
+                  <div key={i} className="ios-card flex items-start gap-4 text-left p-5">
                     <div className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <item.icon className="h-5 w-5 text-primary" />
                     </div>
@@ -292,14 +302,14 @@ export default function InterviewPrepPage() {
               <Button
                 onClick={startInterview}
                 size="lg"
-                className="ios-button h-14 px-12 text-lg hover:bg-primary/90 shadow-lg shadow-primary/20 text-[#eee3e3] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu3sl3f1vcw.jpg)]"
+                className="ios-button h-14 px-12 text-lg hover:bg-primary/90 shadow-lg shadow-primary/20 text-[#eee3e3]"
               >{"Launch Session"}</Button>
             </div>
           ) : (
-            <div className="flex-1 flex flex-col lg:flex-row overflow-hidden bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjzihibma68.jpg)]">
+            <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
               {/* Chat View */}
               <div className="flex-1 flex flex-col border-r border-border/50">
-                <ScrollArea className="flex-1 p-6 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjwxyy5ijgg.jpg)]">
+                <ScrollArea className="flex-1 p-6">
                   <div className="content-column space-y-6">
                     {messages.map((message) => (
                       <div
@@ -340,15 +350,15 @@ export default function InterviewPrepPage() {
                 </ScrollArea>
 
                 {/* Response Input */}
-                <div className="p-6 ios-blur ios-shadow rounded-[220px] border-solid border-[rgb(51,51,51)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-als026yctwxs.jpg)] border-[5px] border-[rgb(51,51,51)]">
-                  <div className="content-column rounded-[220px] border-[5px] border-solid border-[rgb(51,51,51)] bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjytxkh6ku8.jpg)]">
-                    <div className="flex gap-3 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-amjz4geesl4w.jpg)] rounded-[20px]">
+                <div className="p-6 ios-blur ios-shadow rounded-[220px] border-solid border-[rgb(51,51,51)] border-[5px] border-[rgb(51,51,51)]">
+                  <div className="content-column rounded-[220px] border-[5px] border-solid border-[rgb(51,51,51)]">
+                    <div className="flex gap-3 rounded-[20px]">
                       <Button
                         variant={isRecording ? 'destructive' : 'secondary'}
                         size="icon"
                         onClick={isRecording ? stopRecording : startRecording}
                         disabled={isLoading || currentQuestionIndex > interviewQuestions.length}
-                        className="h-12 w-12 rounded-full flex-shrink-0 transition-transform active:scale-90 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu65nbdv11c.jpg)]"
+                        className="h-12 w-12 rounded-full flex-shrink-0 transition-transform active:scale-90"
                       >
                         {isRecording ? <MicOff className="h-5 w-5" /> : <Mic className="h-5 w-5" />}
                       </Button>
@@ -358,7 +368,7 @@ export default function InterviewPrepPage() {
                         onKeyDown={handleKeyDown}
                         placeholder="Your response..."
                         disabled={isLoading || isRecording || currentQuestionIndex > interviewQuestions.length}
-                        className="flex-1 ios-input h-12 min-h-[48px] max-h-[120px] resize-none py-3 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu5tt4pj6dc.jpg)]"
+                        className="flex-1 ios-input h-12 min-h-[48px] max-h-[120px] resize-none py-3"
                         rows={1}
                       />
                       <Button
@@ -377,10 +387,10 @@ export default function InterviewPrepPage() {
               {/* 3D Visual Area */}
               <div className="hidden lg:flex w-[480px] flex-col bg-secondary/30">
                 <div className="flex-1 relative">
-                  <TitanRobotAdvanced isListening={isLoading} emotion={isSpeaking ? 'speaking' : isLoading ? 'thinking' : 'neutral'} />
+                  <TitanRobotAdvanced isListening={isLoading} isSpeaking={isSpeaking} emotion={isSpeaking ? 'speaking' : isLoading ? 'thinking' : 'neutral'} />
                 </div>
-                <div className="p-8 text-center ios-blur-dark border-t border-border/50 bg-inherit bg-cover bg-center bg-no-repeat bg-[url(https://miaoda-edit-image.s3cdn.medo.dev/8sm6282ej0n5/IMG-agu84offuhog.jpg)]">
-                  <h3 className="text-2xl font-bold mb-1">Interviewer Qazyen AI</h3>
+                <div className="p-8 text-center ios-blur-dark border-t border-border/50">
+                  <h3 className="text-2xl font-bold mb-1">Interviewer JARVIS AI</h3>
                   <p className="text-sm text-muted-foreground mb-6 font-medium tracking-tight">AI Talent Specialist</p>
                   
                   <div className="rounded-2xl p-4 flex flex-col gap-3 bg-[#070808] bg-none">

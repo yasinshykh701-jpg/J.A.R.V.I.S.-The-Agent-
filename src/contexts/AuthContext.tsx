@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState, type ReactNode } from '
 import { supabase } from '@/db/supabase';
 import type { User } from '@supabase/supabase-js';
 import type { Profile } from '@/types/types';
+import { clearStoredSession, getStoredLocalSession, signInWithSQLite, signUpWithSQLite } from '@/services/sqliteAuth';
 
 export async function getProfile(userId: string): Promise<Profile | null> {
   try {
@@ -41,6 +42,38 @@ const AuthContext = createContext<AuthContextType>({
   refreshProfile: async () => {}
 });
 
+function buildLocalUser(username: string): User {
+  const now = new Date().toISOString();
+  return {
+    id: `local-${username}`,
+    aud: 'authenticated',
+    role: 'authenticated',
+    email: `${username}@local`,
+    email_confirmed_at: now,
+    phone: '',
+    confirmed_at: now,
+    last_sign_in_at: now,
+    app_metadata: { provider: 'sqlite' },
+    user_metadata: { username },
+    created_at: now,
+    updated_at: now,
+    identities: [],
+    factors: [],
+  } as User;
+}
+
+function buildLocalProfile(username: string): Profile {
+  const now = new Date().toISOString();
+  return {
+    id: `local-${username}`,
+    username,
+    email: `${username}@local`,
+    role: 'user',
+    created_at: now,
+    updated_at: now,
+  };
+}
+
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -64,30 +97,45 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     let mounted = true;
 
+    const localSession = getStoredLocalSession();
+    if (localSession?.username) {
+      const localUser = buildLocalUser(localSession.username);
+      const localProfile = buildLocalProfile(localSession.username);
+      if (mounted) {
+        setUser(localUser);
+        setProfile(localProfile);
+        setLoading(false);
+      }
+    }
+
     supabase.auth.getSession()
       .then(({ data: { session } }) => {
-        if (mounted) {
-          setUser(session?.user ?? null);
-          if (session?.user) {
-            getProfile(session.user.id).then((profileData) => {
-              if (mounted) {
-                setProfile(profileData);
-              }
-            }).catch((error) => {
-              console.error('Error loading profile:', error);
-              if (mounted) {
-                setProfile(null);
-              }
-            });
-          }
-          setLoading(false);
+        if (!mounted) return;
+
+        if (session?.user) {
+          setUser(session.user);
+          getProfile(session.user.id).then((profileData) => {
+            if (mounted) {
+              setProfile(profileData);
+            }
+          }).catch((error) => {
+            console.error('Error loading profile:', error);
+            if (mounted) {
+              setProfile(null);
+            }
+          });
+        } else if (!localSession?.username) {
+          setUser(null);
+          setProfile(null);
         }
+
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error getting session:', error);
         if (mounted) {
-          setUser(null);
-          setProfile(null);
+          setUser(localSession?.username ? buildLocalUser(localSession.username) : null);
+          setProfile(localSession?.username ? buildLocalProfile(localSession.username) : null);
           setLoading(false);
         }
       });
@@ -121,6 +169,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signInWithUsername = async (username: string, password: string) => {
     try {
+      const sqliteResult = await signInWithSQLite(username, password);
+      if (sqliteResult.success) {
+        const localUser = buildLocalUser(username);
+        const localProfile = buildLocalProfile(username);
+        setUser(localUser);
+        setProfile(localProfile);
+        return { error: null };
+      }
+
       const email = `${username}@miaoda.com`;
       const { error } = await supabase.auth.signInWithPassword({
         email,
@@ -136,6 +193,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signUpWithUsername = async (username: string, password: string) => {
     try {
+      const sqliteResult = await signUpWithSQLite(username, password);
+      if (sqliteResult.success) {
+        const localUser = buildLocalUser(username);
+        const localProfile = buildLocalProfile(username);
+        setUser(localUser);
+        setProfile(localProfile);
+        return { error: null };
+      }
+
       const email = `${username}@miaoda.com`;
       const { error } = await supabase.auth.signUp({
         email,
@@ -156,6 +222,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = async () => {
     await supabase.auth.signOut();
+    clearStoredSession();
     setUser(null);
     setProfile(null);
   };

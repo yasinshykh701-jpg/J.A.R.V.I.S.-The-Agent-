@@ -134,9 +134,9 @@ export default function HomePage() {
     <AppLayout>
       <div className="h-full flex">
         {/* Main Chat Area */}
-        <div className="flex-1 flex flex-col bg-white">
+        <div className="flex-1 flex flex-col bg-[#0a0f1a]">
           {/* Toolbar */}
-          <div className="border-b border-gray-200 px-6 py-4 bg-white">
+          <div className="border-b border-gray-200 px-6 py-4 bg-[#0a0f1a]">
             <div className="flex items-center justify-between">
               {/* Model Selector */}
               <DropdownMenu>
@@ -215,7 +215,7 @@ export default function HomePage() {
                     <div className={`rounded-2xl px-5 py-3 ${
                       message.role === 'user'
                         ? 'bg-blue-600 text-white'
-                        : 'bg-gray-100 text-gray-900'
+                        : 'bg-[#0a0f1a] text-gray-900'
                     }`}>
                       <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
                     </div>
@@ -231,7 +231,7 @@ export default function HomePage() {
                     </AvatarFallback>
                   </Avatar>
                   <div className="flex-1 max-w-2xl">
-                    <div className="rounded-2xl px-5 py-3 bg-gray-100">
+                    <div className="rounded-2xl px-5 py-3 bg-[#0a0f1a]">
                       <div className="flex gap-1">
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
@@ -247,13 +247,13 @@ export default function HomePage() {
           </ScrollArea>
 
           {/* Input Area */}
-          <div className="border-t border-gray-200 px-6 py-4 bg-white">
+          <div className="border-t border-gray-200 px-6 py-4 bg-[#0a0f1a]">
             <div className="max-w-4xl mx-auto">
               <div className="flex items-end gap-3">
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="shrink-0 rounded-full hover:bg-gray-100"
+                  className="shrink-0 rounded-full hover:bg-[#0a0f1a]"
                 >
                   <Paperclip className="w-5 h-5 text-gray-600" />
                 </Button>
@@ -282,10 +282,10 @@ export default function HomePage() {
         </div>
 
         {/* Right Assistant Panel */}
-        <aside className="w-80 border-l border-gray-200 bg-white p-6">
+        <aside className="w-80 border-l border-gray-200 bg-[#0a0f1a] p-6">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-lg font-bold text-gray-900">AI Assistant</h2>
-            <Button variant="ghost" size="icon" className="rounded-full hover:bg-gray-100">
+            <Button variant="ghost" size="icon" className="rounded-full hover:bg-[#0a0f1a]">
               <SettingsIcon className="w-5 h-5 text-gray-600" />
             </Button>
           </div>

@@ -24,6 +24,10 @@ export class ErrorBoundary extends Component<Props, State> {
     console.error('ErrorBoundary caught an error:', error, errorInfo);
   }
 
+  private reset = () => {
+    this.setState({ hasError: false, error: undefined });
+  };
+
   render() {
     if (this.state.hasError) {
       if (this.props.fallback) {
@@ -39,10 +43,10 @@ export class ErrorBoundary extends Component<Props, State> {
               {this.state.error?.message || 'An unexpected error occurred'}
             </p>
             <button
-              onClick={() => window.location.reload()}
+              onClick={this.reset}
               className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90"
             >
-              Reload Page
+              Try again
             </button>
           </div>
         </div>

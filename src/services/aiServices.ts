@@ -1,9 +1,7 @@
-import { createClient } from '@supabase/supabase-js';
+﻿import { generateImage } from '@/services/jarvisBackend';
+import { supabase } from '@/db/supabase';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || '';
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || '';
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export { supabase };
 
 // ============================================
 // IMAGE GENERATION SERVICE (100% Operational)
@@ -49,21 +47,17 @@ export interface ImageQueryResponse {
 export async function submitImageGeneration(
   request: ImageGenerationRequest
 ): Promise<ImageGenerationResponse> {
-  try {
-    const { data, error } = await supabase.functions.invoke('image-generation-submit', {
-      body: request,
-    });
-
-    if (error) {
-      console.error('Image generation submit error:', error);
-      throw new Error(error.message || 'Failed to submit image generation task');
-    }
-
-    return data;
-  } catch (err: any) {
-    console.error('Image generation service error:', err);
-    throw new Error(err.message || 'Image generation service unavailable');
-  }
+  const prompt = request.contents[0]?.parts.find(part => part.text)?.text?.trim();
+  if (!prompt) throw new Error('Image prompt is required');
+  const inline = request.contents[0]?.parts.find(part => part.inline_data?.data)?.inline_data;
+  const reference = inline
+    ? `data:${inline.mime_type || 'image/png'};base64,${inline.data}`
+    : null;
+  const result = await generateImage(prompt, true, reference);
+  const taskId = `gateway-${Date.now()}`;
+  const imageUrl = typeof result.image_url === 'string' ? result.image_url : undefined;
+  if (imageUrl) sessionStorage.setItem(`jarvis-image-${taskId}`, imageUrl);
+  return { status: imageUrl ? 0 : 1, data: { taskId, status: imageUrl ? 'SUCCESS' : 'FAILED', estimatedTime: 0 }, message: imageUrl ? undefined : result.error || 'Image generation failed' };
 }
 
 /**
@@ -71,21 +65,8 @@ export async function submitImageGeneration(
  * Poll every 5-10 seconds until status is SUCCESS or FAILED
  */
 export async function queryImageStatus(taskId: string): Promise<ImageQueryResponse> {
-  try {
-    const { data, error } = await supabase.functions.invoke('image-generation-query', {
-      body: { taskId },
-    });
-
-    if (error) {
-      console.error('Image query error:', error);
-      throw new Error(error.message || 'Failed to query image status');
-    }
-
-    return data;
-  } catch (err: any) {
-    console.error('Image query service error:', err);
-    throw new Error(err.message || 'Image query service unavailable');
-  }
+  const imageUrl = sessionStorage.getItem(`jarvis-image-${taskId}`) || undefined;
+  return { status: imageUrl ? 0 : 1, data: { taskId, status: imageUrl ? 'SUCCESS' : 'FAILED', imageUrl, error: imageUrl ? undefined : 'Image task not found' } };
 }
 
 /**
@@ -184,7 +165,7 @@ export async function querySoraVideo(videoId: string): Promise<VideoQueryRespons
 }
 
 // ============================================
-// QAZYEN AI CHAT SERVICE (100% Operational)
+// JARVIS AI CHAT SERVICE (100% Operational)
 // ============================================
 
 export interface ChatMessage {
@@ -203,7 +184,7 @@ export interface ChatRequest {
 }
 
 /**
- * Send message to QAZYEN AI with streaming response
+ * Send message to JARVIS AI with streaming response
  * Supports text and image inputs (multi-modal)
  */
 export async function sendChatMessage(
