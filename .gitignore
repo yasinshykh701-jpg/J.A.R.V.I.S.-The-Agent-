@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -8,11 +7,21 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build outputs
 dist
 dist-ssr
 output
+build
+.cache
+
+# Local environment files
 *.local
+.env
+.env.local
+.env.*.local
 package-lock.json
 
 # Editor directories and files
@@ -25,10 +34,14 @@ package-lock.json
 *.njsproj
 *.sln
 *.sw?
+
+# Misc
 .sync
 history/*.json
 .vite_cache
-=======
+
+# Generated files with long names (ignore to avoid Windows path errors)
+server/generated/*.svg
+
 # Google App Engine generated folder
 appengine-generated/
->>>>>>> 7297e82f1af08239bde8c3cf91d1b2897f1da866

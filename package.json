@@ -15,7 +15,9 @@
     "jarvis:unified": "python -u server/jarvis_unified.py",
     "start:all": "powershell -ExecutionPolicy Bypass -File scripts/start-all.ps1",
     "autostart:install": "powershell -ExecutionPolicy Bypass -File scripts/install-autostart.ps1",
-    "autostart:remove": "powershell -ExecutionPolicy Bypass -File scripts/install-autostart.ps1 -Remove"
+    "autostart:remove": "powershell -ExecutionPolicy Bypass -File scripts/install-autostart.ps1 -Remove",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -94,6 +96,7 @@
     "@typescript/native-preview": "7.0.0-dev.20251103.1",
     "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.21",
+    "gh-pages": "^6.3.0",
     "miaoda-sc-plugin": "^1.0.4",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.11",
@@ -101,5 +104,6 @@
     "typescript": "~5.9.3",
     "vite": "^5.1.4",
     "vite-plugin-svgr": "^4.5.0"
-  }
+  },
+  "homepage": "https://yasinshykh701-jpg.github.io/J.A.R.V.I.S.-The-Agent-"
 }
